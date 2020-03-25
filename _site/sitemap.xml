@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://k1a11220.github.io/prismagram/InstaStart/</loc>
+<lastmod>2020-03-22T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://k1a11220.github.io/prismagram/graphql/</loc>
+<lastmod>2020-03-22T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://k1a11220.github.io/etc/introducing/</loc>
+<lastmod>2020-03-22T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://k1a11220.github.io/issue/issue1/</loc>
+<lastmod>2020-03-23T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://k1a11220.github.io/engineering/jig/</loc>
+<lastmod>2020-03-23T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://k1a11220.github.io/issue/Issue2/</loc>
+<lastmod>2020-03-24T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://k1a11220.github.io/about/</loc>
 </url>
 <url>
@@ -20,5 +44,8 @@
 </url>
 <url>
 <loc>http://k1a11220.github.io/tags/</loc>
+</url>
+<url>
+<loc>http://k1a11220.github.io/page2/</loc>
 </url>
 </urlset>

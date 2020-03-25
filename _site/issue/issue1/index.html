@@ -9,27 +9,29 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>design - 범수의 기술 블로그</title>
-<meta name="description" content="Innovation ">
+<!-- begin _includes/seo.html --><title>[Issue] git fatal: remote origin already exists. 에러 해결법 - 범수의 기술 블로그</title>
+<meta name="description" content="원인 ">
 
 
   <meta name="author" content="Beomsoo">
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="범수의 기술 블로그">
-<meta property="og:title" content="범수의 기술 블로그">
-<meta property="og:url" content="http://k1a11220.github.io/">
+<meta property="og:title" content="[Issue] git fatal: remote origin already exists. 에러 해결법">
+<meta property="og:url" content="http://k1a11220.github.io/issue/issue1/">
 
 
-  <meta property="og:description" content="Innovation ">
-
-
-
+  <meta property="og:description" content="원인 ">
 
 
 
+
+
+
+
+  <meta property="article:published_time" content="2020-03-23T00:00:00+09:00">
 
 
 
@@ -40,11 +42,9 @@
   
 
 
-<link rel="canonical" href="http://k1a11220.github.io/">
+<link rel="canonical" href="http://k1a11220.github.io/issue/issue1/">
 
 
-
-  <link rel="next" href="http://k1a11220.github.io/page2/">
 
 
 <script type="application/ld+json">
@@ -103,7 +103,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -280,13 +280,62 @@
 
 
 
-  <div class="archive">
-    
-      <h1 id="page-title" class="page__title"></h1>
-    
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Issue] git fatal: remote origin already exists. 에러 해결법">
+    <meta itemprop="description" content="원인">
+    <meta itemprop="datePublished" content="2020-03-23T00:00:00+09:00">
     
 
-<h3 class="archive__subtitle">최근 포스트</h3>
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Issue] git fatal: remote origin already exists. 에러 해결법
+</h1>
+          
+            
+
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2020-03-23T00:00:00+09:00">March 23, 2020</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="원인">원인</h2>
+
+<p>깃허브에 먼저 레포지토리를 생성 후 기존 로컬에 있던 폴더를 오리진 설정시 생기는 오류입니다.</p>
+
+<h2 id="해결방법">해결방법</h2>
+
+<p>따라서 이때 remote origin을 하기 전 git remote rm origin을 실행한 뒤 다시 git remote origin {link} 하면 해결됩니다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#develop" class="page__taxonomy-item" rel="tag">Develop</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#issue" class="page__taxonomy-item" rel="tag">Issue</a>
+    
+    </span>
+  </p>
 
 
 
@@ -294,8 +343,77 @@
   
 
 
+  
+  
+  
 
-<div class="list__item">
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#issue" class="page__taxonomy-item" rel="tag">Issue</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-03-23T00:00:00+09:00">March 23, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BIssue%5D+git+fatal%3A+remote+origin+already+exists.+%EC%97%90%EB%9F%AC+%ED%95%B4%EA%B2%B0%EB%B2%95%20http%3A%2F%2Fk1a11220.github.io%2Fissue%2Fissue1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fk1a11220.github.io%2Fissue%2Fissue1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fk1a11220.github.io%2Fissue%2Fissue1%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/etc/introducing/" class="pagination--pager" title="기술 블로그를 시작하며
+">이전</a>
+    
+    
+      <a href="/engineering/jig/" class="pagination--pager" title="[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">댓글남기기</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -313,12 +431,12 @@
   </article>
 </div>
 
+        
+          
 
-  
 
 
-
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -342,35 +460,12 @@
   </article>
 </div>
 
-
-  
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/issue/issue1/" rel="permalink">[Issue] git fatal: remote origin already exists. 에러 해결법
-</a>
-      
-    </h2>
-    
-    
-       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 23 2020</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">원인
-</p>
-  </article>
-</div>
-
-
-  
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -388,12 +483,12 @@
   </article>
 </div>
 
+        
+          
 
-  
 
 
-
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -411,49 +506,13 @@
   </article>
 </div>
 
-
-
-
-<nav class="pagination">
+        
+      </div>
+    </div>
   
-  <ul>
-    
-    
-    <li><a href="#" class="disabled"><span aria-hidden="true">이전</span></a></li>
-    
-
-    
-    
-      <li><a href="#" class="disabled current">1</a></li>
-    
-
-    
-    
-
-    
-    
-    
-
-    
-
-    
-    
-
-    
-      <li><a href="/page2/">2</a></li>
-    
-
-    
-    
-      <li><a href="/page2/">다음</a></li>
-    
-  </ul>
-</nav>
-
-
-
-  </div>
+  
 </div>
+
     </div>
 
     
@@ -502,6 +561,25 @@
 
 
 
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://k1a11220.github.io/issue/issue1/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/issue/issue1"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://k1a11220-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
 
 
 

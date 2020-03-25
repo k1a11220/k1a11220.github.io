@@ -1,0 +1,659 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계 - 범수의 기술 블로그</title>
+<meta name="description" content="  개요  파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다.  드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다.  1. 사다리꼴나사란    정의          “사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다.           나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다.      이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다.  2. 사다리꼴나사 선정  TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다.  210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다.  사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다.    3. 고정부 설계  제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다.  - 초기상태에서 드릴은 올라가 있어야 함. - 나사가 안정적으로 고정되어야 함. - 사람이 직접 운동을 전달할 수 있어야 함. - 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함.     위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다.  - 스프링을 사용하여 항상 힘을 받아 올라가 있게 함. - 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함. - 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함. - DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌.      스프링 설치부분  4. 스프링 선정 및 관련부품 설계.  초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다.    4. DU부시, 베어링 선정, 핸들  수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다.  DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다.  가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다.   DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다.    베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다.    5. 어셈블리  구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다.     어셈블리상에서 확인되는 간섭이 없습니다. ">
+
+
+  <meta name="author" content="Beomsoo">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="범수의 기술 블로그">
+<meta property="og:title" content="[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계">
+<meta property="og:url" content="http://k1a11220.github.io/engineering/jig/">
+
+
+  <meta property="og:description" content="  개요  파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다.  드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다.  1. 사다리꼴나사란    정의          “사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다.           나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다.      이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다.  2. 사다리꼴나사 선정  TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다.  210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다.  사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다.    3. 고정부 설계  제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다.  - 초기상태에서 드릴은 올라가 있어야 함. - 나사가 안정적으로 고정되어야 함. - 사람이 직접 운동을 전달할 수 있어야 함. - 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함.     위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다.  - 스프링을 사용하여 항상 힘을 받아 올라가 있게 함. - 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함. - 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함. - DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌.      스프링 설치부분  4. 스프링 선정 및 관련부품 설계.  초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다.    4. DU부시, 베어링 선정, 핸들  수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다.  DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다.  가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다.   DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다.    베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다.    5. 어셈블리  구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다.     어셈블리상에서 확인되는 간섭이 없습니다. ">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-03-23T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://k1a11220.github.io/engineering/jig/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Beomsoo",
+      "url": "http://k1a11220.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="범수의 기술 블로그 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          범수의 기술 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/me.jpeg" alt="Beomsoo" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Beomsoo</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Let’s make something FUN!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">ROK</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:k1a11220@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/k1a11220" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:k1a11220@naver.com">
+            <meta itemprop="email" content="k1a11220@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> 이메일
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계">
+    <meta itemprop="description" content="개요파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다.드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다.1. 사다리꼴나사란정의      “사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다.        나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다.  이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다.2. 사다리꼴나사 선정TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다.210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다.사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다.3. 고정부 설계제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다.- 초기상태에서 드릴은 올라가 있어야 함.- 나사가 안정적으로 고정되어야 함.- 사람이 직접 운동을 전달할 수 있어야 함.- 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함.  위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다.- 스프링을 사용하여 항상 힘을 받아 올라가 있게 함.- 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함.- 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함.- DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌.  스프링 설치부분4. 스프링 선정 및 관련부품 설계.초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다.4. DU부시, 베어링 선정, 핸들수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다.DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다.가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다.DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다.베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다.5. 어셈블리구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다.어셈블리상에서 확인되는 간섭이 없습니다.">
+    <meta itemprop="datePublished" content="2020-03-23T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계
+</h1>
+          
+            
+
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2020-03-23T00:00:00+09:00">March 23, 2020</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><img src="../assets/images/2020-03-23/assy-1.PNG" alt="Image with caption" /></p>
+
+<h2 id="개요">개요</h2>
+
+<p>파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다.</p>
+
+<p>드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다.</p>
+
+<h2 id="1-사다리꼴나사란">1. 사다리꼴나사란</h2>
+
+<p><img src="../assets/images/2020-03-23/tr-2.jpg" alt="Image with caption" /></p>
+
+<h3 id="정의">정의</h3>
+
+<ul>
+  <li>
+    <p>“사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다.</p>
+  </li>
+  <li>
+    <p>나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다.</p>
+  </li>
+</ul>
+
+<p>이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다.</p>
+
+<h2 id="2-사다리꼴나사-선정">2. 사다리꼴나사 선정</h2>
+
+<p>TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다.</p>
+
+<p>210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다.</p>
+
+<p>사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다.</p>
+
+<p><img src="../assets/images/2020-03-23/tr-1.PNG" alt="Image with caption" /></p>
+
+<h3 id="3-고정부-설계">3. 고정부 설계</h3>
+
+<p>제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다.</p>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="p">-</span> 초기상태에서 드릴은 올라가 있어야 함.
+<span class="p">-</span> 나사가 안정적으로 고정되어야 함.
+<span class="p">-</span> 사람이 직접 운동을 전달할 수 있어야 함.
+<span class="p">-</span> 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함.
+  </code></pre></figure>
+
+<p>위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다.</p>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="p">-</span> 스프링을 사용하여 항상 힘을 받아 올라가 있게 함.
+<span class="p">-</span> 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함.
+<span class="p">-</span> 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함.
+<span class="p">-</span> DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌.
+  </code></pre></figure>
+
+<p><img src="../assets/images/2020-03-23/spring.PNG" alt="스프링 설치부분" title="스프링 설치부분" />
+스프링 설치부분</p>
+
+<h3 id="4-스프링-선정-및-관련부품-설계">4. 스프링 선정 및 관련부품 설계.</h3>
+
+<p>초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다.</p>
+
+<p><img src="../assets/images/2020-03-23/spring-2.PNG" alt="스프링 설치부분" title="스프링 설치부분" /></p>
+
+<h3 id="4-du부시-베어링-선정-핸들">4. DU부시, 베어링 선정, 핸들</h3>
+
+<p>수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다.</p>
+
+<p>DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다.</p>
+
+<p>가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다.</p>
+
+<p><img src="../assets/images/2020-03-23/duBush-2.PNG" alt="DU부시 선정" title="DU부시 선정" />
+DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다.</p>
+
+<p><img src="../assets/images/2020-03-23/duBush-1.PNG" alt="DU부시 설계" title="DU부시 설계" /></p>
+
+<p>베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다.</p>
+
+<p><img src="../assets/images/2020-03-23/bearing.PNG" alt="베어링 선정" title="베어링 선정" /></p>
+
+<h3 id="5-어셈블리">5. 어셈블리</h3>
+
+<p>구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다.</p>
+
+<p><img src="../assets/images/2020-03-23/assy-1.PNG" alt="Image with caption" />
+<img src="../assets/images/2020-03-23/assy-2.PNG" alt="Image with caption" /></p>
+
+<p>어셈블리상에서 확인되는 간섭이 없습니다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#%EA%B8%B0%EA%B5%AC%EC%84%A4%EA%B3%84" class="page__taxonomy-item" rel="tag">기구설계</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#engineering" class="page__taxonomy-item" rel="tag">Engineering</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-03-23T00:00:00+09:00">March 23, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BEngineering%5D+1.+%EC%82%AC%EB%8B%A4%EB%A6%AC%EA%BC%B4%28TR%29%EB%82%98%EC%82%AC%EB%A5%BC+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EC%A7%80%EA%B7%B8%EC%84%A4%EA%B3%84%20http%3A%2F%2Fk1a11220.github.io%2Fengineering%2Fjig%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fk1a11220.github.io%2Fengineering%2Fjig%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fk1a11220.github.io%2Fengineering%2Fjig%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/issue/issue1/" class="pagination--pager" title="[Issue] git fatal: remote origin already exists. 에러 해결법
+">이전</a>
+    
+    
+      <a href="/issue/Issue2/" class="pagination--pager" title="[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">댓글남기기</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/issue/Issue2/" rel="permalink">[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 24 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">원인
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/issue/issue1/" rel="permalink">[Issue] git fatal: remote origin already exists. 에러 해결법
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 23 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">원인
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/etc/introducing/" rel="permalink">기술 블로그를 시작하며
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 22 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Hello World!
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/prismagram/graphql/" rel="permalink">[prismagram] [BackEnd] 1. 프로젝트 생성, 셋업하기
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 22 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">모든 내용은 MacOS Catalina 기준으로 작성되었습니다
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Beomsoo. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://k1a11220.github.io/engineering/jig/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/engineering/jig"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://k1a11220-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
