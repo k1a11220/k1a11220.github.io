@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://k1a11220.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://k1a11220.github.io/" rel="alternate" type="text/html" /><updated>2020-03-25T17:49:07+09:00</updated><id>http://k1a11220.github.io/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법</title><link href="http://k1a11220.github.io/issue/Issue2/" rel="alternate" type="text/html" title="[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법" /><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue2</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue2/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://k1a11220.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://k1a11220.github.io/" rel="alternate" type="text/html" /><updated>2020-03-26T10:53:55+09:00</updated><id>http://k1a11220.github.io/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[Issue] react build시 index.html 빈화면이 나오는 이슈</title><link href="http://k1a11220.github.io/issue/Issue3/" rel="alternate" type="text/html" title="[Issue] react build시 index.html 빈화면이 나오는 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue3</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue3/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+
+&lt;p&gt;index.html에서의 static/js와 css 경로가 잘못되었기 때문입니다.&lt;br /&gt;
+chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류가 나옵니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-26-Issue3/error-1.png&quot; alt=&quot;error&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
+
+&lt;p&gt;js와 css경로가 /static/….으로 되어있는데 ./static으로 변경해주시면 문제없이 출력됩니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/css/main.ab056bcf.chunk.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/js/2.fc65b5d6.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/js/main.6527b855.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;저렇게 /경로로 되어있는 코드들을 수정해주셔야 합니다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/css/main.ab056bcf.chunk.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/2.fc65b5d6.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/main.6527b855.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;이렇게 수정해주시면 문제없이 출력됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법</title><link href="http://k1a11220.github.io/issue/Issue2/" rel="alternate" type="text/html" title="[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법" /><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue2</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue2/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
 
 &lt;p&gt;삭제된 디렉토리에서 명령을 실행할 때 생기는 오류입니다.&lt;/p&gt;
 
@@ -10,7 +31,7 @@
 
 &lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
 
-&lt;p&gt;따라서 이때 remote origin을 하기 전 git remote rm origin을 실행한 뒤 다시 git remote origin {link} 하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계</title><link href="http://k1a11220.github.io/engineering/jig/" rel="alternate" type="text/html" title="[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://k1a11220.github.io/engineering/jig</id><content type="html" xml:base="http://k1a11220.github.io/engineering/jig/">&lt;p&gt;&lt;img src=&quot;../assets/images/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;따라서 이때 remote origin을 하기 전 git remote rm origin을 실행한 뒤 다시 git remote origin {link} 하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계</title><link href="http://k1a11220.github.io/engineering/jig/" rel="alternate" type="text/html" title="[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://k1a11220.github.io/engineering/jig</id><content type="html" xml:base="http://k1a11220.github.io/engineering/jig/">&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;개요&quot;&gt;개요&lt;/h2&gt;
 
@@ -20,7 +41,7 @@
 
 &lt;h2 id=&quot;1-사다리꼴나사란&quot;&gt;1. 사다리꼴나사란&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;../assets/images/2020-03-23/tr-2.jpg&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/tr-2.jpg&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;정의&quot;&gt;정의&lt;/h3&gt;
 
@@ -43,7 +64,7 @@
 
 &lt;p&gt;사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../assets/images/2020-03-23/tr-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/tr-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;3-고정부-설계&quot;&gt;3. 고정부 설계&lt;/h3&gt;
 
@@ -63,14 +84,14 @@
 &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌.
   &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;img src=&quot;../assets/images/2020-03-23/spring.PNG&quot; alt=&quot;스프링 설치부분&quot; title=&quot;스프링 설치부분&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/spring.PNG&quot; alt=&quot;스프링 설치부분&quot; title=&quot;스프링 설치부분&quot; /&gt;
 스프링 설치부분&lt;/p&gt;
 
 &lt;h3 id=&quot;4-스프링-선정-및-관련부품-설계&quot;&gt;4. 스프링 선정 및 관련부품 설계.&lt;/h3&gt;
 
 &lt;p&gt;초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../assets/images/2020-03-23/spring-2.PNG&quot; alt=&quot;스프링 설치부분&quot; title=&quot;스프링 설치부분&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/spring-2.PNG&quot; alt=&quot;스프링 설치부분&quot; title=&quot;스프링 설치부분&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;4-du부시-베어링-선정-핸들&quot;&gt;4. DU부시, 베어링 선정, 핸들&lt;/h3&gt;
 
@@ -80,21 +101,21 @@
 
 &lt;p&gt;가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../assets/images/2020-03-23/duBush-2.PNG&quot; alt=&quot;DU부시 선정&quot; title=&quot;DU부시 선정&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/duBush-2.PNG&quot; alt=&quot;DU부시 선정&quot; title=&quot;DU부시 선정&quot; /&gt;
 DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../assets/images/2020-03-23/duBush-1.PNG&quot; alt=&quot;DU부시 설계&quot; title=&quot;DU부시 설계&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/duBush-1.PNG&quot; alt=&quot;DU부시 설계&quot; title=&quot;DU부시 설계&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../assets/images/2020-03-23/bearing.PNG&quot; alt=&quot;베어링 선정&quot; title=&quot;베어링 선정&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/bearing.PNG&quot; alt=&quot;베어링 선정&quot; title=&quot;베어링 선정&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;5-어셈블리&quot;&gt;5. 어셈블리&lt;/h3&gt;
 
 &lt;p&gt;구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../assets/images/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;
-&lt;img src=&quot;../assets/images/2020-03-23/assy-2.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;
+&lt;img src=&quot;/assets/2020-03-23/assy-2.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;어셈블리상에서 확인되는 간섭이 없습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="기구설계" /><summary type="html">개요 파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다. 드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다. 1. 사다리꼴나사란 정의 “사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다. 나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다. 이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다. 2. 사다리꼴나사 선정 TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다. 210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다. 사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다. 3. 고정부 설계 제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다. - 초기상태에서 드릴은 올라가 있어야 함. - 나사가 안정적으로 고정되어야 함. - 사람이 직접 운동을 전달할 수 있어야 함. - 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함. 위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다. - 스프링을 사용하여 항상 힘을 받아 올라가 있게 함. - 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함. - 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함. - DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌. 스프링 설치부분 4. 스프링 선정 및 관련부품 설계. 초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다. 4. DU부시, 베어링 선정, 핸들 수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다. DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다. 가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다. DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다. 베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다. 5. 어셈블리 구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다. 어셈블리상에서 확인되는 간섭이 없습니다.</summary></entry><entry><title type="html">[prismagram] 인스타그램 클론코딩</title><link href="http://k1a11220.github.io/prismagram/InstaStart/" rel="alternate" type="text/html" title="[prismagram] 인스타그램 클론코딩" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://k1a11220.github.io/prismagram/InstaStart</id><content type="html" xml:base="http://k1a11220.github.io/prismagram/InstaStart/">&lt;h1 id=&quot;인스타그램-클론코딩&quot;&gt;인스타그램 클론코딩&lt;/h1&gt;
 

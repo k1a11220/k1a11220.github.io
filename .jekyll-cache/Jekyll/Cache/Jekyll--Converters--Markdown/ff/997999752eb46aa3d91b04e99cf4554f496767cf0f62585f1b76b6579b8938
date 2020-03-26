@@ -1,0 +1,18 @@
+I"b<h2 id="원인">원인</h2>
+
+<p>index.html에서의 static/js와 css 경로가 잘못되었기 때문입니다.</p>
+
+<h2 id="해결방법">해결방법</h2>
+
+<p>js와 css경로가 /static/….으로 되어있는데 ./static으로 변경해주시면 문제없이 출력됩니다.</p>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/static/css/main.ab056bcf.chunk.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>  
+<span class="nt">&lt;/script&gt;&lt;script </span><span class="na">src=</span><span class="s">"/static/js/2.fc65b5d6.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span>  
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/static/js/main.6527b855.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+
+<p>를</p>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"./static/css/main.ab056bcf.chunk.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>  
+<span class="nt">&lt;/script&gt;&lt;script </span><span class="na">src=</span><span class="s">"./static/js/2.fc65b5d6.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span>  
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./static/js/main.6527b855.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+:ET
