@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Issue] react build시 index.html 빈화면이 나오는 이슈 - 범수의 기술 블로그</title>
+<!-- begin _includes/seo.html --><title>[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈 - 범수의 기술 블로그</title>
 <meta name="description" content="원인 ">
 
 
@@ -19,8 +19,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="범수의 기술 블로그">
-<meta property="og:title" content="[Issue] react build시 index.html 빈화면이 나오는 이슈">
-<meta property="og:url" content="http://k1a11220.github.io/issue/Issue3/">
+<meta property="og:title" content="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈">
+<meta property="og:url" content="http://k1a11220.github.io/issue/Issue4/">
 
 
   <meta property="og:description" content="원인 ">
@@ -42,7 +42,7 @@
   
 
 
-<link rel="canonical" href="http://k1a11220.github.io/issue/Issue3/">
+<link rel="canonical" href="http://k1a11220.github.io/issue/Issue4/">
 
 
 
@@ -281,7 +281,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Issue] react build시 index.html 빈화면이 나오는 이슈">
+    <meta itemprop="headline" content="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈">
     <meta itemprop="description" content="원인">
     <meta itemprop="datePublished" content="2020-03-26T00:00:00+09:00">
     
@@ -289,7 +289,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Issue] react build시 index.html 빈화면이 나오는 이슈
+          <h1 id="page-title" class="page__title" itemprop="headline">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈
 </h1>
           
             
@@ -303,26 +303,43 @@
         
         <h2 id="원인">원인</h2>
 
-<p>index.html에서의 static/js와 css 경로가 잘못되었기 때문입니다.<br />
-chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류가 나옵니다.</p>
+<p>Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다.<br />
+Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다.</p>
 
-<p><img src="/assets/2020-03-26-Issue3/error-1.png" alt="error" /></p>
+<h3 id="간단한-예시">간단한 예시</h3>
+<p>A페이지에서 사용자가 blank 속성의 테그를 클릭하여 B페이지로 이동 -&gt; 다시 A페이지로 돌아왔을 때는 A페이지 처럼 보이는 피싱사이트로 바뀜.
+<img src="/assets/2020-03-26-Issue4/sample.JPG" alt="error" /></p>
 
 <h2 id="해결방법">해결방법</h2>
 
-<p>js와 css경로가 /static/….으로 되어있는데 ./static으로 변경해주시면 문제없이 출력됩니다.</p>
+<p>target=”_blank” 와 rel=”noopener noreferrer”을 같이 적용하여 문제를 해결합니다.<br />
+rel=”noopener noreferrer”는 rel=noopener 속성이 부여된 링크를 통해 열린 페이지는 opener의 location변경과 같은 자바스크립트 요청을 거부합니다.<br />
+쉽게 말씀드리자면 A페이지의 정보를 바꾸지 못한다는 뜻 입니다.</p>
 
-<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/static/css/main.ab056bcf.chunk.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>  
-<span class="nt">&lt;/script&gt;&lt;script </span><span class="na">src=</span><span class="s">"/static/js/2.fc65b5d6.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span>  
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/static/js/main.6527b855.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+<p>따라서 아래와 같은 코드에 noopener 속성을 추가합니다.</p>
 
-<p>저렇게 /경로로 되어있는 코드들을 수정해주셔야 합니다.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span>
+<span class="na">className=</span><span class="s">"black"</span>
+<span class="na">target=</span><span class="s">"_blank"</span>
+<span class="na">href=</span><span class="s">"https://drive.google.com/"</span>
+<span class="nt">&gt;</span>
+Catalog
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
 
-<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"./static/css/main.ab056bcf.chunk.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>  
-<span class="nt">&lt;/script&gt;&lt;script </span><span class="na">src=</span><span class="s">"./static/js/2.fc65b5d6.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span>  
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./static/js/main.6527b855.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+<p>이렇게요!</p>
 
-<p>이렇게 수정해주시면 문제없이 출력됩니다.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span>
+<span class="na">className=</span><span class="s">"black"</span>
+<span class="na">target=</span><span class="s">"_blank"</span>
+<span class="na">rel=</span><span class="s">"noopener noreferrer"</span>
+<span class="na">href=</span><span class="s">"https://drive.google.com/"</span>
+<span class="nt">&gt;</span>
+Catalog
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<p>이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.</p>
 
         
       </section>
@@ -384,23 +401,22 @@ chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류�
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BIssue%5D+react+build%EC%8B%9C+index.html+%EB%B9%88%ED%99%94%EB%A9%B4%EC%9D%B4+%EB%82%98%EC%98%A4%EB%8A%94+%EC%9D%B4%EC%8A%88%20http%3A%2F%2Fk1a11220.github.io%2Fissue%2FIssue3%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BIssue%5D+react+start+%EC%8B%9C+Using+target%3D_blank+without+rel%3Dnoopener+noreferrer+is+a+security+risk+%EC%9D%B4%EC%8A%88%20http%3A%2F%2Fk1a11220.github.io%2Fissue%2FIssue4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fk1a11220.github.io%2Fissue%2FIssue3%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fk1a11220.github.io%2Fissue%2FIssue4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fk1a11220.github.io%2Fissue%2FIssue3%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fk1a11220.github.io%2Fissue%2FIssue4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/issue/Issue2/" class="pagination--pager" title="[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법
+      <a href="/issue/Issue3/" class="pagination--pager" title="[Issue] react build시 index.html 빈화면이 나오는 이슈
 ">이전</a>
     
     
-      <a href="/issue/Issue4/" class="pagination--pager" title="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -433,7 +449,7 @@ chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류�
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/issue/Issue4/" rel="permalink">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈
+        <a href="/issue/Issue3/" rel="permalink">[Issue] react build시 index.html 빈화면이 나오는 이슈
 </a>
       
     </h2>
@@ -581,8 +597,8 @@ chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류�
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://k1a11220.github.io/issue/Issue3/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/issue/Issue3"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://k1a11220.github.io/issue/Issue4/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/issue/Issue4"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

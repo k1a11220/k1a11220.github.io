@@ -1,0 +1,24 @@
+I"�<h2 id="원인">원인</h2>
+
+<p>Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다.<br />
+Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다.</p>
+
+<p>A페이지에서 사용자가 blank 속성이 테그를 클릭하여 B페이지로 이동 -&gt; 다시 A페이지로 돌아왔을 때는 A페이지 처럼 보이는 피싱사이트로 바뀜
+<img src="/assets/2020-03-26-Issue3/error-1.png" alt="error" /></p>
+
+<h2 id="해결방법">해결방법</h2>
+
+<p>js와 css경로가 /static/….으로 되어있는데 ./static으로 변경해주시면 문제없이 출력됩니다.</p>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"/static/css/main.ab056bcf.chunk.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>  
+<span class="nt">&lt;/script&gt;&lt;script </span><span class="na">src=</span><span class="s">"/static/js/2.fc65b5d6.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span>  
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/static/js/main.6527b855.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+
+<p>저렇게 /경로로 되어있는 코드들을 수정해주셔야 합니다.</p>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"./static/css/main.ab056bcf.chunk.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>  
+<span class="nt">&lt;/script&gt;&lt;script </span><span class="na">src=</span><span class="s">"./static/js/2.fc65b5d6.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span>  
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./static/js/main.6527b855.chunk.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+
+<p>이렇게 수정해주시면 문제없이 출력됩니다.</p>
+:ET

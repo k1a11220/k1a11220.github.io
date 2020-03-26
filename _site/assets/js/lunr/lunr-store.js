@@ -40,4 +40,10 @@ var store = [{
         "tags": ["Develop","Issue"],
         "url": "http://k1a11220.github.io/issue/Issue3/",
         "teaser": null
+      },{
+        "title": "[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈",
+        "excerpt":"원인 Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다. Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다. 간단한 예시 A페이지에서 사용자가 blank 속성의 테그를 클릭하여 B페이지로 이동 -&gt; 다시 A페이지로 돌아왔을 때는 A페이지 처럼 보이는 피싱사이트로 바뀜. 해결방법 target=”_blank” 와 rel=”noopener noreferrer”을...","categories": ["Issue"],
+        "tags": ["Develop","Issue"],
+        "url": "http://k1a11220.github.io/issue/Issue4/",
+        "teaser": null
       }]
