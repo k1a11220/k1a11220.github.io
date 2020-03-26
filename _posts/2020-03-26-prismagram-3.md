@@ -34,7 +34,18 @@ type User {
 }
 ~~~
 
-이처럼 Prisma의 Datamodel은 만들기 편하게 되어있습니다.
+기본적으로 User가 생성되어 있습니다.  
+만약, 여기에 인스타그램처럼 following과 follwers를 만들려고 한다면 아래처럼 만들면 된다.
+
+~~~ graphql
+type User {
+  id: ID! @id
+  following: [User!]! @relation(name: "FollowRelation")
+  followers: [User!]! @relation(name: "FollowRelation")
+}
+~~~
+
+이때 @relation이란 말 그대로 연관되어 있는 Data입니다. 이는 나중에 Prisma 프로젝트를 통해 따로 정리하겠습니다.
 
 ## 이슈
 
