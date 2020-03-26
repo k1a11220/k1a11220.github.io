@@ -13,13 +13,13 @@ _모든 내용은 MacOS Catalina 기준으로 작성되었습니다_
 
 ## 프로젝트 셋업하기
 
-### 1. 프로젝트 생성
+## 1. 프로젝트 생성
 
 - Github에서 Repository 만들기
 - .gitignore: Node
 - yarn init 혹은 npm init 한뒤 Git 연동.
 
-### 2. GraphQL 서버 구축을 위한 라이브러리 설치
+## 2. GraphQL 서버 구축을 위한 라이브러리 설치
 
 - graphql-yoga
 
@@ -39,11 +39,11 @@ _모든 내용은 MacOS Catalina 기준으로 작성되었습니다_
   yarn add babel-cli -D
   ~~~
 
-### 3. server.js 생성
+## 3. server.js 생성
 
 - src 폴더 내부에 server.js 파일을 생성합니다.
 
-### 4. package.json 수정
+## 4. package.json 수정
 
 - main: index.js 제거
 - yarn dev를 실행하면 nodemon –exec babel-node src/server.js를 실행하게 합니다
@@ -65,7 +65,7 @@ _모든 내용은 MacOS Catalina 기준으로 작성되었습니다_
   ~~~
 - @babel/node와 @babel/preset-env, @babel/core를 설치하여 babel을 세팅합니다.
 
-### 5. 환경변수 설정하기
+## 5. 환경변수 설정하기
 
 로컬서버를 사용하기위한 PORT와 같은 환경변수를 설정해주는 작업을 해야합니다. 이러한 환경변수들은 따로 .env파일을 통해 관리합니다.
 
@@ -83,7 +83,7 @@ _모든 내용은 MacOS Catalina 기준으로 작성되었습니다_
 
 이때, .config()에서 아무것도 입력하지 않은 경우에는 .env 파일로 인식하여 실제 .env파일에는 아무내용도 입력하지 않는 것 같습니다.
 
-### 6. typeDefs, Resolvers 만들기
+## 6. typeDefs, Resolvers 만들기
 
 서버를 만들기 위해서는 query를 생성해야하는데, query를 생성하기 위해서는 typeDefs과 Resolvers가 필요합니다.
 그 Type과 Resolvers를 Server.js안에 우선 만들어보도록 하겠습니다.
@@ -101,7 +101,7 @@ const server = new GraphQLServer({typeDefs,resolvers});
 server.start({port : PORT}, () => console.log(`server is running http://localhost:${PORT}`));
 ~~~
 
-### 7. 마무리
+## 7. 마무리
 
 yarn dev를 하면 server is running http://localhost:4000 라는 메시지가 뜨며 서버가 동작합니다.
 

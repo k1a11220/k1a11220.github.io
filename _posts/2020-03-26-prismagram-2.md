@@ -11,7 +11,7 @@ last_modified_at: 2020-03-22
 
 _모든 내용은 MacOS Catalina 기준으로 작성되었습니다_
 
-### 1. morgan 설치하기
+## 1. morgan 설치하기
 
 * logging module인 morgan을 추가합니다.
 
@@ -42,7 +42,7 @@ morgan은 logging module 인데, graphql 서버에는 express 서버가 내장�
 
 이때 모든 파일은 schema.js에서 합칩니다. api폴더에 필요한 graphql, resolvers파일을 계속 추가하여 구조를 만들겁니다.
 
-### 2. merge 에 필요한 라이브러리 설치
+## 2. merge 에 필요한 라이브러리 설치
 ~~~ 
 yarn add graphql-tools merge-graphql-schemas
 ~~~
@@ -57,7 +57,7 @@ fileLoader : 인자로 경로를 받아 파일을 불러옵니다.
 path.join : 해당 경로의 파일들을 가져옵니다.  
 makeExecutabelSchema : type, resolver를 schema 형태로 만들어 줍니다.
 
-### 3. schema를 서버에서 사용하기
+## 3. schema를 서버에서 사용하기
 
 #### 서버에서 불러오기
 

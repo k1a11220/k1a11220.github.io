@@ -1,0 +1,67 @@
+I"�<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+
+<h3 id="1-prisma란">1. Prisma란?</h3>
+
+<p>Prisma는 ORM입니다. - Object-relational mapping (객체관계연결)<br />
+Prisma는 어플리케이션에 필요한 모델을 graphql로 정의할 수 있다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add morgan
+</code></pre></div></div>
+
+<ul>
+  <li>server.js에 morgan을 추가합니다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">logger</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">morgan</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">logger</span><span class="p">(</span><span class="dl">"</span><span class="s2">dev</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div></div>
+
+<ul>
+  <li>morgan을 추가하면 console에 다음과 같이 실시간으로 포트가 출력됩니다.</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">POST</span> <span class="o">/</span> <span class="mi">200</span> <span class="mi">121</span><span class="p">.</span><span class="mo">032</span> <span class="n">ms</span> <span class="o">-</span> <span class="mi">25787</span>
+<span class="n">POST</span> <span class="o">/</span> <span class="mi">200</span> <span class="mi">22</span><span class="p">.</span><span class="mi">315</span> <span class="n">ms</span> <span class="o">-</span> <span class="mi">25787</span>
+<span class="n">GET</span> <span class="o">/</span> <span class="mi">200</span> <span class="mi">0</span><span class="p">.</span><span class="mi">159</span> <span class="n">ms</span> <span class="o">-</span> <span class="o">-</span>
+<span class="n">POST</span> <span class="o">/</span> <span class="mi">200</span> <span class="mi">17</span><span class="p">.</span><span class="mi">741</span> <span class="n">ms</span> <span class="o">-</span> <span class="mi">25787</span>
+<span class="n">POST</span> <span class="o">/</span> <span class="mi">200</span> <span class="mi">7</span><span class="p">.</span><span class="mi">500</span> <span class="n">ms</span> <span class="o">-</span> <span class="mi">25786</span>
+<span class="n">POST</span> <span class="o">/</span> <span class="mi">200</span> <span class="mi">6</span><span class="p">.</span><span class="mi">661</span> <span class="n">ms</span> <span class="o">-</span> <span class="mi">25786</span>
+<span class="n">GET</span> <span class="o">/</span> <span class="mi">200</span> <span class="mi">0</span><span class="p">.</span><span class="mi">104</span> <span class="n">ms</span> <span class="o">-</span> <span class="o">-</span>
+</code></pre></div></div>
+
+<p>morgan은 logging module 인데, graphql 서버에는 express 서버가 내장되어 있습니다.</p>
+
+<p>이때 모든 파일은 schema.js에서 합칩니다. api폴더에 필요한 graphql, resolvers파일을 계속 추가하여 구조를 만들겁니다.</p>
+
+<h3 id="2-merge-에-필요한-라이브러리-설치">2. merge 에 필요한 라이브러리 설치</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add graphql-tools merge-graphql-schemas
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">path</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">path</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">makeExecutableSchema</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">graphql-tools</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">fileLoader</span> <span class="p">,</span> <span class="nx">mergeResolvers</span><span class="p">,</span><span class="nx">mergeTypes</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">merge-graphql-schemas</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>fileLoader : 인자로 경로를 받아 파일을 불러옵니다.<br />
+path.join : 해당 경로의 파일들을 가져옵니다.<br />
+makeExecutabelSchema : type, resolver를 schema 형태로 만들어 줍니다.</p>
+
+<h3 id="3-schema를-서버에서-사용하기">3. schema를 서버에서 사용하기</h3>
+
+<h4 id="서버에서-불러오기">서버에서 불러오기</h4>
+
+<p>server.js에 다음을 추가합니다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">schema</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./schema</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="실행하기">실행하기</h4>
+
+<p>schema로 서버를 실행시킵니다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GraphQLServer</span><span class="p">({</span><span class="nx">schema</span><span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="이슈">이슈</h2>
+
+<p>Query를 찾을 수 없다고 하는 에러.<br />
+server.js, schema.js파일은 api 밖에 있어야 합니다.</p>
+:ET

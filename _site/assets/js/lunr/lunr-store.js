@@ -52,4 +52,10 @@ var store = [{
         "tags": ["Develop","Issue"],
         "url": "http://k1a11220.github.io/prismagram/prismagram-2/",
         "teaser": null
+      },{
+        "title": "[prismagram] [BackEnd] 3. Prisma Datamodel 만들기",
+        "excerpt":"모든 내용은 MacOS Catalina 기준으로 작성되었습니다 1. Prisma란? Prisma는 ORM입니다. - Object-relational mapping (객체관계연결) Prisma는 어플리케이션에 필요한 모델을 graphql로 정의할 수 있습니다. Prisma에서 프로젝트를 만든 뒤 로컬 파일과의 연동이 필요합니다. Prisma 설치 prisma init 2. Datamodel 정의하기 datamodel.prisma 파일을 열어 살펴봅시다. type User { Id: ID! @id Name: String! }...","categories": ["prismagram"],
+        "tags": ["Develop","Issue"],
+        "url": "http://k1a11220.github.io/prismagram/prismagram-3/",
+        "teaser": null
       }]
