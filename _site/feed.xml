@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://k1a11220.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://k1a11220.github.io/" rel="alternate" type="text/html" /><updated>2020-03-26T12:02:00+09:00</updated><id>http://k1a11220.github.io/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[Issue] react build시 index.html 빈화면이 나오는 이슈</title><link href="http://k1a11220.github.io/issue/Issue3/" rel="alternate" type="text/html" title="[Issue] react build시 index.html 빈화면이 나오는 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue3</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue3/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://k1a11220.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://k1a11220.github.io/" rel="alternate" type="text/html" /><updated>2020-03-26T14:10:08+09:00</updated><id>http://k1a11220.github.io/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기</title><link href="http://k1a11220.github.io/prismagram/prismagram-2/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://k1a11220.github.io/prismagram/prismagram-2</id><content type="html" xml:base="http://k1a11220.github.io/prismagram/prismagram-2/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;1-morgan-설치하기&quot;&gt;1. morgan 설치하기&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;logging module인 morgan을 추가합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add morgan
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;server.js에 morgan을 추가합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;morgan&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;morgan을 추가하면 console에 다음과 같이 실시간으로 포트가 출력됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;121&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;032&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25787&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;315&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25787&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;159&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;741&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25787&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25786&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;661&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25786&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;104&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;morgan은 logging module 인데, graphql 서버에는 express 서버가 내장되어 있습니다.&lt;/p&gt;
+
+&lt;p&gt;이때 모든 파일은 schema.js에서 합칩니다. api폴더에 필요한 graphql, resolvers파일을 계속 추가하여 구조를 만들겁니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-merge-에-필요한-라이브러리-설치&quot;&gt;2. merge 에 필요한 라이브러리 설치&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add graphql-tools merge-graphql-schemas
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;makeExecutableSchema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;graphql-tools&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fileLoader&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mergeResolvers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mergeTypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;merge-graphql-schemas&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;fileLoader : 인자로 경로를 받아 파일을 불러옵니다.&lt;br /&gt;
+path.join : 해당 경로의 파일들을 가져옵니다.&lt;br /&gt;
+makeExecutabelSchema : type, resolver를 schema 형태로 만들어 줍니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-schema를-서버에서-사용하기&quot;&gt;3. schema를 서버에서 사용하기&lt;/h3&gt;
+
+&lt;h4 id=&quot;서버에서-불러오기&quot;&gt;서버에서 불러오기&lt;/h4&gt;
+
+&lt;p&gt;server.js에 다음을 추가합니다.&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;schema&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./schema&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;실행하기&quot;&gt;실행하기&lt;/h4&gt;
+
+&lt;p&gt;schema로 서버를 실행시킵니다.&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GraphQLServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;이슈&quot;&gt;이슈&lt;/h2&gt;
+
+&lt;p&gt;Query를 찾을 수 없다고 하는 에러.&lt;br /&gt;
+server.js, schema.js파일은 api 밖에 있어야 합니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Issue] react build시 index.html 빈화면이 나오는 이슈</title><link href="http://k1a11220.github.io/issue/Issue-3/" rel="alternate" type="text/html" title="[Issue] react build시 index.html 빈화면이 나오는 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue-3</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue-3/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
 
 &lt;p&gt;index.html에서의 static/js와 css 경로가 잘못되었기 때문입니다.&lt;br /&gt;
 chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류가 나옵니다.&lt;/p&gt;
@@ -19,7 +85,7 @@ chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류�
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/2.fc65b5d6.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/main.6527b855.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;이렇게 수정해주시면 문제없이 출력됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈</title><link href="http://k1a11220.github.io/issue/Issue4/" rel="alternate" type="text/html" title="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue4</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue4/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+&lt;p&gt;이렇게 수정해주시면 문제없이 출력됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈</title><link href="http://k1a11220.github.io/issue/Issue-4/" rel="alternate" type="text/html" title="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue-4</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue-4/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
 
 &lt;p&gt;Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다.&lt;br /&gt;
 Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다.&lt;/p&gt;
@@ -57,13 +123,19 @@ Catalog
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법</title><link href="http://k1a11220.github.io/issue/Issue2/" rel="alternate" type="text/html" title="[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법" /><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue2</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue2/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+&lt;p&gt;이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법</title><link href="http://k1a11220.github.io/issue/Issue-2/" rel="alternate" type="text/html" title="[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법" /><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue-2</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue-2/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
 
 &lt;p&gt;삭제된 디렉토리에서 명령을 실행할 때 생기는 오류입니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
 
-&lt;p&gt;cd ..를 통해 삭제된 디렉토리에서 나간 뒤 다시 접근하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계</title><link href="http://k1a11220.github.io/engineering/jig/" rel="alternate" type="text/html" title="[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://k1a11220.github.io/engineering/jig</id><content type="html" xml:base="http://k1a11220.github.io/engineering/jig/">&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;cd ..를 통해 삭제된 디렉토리에서 나간 뒤 다시 접근하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] git fatal: remote origin already exists. 에러 해결법</title><link href="http://k1a11220.github.io/issue/issue-1/" rel="alternate" type="text/html" title="[Issue] git fatal: remote origin already exists. 에러 해결법" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/issue-1</id><content type="html" xml:base="http://k1a11220.github.io/issue/issue-1/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+
+&lt;p&gt;깃허브에 먼저 레포지토리를 생성 후 기존 로컬에 있던 폴더를 오리진 설정시 생기는 오류입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
+
+&lt;p&gt;따라서 이때 remote origin을 하기 전 git remote rm origin을 실행한 뒤 다시 git remote origin {link} 하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계</title><link href="http://k1a11220.github.io/engineering/jig/" rel="alternate" type="text/html" title="[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://k1a11220.github.io/engineering/jig</id><content type="html" xml:base="http://k1a11220.github.io/engineering/jig/">&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;개요&quot;&gt;개요&lt;/h2&gt;
 
@@ -149,155 +221,7 @@ DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였�
 &lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;
 &lt;img src=&quot;/assets/2020-03-23/assy-2.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;어셈블리상에서 확인되는 간섭이 없습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="기구설계" /><summary type="html">개요 파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다. 드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다. 1. 사다리꼴나사란 정의 “사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다. 나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다. 이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다. 2. 사다리꼴나사 선정 TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다. 210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다. 사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다. 3. 고정부 설계 제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다. - 초기상태에서 드릴은 올라가 있어야 함. - 나사가 안정적으로 고정되어야 함. - 사람이 직접 운동을 전달할 수 있어야 함. - 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함. 위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다. - 스프링을 사용하여 항상 힘을 받아 올라가 있게 함. - 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함. - 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함. - DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌. 스프링 설치부분 4. 스프링 선정 및 관련부품 설계. 초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다. 4. DU부시, 베어링 선정, 핸들 수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다. DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다. 가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다. DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다. 베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다. 5. 어셈블리 구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다. 어셈블리상에서 확인되는 간섭이 없습니다.</summary></entry><entry><title type="html">[Issue] git fatal: remote origin already exists. 에러 해결법</title><link href="http://k1a11220.github.io/issue/issue1/" rel="alternate" type="text/html" title="[Issue] git fatal: remote origin already exists. 에러 해결법" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/issue1</id><content type="html" xml:base="http://k1a11220.github.io/issue/issue1/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
-
-&lt;p&gt;깃허브에 먼저 레포지토리를 생성 후 기존 로컬에 있던 폴더를 오리진 설정시 생기는 오류입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
-
-&lt;p&gt;따라서 이때 remote origin을 하기 전 git remote rm origin을 실행한 뒤 다시 git remote origin {link} 하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[prismagram] [BackEnd] 1. 프로젝트 생성, 셋업하기</title><link href="http://k1a11220.github.io/prismagram/graphql/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 1. 프로젝트 생성, 셋업하기" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://k1a11220.github.io/prismagram/graphql</id><content type="html" xml:base="http://k1a11220.github.io/prismagram/graphql/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;프로젝트-셋업하기&quot;&gt;프로젝트 셋업하기&lt;/h2&gt;
-
-&lt;h3 id=&quot;1-프로젝트-생성&quot;&gt;1. 프로젝트 생성&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Github에서 Repository 만들기&lt;/li&gt;
-  &lt;li&gt;.gitignore: Node&lt;/li&gt;
-  &lt;li&gt;yarn init 혹은 npm init 한뒤 Git 연동.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;2-graphql-서버-구축을-위한-라이브러리-설치&quot;&gt;2. GraphQL 서버 구축을 위한 라이브러리 설치&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;graphql-yoga&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;  yarn add graphql-yoga
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;nodemon -D (src/server.js에 있는 코드를 실행하는 script를 작성하는데 필요합니다.)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;  yarn add nodemon -D
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;babel-cli -D&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;  yarn add babel-cli -D
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 id=&quot;3-serverjs-생성&quot;&gt;3. server.js 생성&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;src 폴더 내부에 server.js 파일을 생성합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;4-packagejson-수정&quot;&gt;4. package.json 수정&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;main: index.js 제거&lt;/li&gt;
-  &lt;li&gt;yarn dev를 실행하면 nodemon –exec babel-node src/server.js를 실행하게 합니다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;  &quot;scripts&quot; : {
-  &quot;dev&quot; : &quot;nodemon --exec babel-node src/server.js&quot;
-  }
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;nodemon을 실행할 때마다 babel-node로 src폴더의 server.js 파일을 실행하게 됩니다.&lt;/li&gt;
-  &lt;li&gt;nodemon은 저장할 때마다 실행을 해주는 도구입니다. 서버를 껐다가 킬 필요가 없어지게 해주는 도구입니다.&lt;/li&gt;
-  &lt;li&gt;babel은 코드를 호환성 있게 만들어줍니다.&lt;/li&gt;
-  &lt;li&gt;.babelrc 파일을 만든뒤 node가 import를 인식할 수 있도록 아래와 같은 코드를 입력합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;  {
-  &quot;presets&quot;: [&quot;@babel/preset-env&quot;]
-  }
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;@babel/node와 @babel/preset-env, @babel/core를 설치하여 babel을 세팅합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;5-환경변수-설정하기&quot;&gt;5. 환경변수 설정하기&lt;/h3&gt;
-
-&lt;p&gt;로컬서버를 사용하기위한 PORT와 같은 환경변수를 설정해주는 작업을 해야합니다. 이러한 환경변수들은 따로 .env파일을 통해 관리합니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;.env파일을 src 폴더에 만든 뒤 설정할 포트 PORT = 4000을 선언합니다. 모든 환경변수들은 .env에 선언하는 것이 좋습니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;  PORT = 4000
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;server.js에서 PORT 변수를 만듭니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;  require(&quot;dotenv&quot;).config()
-
-const PORT = process.env.PORT || 4000;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;이때, .config()에서 아무것도 입력하지 않은 경우에는 .env 파일로 인식하여 실제 .env파일에는 아무내용도 입력하지 않는 것 같습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;6-typedefs-resolvers-만들기&quot;&gt;6. typeDefs, Resolvers 만들기&lt;/h3&gt;
-
-&lt;p&gt;서버를 만들기 위해서는 query를 생성해야하는데, query를 생성하기 위해서는 typeDefs과 Resolvers가 필요합니다.
-그 Type과 Resolvers를 Server.js안에 우선 만들어보도록 하겠습니다.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;//typeDefs
-const typeDefs = &lt;span class=&quot;sb&quot;&gt;`type Query{ hello : String! }`&lt;/span&gt;
-//resolvers
-const resolvers = {
-Query : {
-hello : () =&amp;gt; &quot;hello&quot;
-}
-}
-const server = new GraphQLServer({typeDefs,resolvers});
-server.start({port : PORT}, () =&amp;gt; console.log(&lt;span class=&quot;sb&quot;&gt;`server is running http://localhost:${PORT}`&lt;/span&gt;));&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 id=&quot;7-마무리&quot;&gt;7. 마무리&lt;/h3&gt;
-
-&lt;p&gt;yarn dev를 하면 server is running http://localhost:4000 라는 메시지가 뜨며 서버가 동작합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;이슈&quot;&gt;이슈&lt;/h2&gt;
-
-&lt;p&gt;Requires Babel “^7.0.0-0”, but was loaded with “6.26.3”.&lt;/p&gt;
-
-&lt;p&gt;If you are sure you have a compatible version of @babel/core, it is likely that something in your build process is loading the wrong version.&lt;/p&gt;
-
-&lt;p&gt;에러 발생. -&amp;gt; yarn global remove babel-cli로 해결&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">기술 블로그를 시작하며</title><link href="http://k1a11220.github.io/etc/introducing/" rel="alternate" type="text/html" title="기술 블로그를 시작하며" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://k1a11220.github.io/etc/introducing</id><content type="html" xml:base="http://k1a11220.github.io/etc/introducing/">&lt;h1 id=&quot;hello-world&quot;&gt;Hello World!&lt;/h1&gt;
-
-&lt;p&gt;안녕하세요 디자인 엔지니어 손범수입니다! 올해 고등학교를 졸업하고 20살이 되었습니다. 하고 싶은 것들은 많고 해야 할 것도 많습니다.&lt;/p&gt;
-
-&lt;p&gt;작년 요맘때쯤 웹 프로그래밍을 접하면서 제 많은 것들이 달라졌습니다. 처음으로 html, css, vanila JS를 알게 되었고, 다양한 서비스를 직접 만들어보며 많은 것들을 직접 배워왔습니다.&lt;/p&gt;
-
-&lt;p&gt;하지만 가끔씩 사이드 프로젝트로 몇 번씩 코드를 짜고 한참 뒤에 그 코드를 응용해서 다른 동작을 구현하려고 했을 때 “내가 어떻게 했지?”라는 생각이 들게 되어 앞으로 내가 하는 일들은 모두 기록해야겠다고 다짐했습니다.&lt;/p&gt;
-
-&lt;h1 id=&quot;계획&quot;&gt;계획&lt;/h1&gt;
-
-&lt;p&gt;범수의 기술 블로그가 저만의 개인적인 블로그가 아닌 제가 했던 고민을 하시는 분들께 도움이 될 수 있는 블로그가 되는 게 궁극적인 목표입니다. 특히나 프로그래밍만 다루는 것이 아니라 제 전공인 하드웨어 설계에 대해서도 다뤄보려고 합니다.&lt;/p&gt;
-
-&lt;p&gt;기존에 개발자들을 위한 기술 블로그들은 많이 봐왔는데 하드웨어 설계에 관한 기술 블로그들은 찾기 어렵더군요. 그래서 제가 실무에서 경험한 것들을 정리하여 같이 올려보겠습니다.&lt;/p&gt;
-
-&lt;p&gt;총 5가지의 태그를 가지고 블로그를 진행해보려고 합니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Develop&lt;/li&gt;
-  &lt;li&gt;Engineering&lt;/li&gt;
-  &lt;li&gt;Design&lt;/li&gt;
-  &lt;li&gt;Issue&lt;/li&gt;
-  &lt;li&gt;ETC&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;그래서&quot;&gt;그래서?&lt;/h1&gt;
-
-&lt;p&gt;앞으로 1일 1커밋처럼 2일 1포스트를 다짐하고 실행할려고 하는데 많은 분들께 제 블로그가 도움이 되었으면 합니다. 혹시나 궁금하신 점이 있으시면 언제든지 k1a11220@naver.com 으로 연락 주시거나 댓글로 물어봐주시면 친절하게 답변해드리겠습니다. 감사합니다!&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="intro" /><category term="안녕하세요!" /><summary type="html">Hello World!</summary></entry><entry><title type="html">[prismagram] 인스타그램 클론코딩</title><link href="http://k1a11220.github.io/prismagram/InstaStart/" rel="alternate" type="text/html" title="[prismagram] 인스타그램 클론코딩" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://k1a11220.github.io/prismagram/InstaStart</id><content type="html" xml:base="http://k1a11220.github.io/prismagram/InstaStart/">&lt;h1 id=&quot;인스타그램-클론코딩&quot;&gt;인스타그램 클론코딩&lt;/h1&gt;
+&lt;p&gt;어셈블리상에서 확인되는 간섭이 없습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="기구설계" /><category term="사다리꼴 나사" /><summary type="html">개요 파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다. 드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다. 1. 사다리꼴나사란 정의 “사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다. 나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다. 이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다. 2. 사다리꼴나사 선정 TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다. 210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다. 사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다. 3. 고정부 설계 제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다. - 초기상태에서 드릴은 올라가 있어야 함. - 나사가 안정적으로 고정되어야 함. - 사람이 직접 운동을 전달할 수 있어야 함. - 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함. 위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다. - 스프링을 사용하여 항상 힘을 받아 올라가 있게 함. - 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함. - 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함. - DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌. 스프링 설치부분 4. 스프링 선정 및 관련부품 설계. 초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다. 4. DU부시, 베어링 선정, 핸들 수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다. DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다. 가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다. DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다. 베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다. 5. 어셈블리 구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다. 어셈블리상에서 확인되는 간섭이 없습니다.</summary></entry><entry><title type="html">[prismagram] 인스타그램 클론코딩</title><link href="http://k1a11220.github.io/prismagram/prismagram-0/" rel="alternate" type="text/html" title="[prismagram] 인스타그램 클론코딩" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://k1a11220.github.io/prismagram/prismagram-0</id><content type="html" xml:base="http://k1a11220.github.io/prismagram/prismagram-0/">&lt;h1 id=&quot;인스타그램-클론코딩&quot;&gt;인스타그램 클론코딩&lt;/h1&gt;
 
 &lt;p&gt;Nomad Coders에서 제공하는 Prismagram 프로젝트.
 인스타그렘을 클론코딩하며 백엔드와 프론트엔드를 직접 구현해보며, 풀스택 개발을 할 수 있다.&lt;/p&gt;
@@ -334,4 +258,145 @@ server.start({port : PORT}, () =&amp;gt; console.log(&lt;span class=&quot;sb&quo
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 1~ 3주차: 백엔드 개발
 &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 3~ 6주차: 프론트엔드 개발
 &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 6~ 10주차: 앱개발, 배포
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">인스타그램 클론코딩</summary></entry></feed>
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">인스타그램 클론코딩</summary></entry><entry><title type="html">기술 블로그를 시작하며</title><link href="http://k1a11220.github.io/etc/introducing/" rel="alternate" type="text/html" title="기술 블로그를 시작하며" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://k1a11220.github.io/etc/introducing</id><content type="html" xml:base="http://k1a11220.github.io/etc/introducing/">&lt;h1 id=&quot;hello-world&quot;&gt;Hello World!&lt;/h1&gt;
+
+&lt;p&gt;안녕하세요 디자인 엔지니어 손범수입니다! 올해 고등학교를 졸업하고 20살이 되었습니다. 하고 싶은 것들은 많고 해야 할 것도 많습니다.&lt;/p&gt;
+
+&lt;p&gt;작년 요맘때쯤 웹 프로그래밍을 접하면서 제 많은 것들이 달라졌습니다. 처음으로 html, css, vanila JS를 알게 되었고, 다양한 서비스를 직접 만들어보며 많은 것들을 직접 배워왔습니다.&lt;/p&gt;
+
+&lt;p&gt;하지만 가끔씩 사이드 프로젝트로 몇 번씩 코드를 짜고 한참 뒤에 그 코드를 응용해서 다른 동작을 구현하려고 했을 때 “내가 어떻게 했지?”라는 생각이 들게 되어 앞으로 내가 하는 일들은 모두 기록해야겠다고 다짐했습니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;계획&quot;&gt;계획&lt;/h1&gt;
+
+&lt;p&gt;범수의 기술 블로그가 저만의 개인적인 블로그가 아닌 제가 했던 고민을 하시는 분들께 도움이 될 수 있는 블로그가 되는 게 궁극적인 목표입니다. 특히나 프로그래밍만 다루는 것이 아니라 제 전공인 하드웨어 설계에 대해서도 다뤄보려고 합니다.&lt;/p&gt;
+
+&lt;p&gt;기존에 개발자들을 위한 기술 블로그들은 많이 봐왔는데 하드웨어 설계에 관한 기술 블로그들은 찾기 어렵더군요. 그래서 제가 실무에서 경험한 것들을 정리하여 같이 올려보겠습니다.&lt;/p&gt;
+
+&lt;p&gt;총 5가지의 태그를 가지고 블로그를 진행해보려고 합니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Develop&lt;/li&gt;
+  &lt;li&gt;Engineering&lt;/li&gt;
+  &lt;li&gt;Design&lt;/li&gt;
+  &lt;li&gt;Issue&lt;/li&gt;
+  &lt;li&gt;ETC&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;그래서&quot;&gt;그래서?&lt;/h1&gt;
+
+&lt;p&gt;앞으로 1일 1커밋처럼 2일 1포스트를 다짐하고 실행할려고 하는데 많은 분들께 제 블로그가 도움이 되었으면 합니다. 혹시나 궁금하신 점이 있으시면 언제든지 k1a11220@naver.com 으로 연락 주시거나 댓글로 물어봐주시면 친절하게 답변해드리겠습니다. 감사합니다!&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="intro" /><category term="안녕하세요!" /><summary type="html">Hello World!</summary></entry><entry><title type="html">[prismagram] [BackEnd] 1. 프로젝트 생성, 셋업하기</title><link href="http://k1a11220.github.io/prismagram/prismagram-1/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 1. 프로젝트 생성, 셋업하기" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://k1a11220.github.io/prismagram/prismagram-1</id><content type="html" xml:base="http://k1a11220.github.io/prismagram/prismagram-1/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;프로젝트-셋업하기&quot;&gt;프로젝트 셋업하기&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-프로젝트-생성&quot;&gt;1. 프로젝트 생성&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Github에서 Repository 만들기&lt;/li&gt;
+  &lt;li&gt;.gitignore: Node&lt;/li&gt;
+  &lt;li&gt;yarn init 혹은 npm init 한뒤 Git 연동.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-graphql-서버-구축을-위한-라이브러리-설치&quot;&gt;2. GraphQL 서버 구축을 위한 라이브러리 설치&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;graphql-yoga&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add graphql-yoga
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;nodemon -D (src/server.js에 있는 코드를 실행하는 script를 작성하는데 필요합니다.)&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add nodemon -D
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;babel-cli -D&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add babel-cli -D
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-serverjs-생성&quot;&gt;3. server.js 생성&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;src 폴더 내부에 server.js 파일을 생성합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4-packagejson-수정&quot;&gt;4. package.json 수정&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;main: index.js 제거&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;yarn dev를 실행하면 nodemon –exec babel-node src/server.js를 실행하게 합니다&lt;/p&gt;
+
+    &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;scripts&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;nodemon --exec babel-node src/server.js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;nodemon을 실행할 때마다 babel-node로 src폴더의 server.js 파일을 실행하게 됩니다.&lt;/li&gt;
+  &lt;li&gt;nodemon은 저장할 때마다 실행을 해주는 도구입니다. 서버를 껐다가 킬 필요가 없어지게 해주는 도구입니다.&lt;/li&gt;
+  &lt;li&gt;babel은 코드를 호환성 있게 만들어줍니다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;.babelrc 파일을 만든뒤 node가 import를 인식할 수 있도록 아래와 같은 코드를 입력합니다.&lt;/p&gt;
+
+    &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;presets&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@babel/preset-env&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;@babel/node와 @babel/preset-env, @babel/core를 설치하여 babel을 세팅합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-환경변수-설정하기&quot;&gt;5. 환경변수 설정하기&lt;/h3&gt;
+
+&lt;p&gt;로컬서버를 사용하기위한 PORT와 같은 환경변수를 설정해주는 작업을 해야합니다. 이러한 환경변수들은 따로 .env파일을 통해 관리합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;.env파일을 src 폴더에 만든 뒤 설정할 포트 PORT = 4000을 선언합니다. 모든 환경변수들은 .env에 선언하는 것이 좋습니다.&lt;/p&gt;
+
+    &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;PORT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;server.js에서 PORT 변수를 만듭니다.&lt;/p&gt;
+
+    &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dotenv&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PORT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PORT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이때, .config()에서 아무것도 입력하지 않은 경우에는 .env 파일로 인식하여 실제 .env파일에는 아무내용도 입력하지 않는 것 같습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;6-typedefs-resolvers-만들기&quot;&gt;6. typeDefs, Resolvers 만들기&lt;/h3&gt;
+
+&lt;p&gt;서버를 만들기 위해서는 query를 생성해야하는데, query를 생성하기 위해서는 typeDefs과 Resolvers가 필요합니다.
+그 Type과 Resolvers를 Server.js안에 우선 만들어보도록 하겠습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//typeDefs&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;typeDefs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`type Query{ hello : String! }`&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//resolvers&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolvers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;Query&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;hello&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GraphQLServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;typeDefs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolvers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;port&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PORT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`server is running http://localhost:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PORT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;7-마무리&quot;&gt;7. 마무리&lt;/h3&gt;
+
+&lt;p&gt;yarn dev를 하면 server is running http://localhost:4000 라는 메시지가 뜨며 서버가 동작합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이슈&quot;&gt;이슈&lt;/h2&gt;
+
+&lt;p&gt;Requires Babel “^7.0.0-0”, but was loaded with “6.26.3”.&lt;br /&gt;
+If you are sure you have a compatible version of @babel/core, it is likely that something in your build process is loading the wrong version.&lt;/p&gt;
+
+&lt;p&gt;에러 발생. -&amp;gt; yarn global remove babel-cli로 해결&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry></feed>
