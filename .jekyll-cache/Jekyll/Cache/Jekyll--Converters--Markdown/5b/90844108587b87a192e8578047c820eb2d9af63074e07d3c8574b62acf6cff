@@ -1,0 +1,66 @@
+I"<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+
+<h2 id="1-graphql-파일-생성하기">1. graphql 파일 생성하기</h2>
+
+<p>prisma와 graphql의 연결을 위해서는 graphql 파일이 필요합니다.</p>
+
+<p>api폴더에 models.graphql 파일을 만들어줍니다.</p>
+
+<p>datamodel.prisma에 있던 내용을 모두 복사해서 models.graphql파일에 넣습니다.</p>
+
+<p>이때 graphql에서는 @를 인식하지 못하기 때문에 꼭 @id, @unique, @relation을 삭제해주셔야 합니다.</p>
+
+<h2 id="2-fragment">2. $fragment</h2>
+
+<p>prisma는 무한 query 공격을 막기 위해서 $fragment를 사용합니다.<br />
+아래 예시를 봅시다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">deploy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn prisma deploy</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">generate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn prisma generate</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">do</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn run deploy &amp;&amp; yarn run generate</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">dev</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nodemon --exec babel-node src/server.js”
+</span></code></pre></div></div>
+
+<p>js파일에</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">prisma</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../../../generated/prisma-client</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="na">Query</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="na">hello</span> <span class="p">:</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">await</span> <span class="nx">prisma</span><span class="p">.</span><span class="nx">users</span><span class="p">());</span>
+            <span class="k">return</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="3-prismayml-살펴보기">3. prisma.yml 살펴보기</h2>
+
+<p>prisma.yml 파일을 보면…</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">endpoint:</span><span class="w"> </span><span class="err">https://us1.prisma.sh/blablabla....</span><span class="w">
+</span><span class="err">datamodel:</span><span class="w"> </span><span class="err">datamodel.prisma</span><span class="w">
+
+</span><span class="err">generate:</span><span class="w">
+  </span><span class="err">-</span><span class="w"> </span><span class="err">generator:</span><span class="w"> </span><span class="err">javascript-client</span><span class="w">
+    </span><span class="err">output:</span><span class="w"> </span><span class="err">./generated/prisma-client/</span><span class="w">
+</span></code></pre></div></div>
+
+<p>generated 폴더에 있는 index, prisma-schema 파일을 통해 prisma와 정보를 주고받습니다.</p>
+
+<h2 id="이슈">이슈</h2>
+
+<p>prisma.yml파일은 git에 커밋하면 안됩니다. 여기에 endpoint url이 있는데 endpoint에서 모든 데이터를 조회할 수 있기 때문에 .gitignore에 추가합니다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Next.js build output
+</span><span class="o">.</span><span class="nb">next</span>
+<span class="n">generated</span>
+<span class="n">prisma</span><span class="o">.</span><span class="n">yml</span>
+</code></pre></div></div>
+
+<p>만약 prisma에 문제가 생긴다면 모든 서비스와 url을 변경해야 합니다.</p>
+
+<p>스크립트에 do 대신에 prisma로 할 경우 스크립트 실행할 때 무한루프가 발생합니다.<br />
+prisma 명령어가 콘솔에서 안먹는 경우에 yarn prisma를 해서 생기는데,<br />
+prisma 대신에 do나 다른 스크립트로 대체하면 됩니다.</p>
+:ET

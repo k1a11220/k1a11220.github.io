@@ -1,4 +1,115 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://k1a11220.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://k1a11220.github.io/" rel="alternate" type="text/html" /><updated>2020-03-26T18:38:32+09:00</updated><id>http://k1a11220.github.io/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[prismagram] [BackEnd] 3. Prisma Datamodel 만들기</title><link href="http://k1a11220.github.io/prismagram/prismagram-3/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 3. Prisma Datamodel 만들기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://k1a11220.github.io/prismagram/prismagram-3</id><content type="html" xml:base="http://k1a11220.github.io/prismagram/prismagram-3/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-27T12:18:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[prismagram] [BackEnd] 5. prisma와 graphql의 연결</title><link href="http://localhost:4000/prismagram/prismagram-5/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 5. prisma와 graphql의 연결" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-5</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-5/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-graphql-파일-생성하기&quot;&gt;1. graphql 파일 생성하기&lt;/h2&gt;
+
+&lt;p&gt;prisma와 graphql의 연결을 위해서는 graphql 파일이 필요합니다.&lt;/p&gt;
+
+&lt;p&gt;api폴더에 models.graphql 파일을 만들어줍니다.&lt;/p&gt;
+
+&lt;p&gt;datamodel.prisma에 있던 내용을 모두 복사해서 models.graphql파일에 넣습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-5/prisma.png&quot; alt=&quot;prisma&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이때 graphql에서는 @를 인식하지 못하기 때문에 꼭 @id, @unique, @relation을 삭제해주셔야 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-5/graphql.png&quot; alt=&quot;graphql&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-fragment&quot;&gt;2. $fragment&lt;/h2&gt;
+
+&lt;p&gt;prisma는 무한 query 공격을 막기 위해서 $fragment를 사용합니다.&lt;br /&gt;
+아래 예시를 봅시다.&lt;/p&gt;
+
+&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;userById(&quot;sdasasd&quot;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;얼핏보면 문제가 없는 것 같지만&lt;/p&gt;
+
+&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;userById(&quot;sdasasd&quot;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이런식으로 코드를 짜면 무한query 공격이 올 수 있기 때문에 $fragment를 사용하는 것입니다.&lt;/p&gt;
+
+&lt;p&gt;$fragment에 대해서는 따로 정리하도록 하겠습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기</title><link href="http://localhost:4000/prismagram/prismagram-4/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-4</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-4/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-prisma-client&quot;&gt;1. Prisma client&lt;/h2&gt;
+
+&lt;p&gt;Prisma와 api를 연결하기 위해서는 Prisma client가 필요합니다.&lt;br /&gt;
+예를들면 영화 api처럼 Prisma에서 정의한 데이터를 쉽게 가져올 수 있도록 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add prisma-client-lib
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-스크립트-추가&quot;&gt;2. 스크립트 추가&lt;/h2&gt;
+
+&lt;p&gt;package.json에서 다음과 같은 스크립트를 추가합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yarn prisma deploy&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yarn prisma generate&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;do&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yarn run deploy &amp;amp;&amp;amp; yarn run generate&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;nodemon --exec babel-node src/server.js”
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;js파일에&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;../../../generated/prisma-client&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;Query&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;hello&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-prismayml-살펴보기&quot;&gt;3. prisma.yml 살펴보기&lt;/h2&gt;
+
+&lt;p&gt;prisma.yml 파일을 보면…&lt;/p&gt;
+
+&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;endpoint:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;https://us1.prisma.sh/blablabla....&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;datamodel:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;datamodel.prisma&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;generate:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;generator:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;javascript-client&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;output:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;./generated/prisma-client/&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;generated 폴더에 있는 index, prisma-schema 파일을 통해 prisma와 정보를 주고받습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이슈&quot;&gt;이슈&lt;/h2&gt;
+
+&lt;p&gt;prisma.yml파일은 git에 커밋하면 안됩니다. 여기에 endpoint url이 있는데 endpoint에서 모든 데이터를 조회할 수 있기 때문에 .gitignore에 추가합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Next.js build output
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;generated&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yml&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;만약 prisma에 문제가 생긴다면 모든 서비스와 url을 변경해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;스크립트에 do 대신에 prisma로 할 경우 스크립트 실행할 때 무한루프가 발생합니다.&lt;br /&gt;
+prisma 명령어가 콘솔에서 안먹는 경우에 yarn prisma를 해서 생기는데,&lt;br /&gt;
+prisma 대신에 do나 다른 스크립트로 대체하면 됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 3. Prisma Datamodel 만들기</title><link href="http://localhost:4000/prismagram/prismagram-3/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 3. Prisma Datamodel 만들기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-3</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-3/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;1-prisma란&quot;&gt;1. Prisma란?&lt;/h2&gt;
 
@@ -62,7 +173,7 @@ Prisma에서 프로젝트를 만든 뒤 로컬 파일과의 연동이 필요합�
     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기</title><link href="http://k1a11220.github.io/prismagram/prismagram-2/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://k1a11220.github.io/prismagram/prismagram-2</id><content type="html" xml:base="http://k1a11220.github.io/prismagram/prismagram-2/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기</title><link href="http://localhost:4000/prismagram/prismagram-2/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-2</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-2/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;1-morgan-설치하기&quot;&gt;1. morgan 설치하기&lt;/h2&gt;
 
@@ -128,7 +239,7 @@ makeExecutabelSchema : type, resolver를 schema 형태로 만들어 줍니다.&l
 &lt;h2 id=&quot;이슈&quot;&gt;이슈&lt;/h2&gt;
 
 &lt;p&gt;Query를 찾을 수 없다고 하는 에러.&lt;br /&gt;
-server.js, schema.js파일은 api 밖에 있어야 합니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈</title><link href="http://k1a11220.github.io/issue/Issue-4/" rel="alternate" type="text/html" title="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue-4</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue-4/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+server.js, schema.js파일은 api 밖에 있어야 합니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈</title><link href="http://localhost:4000/issue/Issue-4/" rel="alternate" type="text/html" title="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-4</id><content type="html" xml:base="http://localhost:4000/issue/Issue-4/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
 
 &lt;p&gt;Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다.&lt;br /&gt;
 Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다.&lt;/p&gt;
@@ -166,7 +277,7 @@ Catalog
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] react build시 index.html 빈화면이 나오는 이슈</title><link href="http://k1a11220.github.io/issue/Issue-3/" rel="alternate" type="text/html" title="[Issue] react build시 index.html 빈화면이 나오는 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue-3</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue-3/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+&lt;p&gt;이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] react build시 index.html 빈화면이 나오는 이슈</title><link href="http://localhost:4000/issue/Issue-3/" rel="alternate" type="text/html" title="[Issue] react build시 index.html 빈화면이 나오는 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-3</id><content type="html" xml:base="http://localhost:4000/issue/Issue-3/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
 
 &lt;p&gt;index.html에서의 static/js와 css 경로가 잘못되었기 때문입니다.&lt;br /&gt;
 chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류가 나옵니다.&lt;/p&gt;
@@ -187,80 +298,19 @@ chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류�
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/2.fc65b5d6.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/main.6527b855.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;이렇게 수정해주시면 문제없이 출력됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기</title><link href="http://k1a11220.github.io/prismagram/prismagram-4/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://k1a11220.github.io/prismagram/prismagram-4</id><content type="html" xml:base="http://k1a11220.github.io/prismagram/prismagram-4/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;1-prisma-client&quot;&gt;1. Prisma client&lt;/h2&gt;
-
-&lt;p&gt;Prisma와 api를 연결하기 위해서는 Prisma client가 필요합니다.&lt;br /&gt;
-예를들면 영화 api처럼 Prisma에서 정의한 데이터를 쉽게 가져올 수 있도록 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add prisma-client-lib
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;2-스크립트-추가&quot;&gt;2. 스크립트 추가&lt;/h2&gt;
-
-&lt;p&gt;package.json에서 다음과 같은 스크립트를 추가합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yarn prisma deploy&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yarn prisma generate&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;do&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yarn run deploy &amp;amp;&amp;amp; yarn run generate&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;nodemon --exec babel-node src/server.js”
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;js파일에&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;../../../generated/prisma-client&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;Query&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;hello&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;3-prismayml-살펴보기&quot;&gt;3. prisma.yml 살펴보기&lt;/h2&gt;
-
-&lt;p&gt;prisma.yml 파일을 보면…&lt;/p&gt;
-
-&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;endpoint:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;https://us1.prisma.sh/blablabla....&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;datamodel:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;datamodel.prisma&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;generate:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;generator:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;javascript-client&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;output:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;./generated/prisma-client/&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;generated 폴더에 있는 index, prisma-schema 파일을 통해 prisma와 정보를 주고받습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;이슈&quot;&gt;이슈&lt;/h2&gt;
-
-&lt;p&gt;prisma.yml파일은 git에 커밋하면 안됩니다. 여기에 endpoint url이 있는데 endpoint에서 모든 데이터를 조회할 수 있기 때문에 .gitignore에 추가합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Next.js build output
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;generated&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yml&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;만약 prisma에 문제가 생긴다면 모든 서비스와 url을 변경해야 합니다.&lt;/p&gt;
-
-&lt;p&gt;스크립트에 do 대신에 prisma로 할 경우 스크립트 실행할 때 무한루프가 발생합니다.&lt;br /&gt;
-prisma 명령어가 콘솔에서 안먹는 경우에 yarn prisma를 해서 생기는데,&lt;br /&gt;
-prisma 대신에 do나 다른 스크립트로 대체하면 됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법</title><link href="http://k1a11220.github.io/issue/Issue-2/" rel="alternate" type="text/html" title="[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법" /><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/Issue-2</id><content type="html" xml:base="http://k1a11220.github.io/issue/Issue-2/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+&lt;p&gt;이렇게 수정해주시면 문제없이 출력됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법</title><link href="http://localhost:4000/issue/Issue-2/" rel="alternate" type="text/html" title="[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법" /><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-2</id><content type="html" xml:base="http://localhost:4000/issue/Issue-2/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
 
 &lt;p&gt;삭제된 디렉토리에서 명령을 실행할 때 생기는 오류입니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
 
-&lt;p&gt;cd ..를 통해 삭제된 디렉토리에서 나간 뒤 다시 접근하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] git fatal: remote origin already exists. 에러 해결법</title><link href="http://k1a11220.github.io/issue/issue-1/" rel="alternate" type="text/html" title="[Issue] git fatal: remote origin already exists. 에러 해결법" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://k1a11220.github.io/issue/issue-1</id><content type="html" xml:base="http://k1a11220.github.io/issue/issue-1/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+&lt;p&gt;cd ..를 통해 삭제된 디렉토리에서 나간 뒤 다시 접근하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] git fatal: remote origin already exists. 에러 해결법</title><link href="http://localhost:4000/issue/issue-1/" rel="alternate" type="text/html" title="[Issue] git fatal: remote origin already exists. 에러 해결법" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://localhost:4000/issue/issue-1</id><content type="html" xml:base="http://localhost:4000/issue/issue-1/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
 
 &lt;p&gt;깃허브에 먼저 레포지토리를 생성 후 기존 로컬에 있던 폴더를 오리진 설정시 생기는 오류입니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
 
-&lt;p&gt;따라서 이때 remote origin을 하기 전 git remote rm origin을 실행한 뒤 다시 git remote origin {link} 하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계</title><link href="http://k1a11220.github.io/engineering/jig/" rel="alternate" type="text/html" title="[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://k1a11220.github.io/engineering/jig</id><content type="html" xml:base="http://k1a11220.github.io/engineering/jig/">&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;따라서 이때 remote origin을 하기 전 git remote rm origin을 실행한 뒤 다시 git remote origin {link} 하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계</title><link href="http://localhost:4000/engineering/jig/" rel="alternate" type="text/html" title="[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://localhost:4000/engineering/jig</id><content type="html" xml:base="http://localhost:4000/engineering/jig/">&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;개요&quot;&gt;개요&lt;/h2&gt;
 
@@ -346,7 +396,7 @@ DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였�
 &lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;
 &lt;img src=&quot;/assets/2020-03-23/assy-2.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;어셈블리상에서 확인되는 간섭이 없습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="기구설계" /><category term="사다리꼴 나사" /><summary type="html">개요 파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다. 드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다. 1. 사다리꼴나사란 정의 “사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다. 나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다. 이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다. 2. 사다리꼴나사 선정 TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다. 210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다. 사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다. 3. 고정부 설계 제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다. - 초기상태에서 드릴은 올라가 있어야 함. - 나사가 안정적으로 고정되어야 함. - 사람이 직접 운동을 전달할 수 있어야 함. - 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함. 위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다. - 스프링을 사용하여 항상 힘을 받아 올라가 있게 함. - 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함. - 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함. - DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌. 스프링 설치부분 4. 스프링 선정 및 관련부품 설계. 초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다. 4. DU부시, 베어링 선정, 핸들 수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다. DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다. 가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다. DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다. 베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다. 5. 어셈블리 구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다. 어셈블리상에서 확인되는 간섭이 없습니다.</summary></entry><entry><title type="html">[prismagram] [BackEnd] 1. 프로젝트 생성, 셋업하기</title><link href="http://k1a11220.github.io/prismagram/prismagram-1/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 1. 프로젝트 생성, 셋업하기" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://k1a11220.github.io/prismagram/prismagram-1</id><content type="html" xml:base="http://k1a11220.github.io/prismagram/prismagram-1/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;어셈블리상에서 확인되는 간섭이 없습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="기구설계" /><category term="사다리꼴 나사" /><summary type="html">개요 파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다. 드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다. 1. 사다리꼴나사란 정의 “사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다. 나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다. 이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다. 2. 사다리꼴나사 선정 TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다. 210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다. 사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다. 3. 고정부 설계 제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다. - 초기상태에서 드릴은 올라가 있어야 함. - 나사가 안정적으로 고정되어야 함. - 사람이 직접 운동을 전달할 수 있어야 함. - 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함. 위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다. - 스프링을 사용하여 항상 힘을 받아 올라가 있게 함. - 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함. - 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함. - DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌. 스프링 설치부분 4. 스프링 선정 및 관련부품 설계. 초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다. 4. DU부시, 베어링 선정, 핸들 수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다. DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다. 가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다. DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다. 베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다. 5. 어셈블리 구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다. 어셈블리상에서 확인되는 간섭이 없습니다.</summary></entry><entry><title type="html">[prismagram] [BackEnd] 1. 프로젝트 생성, 셋업하기</title><link href="http://localhost:4000/prismagram/prismagram-1/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 1. 프로젝트 생성, 셋업하기" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-1</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-1/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;프로젝트-셋업하기&quot;&gt;프로젝트 셋업하기&lt;/h2&gt;
 
@@ -461,41 +511,4 @@ DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였�
 &lt;p&gt;Requires Babel “^7.0.0-0”, but was loaded with “6.26.3”.&lt;br /&gt;
 If you are sure you have a compatible version of @babel/core, it is likely that something in your build process is loading the wrong version.&lt;/p&gt;
 
-&lt;p&gt;에러 발생. -&amp;gt; yarn global remove babel-cli로 해결&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] 인스타그램 클론코딩</title><link href="http://k1a11220.github.io/prismagram/prismagram-0/" rel="alternate" type="text/html" title="[prismagram] 인스타그램 클론코딩" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://k1a11220.github.io/prismagram/prismagram-0</id><content type="html" xml:base="http://k1a11220.github.io/prismagram/prismagram-0/">&lt;h1 id=&quot;인스타그램-클론코딩&quot;&gt;인스타그램 클론코딩&lt;/h1&gt;
-
-&lt;p&gt;Nomad Coders에서 제공하는 Prismagram 프로젝트.
-인스타그렘을 클론코딩하며 백엔드와 프론트엔드를 직접 구현해보며, 풀스택 개발을 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;풀스택 개발자가 되기 위해 시작하는 첫 번쨰 클론코딩.
-10주완성을 목표로 하고, 완료 후에는 바로 사이드프로젝트를 하나 만들어 응용해볼 예정.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;gu&quot;&gt;## 백엔드&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;
--&lt;/span&gt; Prisma, GraphQL을 사용하여 서버구성
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Express와 NodeJS Passport JWT를 사용하여 인증절차 구현
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; AWS S3를 사용하여 웹 스토리지 사용
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; Apollo를 사용하여 컴포넌트 렌더링
-
-&lt;span class=&quot;gu&quot;&gt;## 프론트엔트&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;
--&lt;/span&gt; ReactJS, React Hooks를 사용하여 프론트엔드 구현
-
-&lt;span class=&quot;gu&quot;&gt;## 앱&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;
--&lt;/span&gt; React Native, expo를 사용하여 앱개발
-
-&lt;span class=&quot;gu&quot;&gt;## 배포&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;
--&lt;/span&gt; Netlify, Heroku를 사용하여 배포
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h1 id=&quot;일정&quot;&gt;일정&lt;/h1&gt;
-
-&lt;p&gt;블로그 게시글은 핵심 포인트만 정리하여 올릴 예정.&lt;/p&gt;
-
-&lt;p&gt;깃허브 커밋은 강의 끝날때마다, 이슈가 생겼을 때.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 1~ 3주차: 백엔드 개발
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 3~ 6주차: 프론트엔드 개발
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 6~ 10주차: 앱개발, 배포
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">인스타그램 클론코딩</summary></entry></feed>
+&lt;p&gt;에러 발생. -&amp;gt; yarn global remove babel-cli로 해결&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry></feed>

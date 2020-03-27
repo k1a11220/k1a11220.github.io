@@ -20,7 +20,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="범수의 기술 블로그">
 <meta property="og:title" content="[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계">
-<meta property="og:url" content="http://k1a11220.github.io/engineering/jig/">
+<meta property="og:url" content="http://localhost:4000/engineering/jig/">
 
 
   <meta property="og:description" content="  개요  파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다.  드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다.  1. 사다리꼴나사란    정의          “사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다.           나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다.      이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다.  2. 사다리꼴나사 선정  TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다.  210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다.  사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다.    3. 고정부 설계  제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다.  - 초기상태에서 드릴은 올라가 있어야 함. - 나사가 안정적으로 고정되어야 함. - 사람이 직접 운동을 전달할 수 있어야 함. - 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함.     위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다.  - 스프링을 사용하여 항상 힘을 받아 올라가 있게 함. - 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함. - 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함. - DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌.      스프링 설치부분  4. 스프링 선정 및 관련부품 설계.  초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다.    4. DU부시, 베어링 선정, 핸들  수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다.  DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다.  가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다.   DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다.    베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다.    5. 어셈블리  구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다.     어셈블리상에서 확인되는 간섭이 없습니다. ">
@@ -42,7 +42,7 @@
   
 
 
-<link rel="canonical" href="http://k1a11220.github.io/engineering/jig/">
+<link rel="canonical" href="http://localhost:4000/engineering/jig/">
 
 
 
@@ -53,7 +53,7 @@
     
       "@type": "Person",
       "name": "Beomsoo",
-      "url": "http://k1a11220.github.io/"
+      "url": "http://localhost:4000/"
     
   }
 </script>
@@ -449,11 +449,11 @@ DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였�
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BEngineering%5D+1.+%EC%82%AC%EB%8B%A4%EB%A6%AC%EA%BC%B4%28TR%29%EB%82%98%EC%82%AC%EB%A5%BC+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EC%A7%80%EA%B7%B8%EC%84%A4%EA%B3%84%20http%3A%2F%2Fk1a11220.github.io%2Fengineering%2Fjig%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BEngineering%5D+1.+%EC%82%AC%EB%8B%A4%EB%A6%AC%EA%BC%B4%28TR%29%EB%82%98%EC%82%AC%EB%A5%BC+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EC%A7%80%EA%B7%B8%EC%84%A4%EA%B3%84%20http%3A%2F%2Flocalhost%3A4000%2Fengineering%2Fjig%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fk1a11220.github.io%2Fengineering%2Fjig%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fengineering%2Fjig%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fk1a11220.github.io%2Fengineering%2Fjig%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fengineering%2Fjig%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -472,15 +472,6 @@ DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였�
     </div>
 
     
-      <div class="page__comments">
-  
-  
-      <h4 class="page__comments-title">댓글남기기</h4>
-      <section id="disqus_thread"></section>
-    
-</div>
-
-    
   </article>
 
   
@@ -488,6 +479,29 @@ DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였�
     <div class="page__related">
       <h4 class="page__related-title">참고</h4>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/prismagram/prismagram-5/" rel="permalink">[prismagram] [BackEnd] 5. prisma와 graphql의 연결
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 27 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">모든 내용은 MacOS Catalina 기준으로 작성되었습니다
+</p>
+  </article>
+</div>
+
         
           
 
@@ -558,29 +572,6 @@ DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였�
 </div>
 
         
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/issue/Issue-4/" rel="permalink">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈
-</a>
-      
-    </h2>
-    
-    
-       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 26 2020</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">원인
-</p>
-  </article>
-</div>
-
-        
       </div>
     </div>
   
@@ -640,7 +631,7 @@ DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였�
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://k1a11220.github.io/engineering/jig/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.url = "http://localhost:4000/engineering/jig/";  /* Replace PAGE_URL with your page's canonical URL variable */
       this.page.identifier = "/engineering/jig"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
