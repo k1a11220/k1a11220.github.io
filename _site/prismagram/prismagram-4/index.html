@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈 - 범수의 기술 블로그</title>
-<meta name="description" content="원인 ">
+<!-- begin _includes/seo.html --><title>[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기 - 범수의 기술 블로그</title>
+<meta name="description" content="모든 내용은 MacOS Catalina 기준으로 작성되었습니다 ">
 
 
   <meta name="author" content="Beomsoo">
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="범수의 기술 블로그">
-<meta property="og:title" content="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈">
-<meta property="og:url" content="http://k1a11220.github.io/issue/Issue-4/">
+<meta property="og:title" content="[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기">
+<meta property="og:url" content="http://k1a11220.github.io/prismagram/prismagram-4/">
 
 
-  <meta property="og:description" content="원인 ">
+  <meta property="og:description" content="모든 내용은 MacOS Catalina 기준으로 작성되었습니다 ">
 
 
 
@@ -35,6 +35,8 @@
 
 
 
+  <meta property="article:modified_time" content="2020-03-26T00:00:00+09:00">
+
 
 
   
@@ -42,7 +44,7 @@
   
 
 
-<link rel="canonical" href="http://k1a11220.github.io/issue/Issue-4/">
+<link rel="canonical" href="http://k1a11220.github.io/prismagram/prismagram-4/">
 
 
 
@@ -281,15 +283,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈">
-    <meta itemprop="description" content="원인">
+    <meta itemprop="headline" content="[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기">
+    <meta itemprop="description" content="모든 내용은 MacOS Catalina 기준으로 작성되었습니다">
     <meta itemprop="datePublished" content="2020-03-26T00:00:00+09:00">
-    
+    <meta itemprop="dateModified" content="2020-03-26T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈
+          <h1 id="page-title" class="page__title" itemprop="headline">[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기
 </h1>
           
             
@@ -301,45 +303,68 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="원인">원인</h2>
+        <p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
 
-<p>Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다.<br />
-Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다.</p>
+<h2 id="1-prisma-client">1. Prisma client</h2>
 
-<h3 id="간단한-예시">간단한 예시</h3>
-<p>A페이지에서 사용자가 blank 속성의 테그를 클릭하여 B페이지로 이동 -&gt; 다시 A페이지로 돌아왔을 때는 A페이지 처럼 보이는 피싱사이트로 바뀜.
-<img src="/assets/2020-03-26-Issue4/sample.JPG" alt="error" /></p>
+<p>Prisma와 api를 연결하기 위해서는 Prisma client가 필요합니다.<br />
+예를들면 영화 api처럼 Prisma에서 정의한 데이터를 쉽게 가져올 수 있도록 합니다.</p>
 
-<h2 id="해결방법">해결방법</h2>
-
-<p>target=”_blank” 와 rel=”noopener noreferrer”을 같이 적용하여 문제를 해결합니다.<br />
-rel=”noopener noreferrer”는 rel=noopener 속성이 부여된 링크를 통해 열린 페이지는 opener의 location변경과 같은 자바스크립트 요청을 거부합니다.<br />
-쉽게 말씀드리자면 A페이지의 정보를 바꾸지 못한다는 뜻 입니다.</p>
-
-<p>따라서 아래와 같은 코드에 noopener 속성을 추가합니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span>
-<span class="na">className=</span><span class="s">"black"</span>
-<span class="na">target=</span><span class="s">"_blank"</span>
-<span class="na">href=</span><span class="s">"https://drive.google.com/"</span>
-<span class="nt">&gt;</span>
-Catalog
-<span class="nt">&lt;/a&gt;</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add prisma-client-lib
 </code></pre></div></div>
 
-<p>이렇게요!</p>
+<h2 id="2-스크립트-추가">2. 스크립트 추가</h2>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span>
-<span class="na">className=</span><span class="s">"black"</span>
-<span class="na">target=</span><span class="s">"_blank"</span>
-<span class="na">rel=</span><span class="s">"noopener noreferrer"</span>
-<span class="na">href=</span><span class="s">"https://drive.google.com/"</span>
-<span class="nt">&gt;</span>
-Catalog
-<span class="nt">&lt;/a&gt;</span>
+<p>package.json에서 다음과 같은 스크립트를 추가합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">deploy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn prisma deploy</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">generate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn prisma generate</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">do</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn run deploy &amp;&amp; yarn run generate</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">dev</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nodemon --exec babel-node src/server.js”
+</span></code></pre></div></div>
+
+<p>js파일에</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">prisma</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../../../generated/prisma-client</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="na">Query</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="na">hello</span> <span class="p">:</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">await</span> <span class="nx">prisma</span><span class="p">.</span><span class="nx">users</span><span class="p">());</span>
+            <span class="k">return</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
-<p>이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.</p>
+<h2 id="3-prismayml-살펴보기">3. prisma.yml 살펴보기</h2>
+
+<p>prisma.yml 파일을 보면…</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">endpoint:</span><span class="w"> </span><span class="err">https://us1.prisma.sh/blablabla....</span><span class="w">
+</span><span class="err">datamodel:</span><span class="w"> </span><span class="err">datamodel.prisma</span><span class="w">
+
+</span><span class="err">generate:</span><span class="w">
+  </span><span class="err">-</span><span class="w"> </span><span class="err">generator:</span><span class="w"> </span><span class="err">javascript-client</span><span class="w">
+    </span><span class="err">output:</span><span class="w"> </span><span class="err">./generated/prisma-client/</span><span class="w">
+</span></code></pre></div></div>
+
+<p>generated 폴더에 있는 index, prisma-schema 파일을 통해 prisma와 정보를 주고받습니다.</p>
+
+<h2 id="이슈">이슈</h2>
+
+<p>prisma.yml파일은 git에 커밋하면 안됩니다. 여기에 endpoint url이 있는데 endpoint에서 모든 데이터를 조회할 수 있기 때문에 .gitignore에 추가합니다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Next.js build output
+</span><span class="o">.</span><span class="nb">next</span>
+<span class="n">generated</span>
+<span class="n">prisma</span><span class="o">.</span><span class="n">yml</span>
+</code></pre></div></div>
+
+<p>만약 prisma에 문제가 생긴다면 모든 서비스와 url을 변경해야 합니다.</p>
+
+<p>스크립트에 do 대신에 prisma로 할 경우 스크립트 실행할 때 무한루프가 발생합니다.<br />
+prisma 명령어가 콘솔에서 안먹는 경우에 yarn prisma를 해서 생기는데,<br />
+prisma 대신에 do나 다른 스크립트로 대체하면 됩니다.</p>
 
         
       </section>
@@ -385,14 +410,14 @@ Catalog
     
       
       
-      <a href="/categories/#issue" class="page__taxonomy-item" rel="tag">Issue</a>
+      <a href="/categories/#prismagram" class="page__taxonomy-item" rel="tag">prismagram</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-03-26T00:00:00+09:00">March 26, 2020</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-03-26">March 26, 2020</time></p>
         
       </footer>
 
@@ -401,23 +426,22 @@ Catalog
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BIssue%5D+react+start+%EC%8B%9C+Using+target%3D_blank+without+rel%3Dnoopener+noreferrer+is+a+security+risk+%EC%9D%B4%EC%8A%88%20http%3A%2F%2Fk1a11220.github.io%2Fissue%2FIssue-4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5Bprismagram%5D+%5BBackEnd%5D+4.+Prisma%EC%97%90%EC%84%9C+%EB%8D%B0%EC%9D%B4%ED%84%B0+%EB%B0%9B%EC%95%84%EC%98%A4%EA%B8%B0%20http%3A%2F%2Fk1a11220.github.io%2Fprismagram%2Fprismagram-4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fk1a11220.github.io%2Fissue%2FIssue-4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fk1a11220.github.io%2Fprismagram%2Fprismagram-4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fk1a11220.github.io%2Fissue%2FIssue-4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fk1a11220.github.io%2Fprismagram%2Fprismagram-4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/issue/Issue-3/" class="pagination--pager" title="[Issue] react build시 index.html 빈화면이 나오는 이슈
+      <a href="/prismagram/prismagram-3/" class="pagination--pager" title="[prismagram] [BackEnd] 3. Prisma Datamodel 만들기
 ">이전</a>
     
     
-      <a href="/prismagram/prismagram-2/" class="pagination--pager" title="[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -440,29 +464,6 @@ Catalog
     <div class="page__related">
       <h4 class="page__related-title">참고</h4>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/prismagram/prismagram-4/" rel="permalink">[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기
-</a>
-      
-    </h2>
-    
-    
-       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 26 2020</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">모든 내용은 MacOS Catalina 기준으로 작성되었습니다
-</p>
-  </article>
-</div>
-
         
           
 
@@ -505,6 +506,29 @@ Catalog
        <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 26 2020</p>
     
     <p class="archive__item-excerpt" itemprop="description">모든 내용은 MacOS Catalina 기준으로 작성되었습니다
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/issue/Issue-4/" rel="permalink">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 26 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">원인
 </p>
   </article>
 </div>
@@ -592,8 +616,8 @@ Catalog
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://k1a11220.github.io/issue/Issue-4/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/issue/Issue-4"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://k1a11220.github.io/prismagram/prismagram-4/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/prismagram/prismagram-4"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

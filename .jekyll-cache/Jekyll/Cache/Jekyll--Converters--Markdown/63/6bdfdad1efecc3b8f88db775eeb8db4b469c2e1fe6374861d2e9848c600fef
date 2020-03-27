@@ -1,0 +1,66 @@
+I"�<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+
+<h2 id="1-prisma-client">1. Prisma client</h2>
+
+<p>Prisma와 api를 연결하기 위해서는 Prisma client가 필요합니다.<br />
+예를들면 영화 api처럼 Prisma에서 정의한 데이터를 쉽게 가져올 수 있도록 합니다.</p>
+
+<h2 id="2-스크립트-추가">2. 스크립트 추가</h2>
+
+<p>package.json에서 다음과 같은 스크립트를 추가합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">deploy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn prisma deploy</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">generate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn prisma generate</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">do</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn run deploy &amp;&amp; yarn run generate</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">dev</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nodemon --exec babel-node src/server.js”
+</span></code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">User</span> <span class="p">{</span>
+    <span class="nl">Id</span><span class="p">:</span> <span class="nx">ID</span><span class="o">!</span> <span class="p">@</span><span class="nd">id</span>
+    <span class="nx">Name</span><span class="p">:</span> <span class="nb">String</span><span class="o">!</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>기본적으로 User가 생성되어 있습니다.<br />
+만약, 여기에 인스타그램처럼 following과 follwers를 만들려고 한다면 아래처럼 만들면 된다.</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">!</span><span class="w"> </span><span class="err">@</span><span class="n">id</span><span class="w">
+  </span><span class="n">following</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">User</span><span class="p">!]!</span><span class="w"> </span><span class="err">@</span><span class="n">relation</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="err">"</span><span class="n">FollowRelation</span><span class="err">"</span><span class="p">)</span><span class="w">
+  </span><span class="n">followers</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">User</span><span class="p">!]!</span><span class="w"> </span><span class="err">@</span><span class="n">relation</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="err">"</span><span class="n">FollowRelation</span><span class="err">"</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>이때 @relation이란 말 그대로 연관되어 있는 Data입니다. 이는 나중에 Prisma 프로젝트를 통해 따로 정리하겠습니다.</p>
+
+<h2 id="이슈">이슈</h2>
+
+<p>아래처럼 Datamodel 작성시 type마다 id를 부여하지 않아서 에러가 발생합니다.</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">Id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">!</span><span class="w"> </span><span class="err">@</span><span class="n">id</span><span class="w">
+    </span><span class="n">Name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="k">type</span><span class="w"> </span><span class="n">Comment</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">user</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">User</span><span class="p">!</span><span class="w">
+    </span><span class="n">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!</span><span class="w">
+    </span><span class="n">post</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Post</span><span class="p">!</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>따라서 모든 type에 id를 추가하여 에러를 해결할 수 있습니다.</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">Id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">!</span><span class="w"> </span><span class="err">@</span><span class="n">id</span><span class="w">
+    </span><span class="n">Name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="k">type</span><span class="w"> </span><span class="n">Comment</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">Id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">!</span><span class="w"> </span><span class="err">@</span><span class="n">id</span><span class="w">
+    </span><span class="n">user</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">User</span><span class="p">!</span><span class="w">
+    </span><span class="n">text</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!</span><span class="w">
+    </span><span class="n">post</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Post</span><span class="p">!</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+:ET

@@ -58,4 +58,10 @@ var store = [{
         "tags": ["Develop","Issue"],
         "url": "http://k1a11220.github.io/prismagram/prismagram-3/",
         "teaser": null
+      },{
+        "title": "[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기",
+        "excerpt":"모든 내용은 MacOS Catalina 기준으로 작성되었습니다 1. Prisma client Prisma와 api를 연결하기 위해서는 Prisma client가 필요합니다. 예를들면 영화 api처럼 Prisma에서 정의한 데이터를 쉽게 가져올 수 있도록 합니다. yarn add prisma-client-lib 2. 스크립트 추가 package.json에서 다음과 같은 스크립트를 추가합니다. \"deploy\": \"yarn prisma deploy\", \"generate\": \"yarn prisma generate\", \"do\": \"yarn run deploy...","categories": ["prismagram"],
+        "tags": ["Develop","Issue"],
+        "url": "http://k1a11220.github.io/prismagram/prismagram-4/",
+        "teaser": null
       }]

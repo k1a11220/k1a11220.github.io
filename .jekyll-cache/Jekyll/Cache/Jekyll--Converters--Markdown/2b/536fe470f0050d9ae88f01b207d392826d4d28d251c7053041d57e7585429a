@@ -1,0 +1,47 @@
+I"w<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+
+<h2 id="1-prisma-client">1. Prisma client</h2>
+
+<p>Prisma와 api를 연결하기 위해서는 Prisma client가 필요합니다.<br />
+예를들면 영화 api처럼 Prisma에서 정의한 데이터를 쉽게 가져올 수 있도록 합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add prisma-client-lib
+</code></pre></div></div>
+
+<h2 id="2-스크립트-추가">2. 스크립트 추가</h2>
+
+<p>package.json에서 다음과 같은 스크립트를 추가합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">deploy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn prisma deploy</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">generate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn prisma generate</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">do</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">yarn run deploy &amp;&amp; yarn run generate</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">dev</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nodemon --exec babel-node src/server.js”
+</span></code></pre></div></div>
+
+<p>js파일에</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">prisma</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../../../generated/prisma-client</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="na">Query</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="na">hello</span> <span class="p">:</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">await</span> <span class="nx">prisma</span><span class="p">.</span><span class="nx">users</span><span class="p">());</span>
+            <span class="k">return</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="이슈">이슈</h2>
+
+<p>prisma.yml파일은 git에 커밋하면 안됩니다. 여기에 endpoint url이 있는데 endpoint에서 모든 데이터를 조회할 수 있기 때문에 .gitignore에 추가합니다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Next.js build output
+</span><span class="o">.</span><span class="nb">next</span>
+<span class="n">generated</span>
+<span class="n">prisma</span><span class="o">.</span><span class="n">yml</span>
+
+</code></pre></div></div>
+
+<p>스크립트에 do 대신에 prisma로 할 경우 스크립트 실행할 때 무한루프가 발생합니다.<br />
+prisma 명령어가 콘솔에서 안먹는 경우에 yarn prisma를 해서 생기는데,<br />
+prisma 대신에 do나 다른 스크립트로 대체하면 됩니다.</p>
+:ET
