@@ -1,0 +1,42 @@
+I"	<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+
+<h2 id="1-createaccount">1. createAccount</h2>
+
+<p>본격적으로 백엔드의 기능들을 구현해봅시다.</p>
+
+<h2 id="2-fragment">2. $fragment</h2>
+
+<p>prisma는 무한 query 공격을 막기 위해서 $fragment를 사용합니다.<br />
+아래 예시를 봅시다.</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">userById("sdasasd")</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">username</span><span class="w">
+    </span><span class="n">following</span><span class="p">{</span><span class="w">
+        </span><span class="n">id</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>얼핏보면 문제가 없는 것 같지만</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">userById("sdasasd")</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">username</span><span class="w">
+    </span><span class="n">following</span><span class="p">{</span><span class="w">
+        </span><span class="n">id</span><span class="p">{</span><span class="w">
+            </span><span class="n">following</span><span class="p">{</span><span class="w">
+                </span><span class="n">id</span><span class="p">{</span><span class="w">
+                    </span><span class="n">following</span><span class="p">{</span><span class="w">
+                        </span><span class="n">id</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<p>이런식으로 코드를 짜면 무한query 공격이 올 수 있기 때문에 $fragment를 사용하는 것입니다.</p>
+
+<p>$fragment에 대해서는 따로 정리하도록 하겠습니다.</p>
+:ET

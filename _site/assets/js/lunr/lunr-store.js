@@ -70,4 +70,10 @@ var store = [{
         "tags": ["Develop"],
         "url": "http://localhost:4000/prismagram/prismagram-5/",
         "teaser": null
+      },{
+        "title": "[prismagram] [BackEnd] 6. Create Account - Part1",
+        "excerpt":"모든 내용은 MacOS Catalina 기준으로 작성되었습니다 await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다. 0. 테스트용 계정 만들기 사진업로드, 좋아요, 댓글달기 등 여려 기능을 테스트 할 계정을 prisma 어드민에서 만듭니다. 어드민창에서 + 버튼을 눌러 계정을 하나 생성합니다. api/Image 폴더를 만듭니다. Image/toogleLike라는 폴더를 만들어 이미 좋아요가 되어있으면 취소로 아이콘이 바뀌게끔 하겠습니다....","categories": ["prismagram"],
+        "tags": ["Develop"],
+        "url": "http://localhost:4000/prismagram/prismagram-6/",
+        "teaser": null
       }]
