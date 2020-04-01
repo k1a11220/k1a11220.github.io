@@ -1,0 +1,127 @@
+I"N-<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+
+<p><strong>await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.</strong></p>
+
+<h2 id="1-비밀값-요청기능">1. 비밀값 요청기능</h2>
+
+<p>사용자를 만들었으면 비밀값을 요청하고 확인하는 기능을 구현합니다.</p>
+
+<p>주로 사용하는 비밀값은 형용사+명사를 조합해서 만듭니다. ex) violent tank</p>
+
+<p>User 폴더에 requestSecret 폴더를 만듭니다.</p>
+
+<p>graphql 파일에 requestSecret Mutation을 추가합니다. 이때 Boolean 타입을 반환합니다.</p>
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span><span class="w"> </span><span class="n">Mutation</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="n">requestSecret</span><span class="p">():</span><span class="w"> </span><span class="nb">Boolean</span><span class="p">!</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>함수의 인자로는 Sting 타입의 이메일이 필요합니다.</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span><span class="w"> </span><span class="n">Mutation</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="n">requestSecret</span><span class="p">(</span><span class="n">email</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!):</span><span class="w"> </span><span class="nb">Boolean</span><span class="p">!</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>js 파일에는 async 함수로 requestSecret 함수를 만듭니다.<br />
+첫번째 인자는 필요없고, 두번째 인자는 args라고 하겠습니다.<br />
+args에서 email을 가져옵니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+	<span class="na">Mutation</span><span class="p">:</span> <span class="p">{</span>
+		<span class="na">requestSecret</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+			<span class="kd">const</span> <span class="p">{</span> <span class="nx">email</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">args</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>api 폴더 바깥에 비밀값을 생성할 함수를 만듭니다.</p>
+
+<p>src/utils.js 만든다음 단어들을 저장할 words.js를 생성합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">adjectives</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">nouns</span> <span class="o">=</span> <span class="p">[]</span>
+</code></pre></div></div>
+
+<p>utils.js에는 값를 생성할 함수를 만들어주고 단어를 import 합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">adjectives</span><span class="p">,</span> <span class="nx">nouns</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./words</span><span class="dl">"</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">genertateSecret</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">randomNumber</span> <span class="o">=</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이때 무작위로 단어를 생성하는 함수를 테스트해보겠습니다.<br />
+크롬 콘솔에서 단어들을 생성하고 Math.random 함수를 실행힙니다.<br />
+Math.random은 0에서 1사이의 무작위 수를 생성합니다.<br />
+그럼 0과 adjectives의 길이 사이의 임의의 수를 만들어줍니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">adjectives</span><span class="p">.</span><span class="nx">length</span>
+</code></pre></div></div>
+
+<p>이때 소숫점을 반내림하는 Math.floor를 추가하여 정수를 만들겠습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">adjectives</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>위에서 만든 math 함수를 utils에 추가하고 랜덤한 숫자를 반환받도록 하겠습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">adjectives</span><span class="p">,</span> <span class="nx">nouns</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./words</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">generateSecret</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="kd">const</span> <span class="nx">randomNumber</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">adjectives</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+	<span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">adjectives</span><span class="p">[</span><span class="nx">randomNumber</span><span class="p">]}</span><span class="s2"> </span><span class="p">${</span><span class="nx">nouns</span><span class="p">[</span><span class="nx">randomNumber</span><span class="p">]}</span><span class="s2">`</span><span class="p">;</span>
+<span class="p">};</span>
+
+</code></pre></div></div>
+
+<h2 id="2-함수-검증하기">2. 함수 검증하기</h2>
+
+<p>지금까지 만든 함수를 활용하여 지정된 이메일로 비밀값을 받아보겠습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">generateSecret</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../../../utils</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">prisma</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../../../../generated/prisma-client</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+	<span class="na">Mutation</span><span class="p">:</span> <span class="p">{</span>
+		<span class="na">requestSecret</span><span class="p">:</span> <span class="k">async</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+			<span class="kd">const</span> <span class="p">{</span> <span class="nx">email</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">args</span><span class="p">;</span>
+			<span class="kd">const</span> <span class="nx">loginSecret</span> <span class="o">=</span> <span class="nx">generateSecret</span><span class="p">();</span>
+			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">loginSecret</span><span class="p">);</span>
+			<span class="k">try</span> <span class="p">{</span>
+                <span class="k">await</span> <span class="nx">prisma</span><span class="p">.</span><span class="nx">updateUser</span><span class="p">({</span> <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="nx">loginSecret</span> <span class="p">},</span> <span class="na">where</span><span class="p">:</span> <span class="p">{</span> <span class="nx">email</span> <span class="p">}</span> <span class="p">});</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>이렇게 하고 localhost에서 mutation을 실행시키면</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">mutation</span> <span class="p">{</span>
+  <span class="nx">requestSecret</span><span class="p">(</span><span class="nx">email</span><span class="p">:</span><span class="dl">"</span><span class="s2">k1a11220@naver.com</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>false 에러가 나오는데 이건 datamodel에서 loginSecret을 !(필수)로 했기 때문입니다.</p>
+
+<p>prisma와 graphql 모두 바꿔줍니다.</p>
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="n">loginSecret</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="k">type</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="n">loginSecret</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>그 다음 mutation을 실행시키면 ture값이 반환되고 어드민 페이지에 들어가서 살펴보면</p>
+
+<p><img src="/assets/2020-03-27-prismagram-7/admin.png" alt="admin" /></p>
+
+<p>loginSecret값이 들어와있습니다.</p>
+:ET

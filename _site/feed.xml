@@ -1,54 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-27T14:03:41+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[prismagram] [BackEnd] 5. prisma와 graphql의 연결</title><link href="http://localhost:4000/prismagram/prismagram-5/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 5. prisma와 graphql의 연결" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-5</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-5/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-01T17:12:14+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[ETC] 압력용기 수입 인증에 관하여</title><link href="http://localhost:4000/trade/tank/" rel="alternate" type="text/html" title="[ETC] 압력용기 수입 인증에 관하여" /><published>2020-04-01T00:00:00+09:00</published><updated>2020-04-01T00:00:00+09:00</updated><id>http://localhost:4000/trade/tank</id><content type="html" xml:base="http://localhost:4000/trade/tank/">&lt;h2 id=&quot;개요&quot;&gt;개요&lt;/h2&gt;
 
-&lt;h2 id=&quot;1-graphql-파일-생성하기&quot;&gt;1. graphql 파일 생성하기&lt;/h2&gt;
+&lt;p&gt;중국에서 60L에 6Bar 짜리 압력탱크를 수입하여 사용하려고 하는데 관련 법령과 검사기준을 정리하겠습니다.&lt;/p&gt;
 
-&lt;p&gt;prisma와 graphql의 연결을 위해서는 graphql 파일이 필요합니다.&lt;/p&gt;
+&lt;h2 id=&quot;1-인증을-받아야-하는-경우&quot;&gt;1. 인증을 받아야 하는 경우&lt;/h2&gt;
 
-&lt;p&gt;api폴더에 models.graphql 파일을 만들어줍니다.&lt;/p&gt;
+&lt;p&gt;안전 및 검사기준(노동부 고시 제2001-59호) 제2조의 규정에 의하여 화학공정 유체취급용기 및 모든 사업장의 공기 및 질소저장탱크 등으로서
+사용압력이 게이지 압력으로 0.2㎏f/㎠ (20 kpa) 이상이 되고, 사용압력 (단위：㎏f/㎠)과 용기 내용적 (단위：㎥) 의 곱의 값이 1이상일 때 해당됩니다.&lt;/p&gt;
 
-&lt;p&gt;datamodel.prisma에 있던 내용을 모두 복사해서 models.graphql파일에 넣습니다.&lt;/p&gt;
+&lt;p&gt;추가로 CE인증과 같이 해외에서 인증을 받았다 하더라도 면제대상이 아니면 다시 한국에서 인증을 받아야 합니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-5/prisma.png&quot; alt=&quot;prisma&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2-검사기관&quot;&gt;2. 검사기관&lt;/h2&gt;
 
-&lt;p&gt;이때 graphql에서는 @를 인식하지 못하기 때문에 꼭 @id, @unique, @relation을 삭제해주셔야 합니다.&lt;/p&gt;
+&lt;p&gt;압력용기를 수입할때 저희 제품은 압력이 10Bar 이하이므로 한국산업안전보건공단에서 검사를 받게됩니다.&lt;br /&gt;
+이때 바로 검사를 받는 것이 아니라 서면으로 검사신청을 해야합니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-5/graphql.png&quot; alt=&quot;graphql&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;서면신청 필요서류&lt;/p&gt;
 
-&lt;h2 id=&quot;2-fragment&quot;&gt;2. $fragment&lt;/h2&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 안전인증신청서
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 기술문서
+  외관 개략도 및 치수, 압력용기 설계조건, 내용적 계산서, 용접관련 자료
+  (방사선 비파괴검사- RT MAP,용접절차서, WPS, 방호장치 종류 및 사양 (안전 밸브, P &amp;amp; ID), 강도 계산서,
+  명판, 도면(세부 도면 , 참고자료 등)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 사업자등록증 사본&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;prisma는 무한 query 공격을 막기 위해서 $fragment를 사용합니다.&lt;br /&gt;
-아래 예시를 봅시다.&lt;/p&gt;
+&lt;h2 id=&quot;2-안전인증신청서-작성요령&quot;&gt;2. 안전인증신청서 작성요령&lt;/h2&gt;
 
-&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;userById(&quot;sdasasd&quot;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-01-airtank/document.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;신청서를 살펴보면 대부분 큰 문제없이 작성 가능하지만 설치사업장명과 설치사업장 소재지는 아직 정해지지 않았을 경우 공란으로 기입하시면 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-사후관리&quot;&gt;3. 사후관리&lt;/h2&gt;
+
+&lt;p&gt;산업안전 압력용기는 최초안전검사를 설치한 후 3년이내로 받아야 하며, 안전검사는 그 이후부터 2년마다 진행됩니다.&lt;br /&gt;
+이때 공정안전보고서를 제출하여 확인을 받은 압력용기는 4년마다 받습니다.
+|최초안전검사|안전검사|
+|——|—|
+|설치한 후 3년이내|최초안전검사 이후 2년마다(공정안전보고서를 제출하면 4년으로 연장가능)|
+압력용기의 사후관리는 정기검사를 통해 진행됩니다. 지정된 기관을 통해서 검사를 받으실 수 있는데요, 검사비용은 별도로 발생되니 꼭 참고하시길 바랍니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="인증" /><category term="무역" /><summary type="html">개요 중국에서 60L에 6Bar 짜리 압력탱크를 수입하여 사용하려고 하는데 관련 법령과 검사기준을 정리하겠습니다. 1. 인증을 받아야 하는 경우 안전 및 검사기준(노동부 고시 제2001-59호) 제2조의 규정에 의하여 화학공정 유체취급용기 및 모든 사업장의 공기 및 질소저장탱크 등으로서 사용압력이 게이지 압력으로 0.2㎏f/㎠ (20 kpa) 이상이 되고, 사용압력 (단위：㎏f/㎠)과 용기 내용적 (단위：㎥) 의 곱의 값이 1이상일 때 해당됩니다. 추가로 CE인증과 같이 해외에서 인증을 받았다 하더라도 면제대상이 아니면 다시 한국에서 인증을 받아야 합니다. 2. 검사기관 압력용기를 수입할때 저희 제품은 압력이 10Bar 이하이므로 한국산업안전보건공단에서 검사를 받게됩니다. 이때 바로 검사를 받는 것이 아니라 서면으로 검사신청을 해야합니다. 서면신청 필요서류 - 안전인증신청서 - 기술문서 외관 개략도 및 치수, 압력용기 설계조건, 내용적 계산서, 용접관련 자료 (방사선 비파괴검사- RT MAP,용접절차서, WPS, 방호장치 종류 및 사양 (안전 밸브, P &amp;amp; ID), 강도 계산서, 명판, 도면(세부 도면 , 참고자료 등) - 사업자등록증 사본 2. 안전인증신청서 작성요령 신청서를 살펴보면 대부분 큰 문제없이 작성 가능하지만 설치사업장명과 설치사업장 소재지는 아직 정해지지 않았을 경우 공란으로 기입하시면 됩니다. 3. 사후관리 산업안전 압력용기는 최초안전검사를 설치한 후 3년이내로 받아야 하며, 안전검사는 그 이후부터 2년마다 진행됩니다. 이때 공정안전보고서를 제출하여 확인을 받은 압력용기는 4년마다 받습니다. |최초안전검사|안전검사| |——|—| |설치한 후 3년이내|최초안전검사 이후 2년마다(공정안전보고서를 제출하면 4년으로 연장가능)| 압력용기의 사후관리는 정기검사를 통해 진행됩니다. 지정된 기관을 통해서 검사를 받으실 수 있는데요, 검사비용은 별도로 발생되니 꼭 참고하시길 바랍니다.</summary></entry><entry><title type="html">[prismagram] [BackEnd] 7. Create Account - Part2</title><link href="http://localhost:4000/prismagram/prismagram-7/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 7. Create Account - Part2" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-7</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-7/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-비밀값-요청기능&quot;&gt;1. 비밀값 요청기능&lt;/h2&gt;
+
+&lt;p&gt;사용자를 만들었으면 비밀값을 요청하고 확인하는 기능을 구현합니다.&lt;/p&gt;
+
+&lt;p&gt;주로 사용하는 비밀값은 형용사+명사를 조합해서 만듭니다. ex) violent tank&lt;/p&gt;
+
+&lt;p&gt;User 폴더에 requestSecret 폴더를 만듭니다.&lt;/p&gt;
+
+&lt;p&gt;graphql 파일에 requestSecret Mutation을 추가합니다. 이때 Boolean 타입을 반환합니다.&lt;/p&gt;
+&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Mutation&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requestSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;얼핏보면 문제가 없는 것 같지만&lt;/p&gt;
+&lt;p&gt;함수의 인자로는 Sting 타입의 이메일이 필요합니다.&lt;/p&gt;
 
-&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;userById(&quot;sdasasd&quot;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Mutation&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requestSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!):&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;이런식으로 코드를 짜면 무한query 공격이 올 수 있기 때문에 $fragment를 사용하는 것입니다.&lt;/p&gt;
+&lt;p&gt;js 파일에는 async 함수로 requestSecret 함수를 만듭니다.&lt;br /&gt;
+첫번째 인자는 필요없고, 두번째 인자는 args라고 하겠습니다.&lt;br /&gt;
+args에서 email을 가져옵니다.&lt;/p&gt;
 
-&lt;p&gt;$fragment에 대해서는 따로 정리하도록 하겠습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 6. Create Account - Part1</title><link href="http://localhost:4000/prismagram/prismagram-6/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 6. Create Account - Part1" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-6</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-6/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;Mutation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;na&quot;&gt;requestSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;api 폴더 바깥에 비밀값을 생성할 함수를 만듭니다.&lt;/p&gt;
+
+&lt;p&gt;src/utils.js 만든다음 단어들을 저장할 words.js를 생성합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adjectives&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nouns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;utils.js에는 값를 생성할 함수를 만들어주고 단어를 import 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adjectives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nouns&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./words&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;genertateSecret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;randomNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이때 무작위로 단어를 생성하는 함수를 테스트해보겠습니다.&lt;br /&gt;
+크롬 콘솔에서 단어들을 생성하고 Math.random 함수를 실행힙니다.&lt;br /&gt;
+Math.random은 0에서 1사이의 무작위 수를 생성합니다.&lt;br /&gt;
+그럼 0과 adjectives의 길이 사이의 임의의 수를 만들어줍니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adjectives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이때 소숫점을 반내림하는 Math.floor를 추가하여 정수를 만들겠습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adjectives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위에서 만든 math 함수를 utils에 추가하고 랜덤한 숫자를 반환받도록 하겠습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adjectives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nouns&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./words&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;generateSecret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;randomNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adjectives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;adjectives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;randomNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nouns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;randomNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-함수-검증하기&quot;&gt;2. 함수 검증하기&lt;/h2&gt;
+
+&lt;p&gt;지금까지 만든 함수를 활용하여 지정된 이메일로 비밀값을 받아보겠습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;generateSecret&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;../../../utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;../../../../generated/prisma-client&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;Mutation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;na&quot;&gt;requestSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loginSecret&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;generateSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loginSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;updateUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loginSecret&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 하고 localhost에서 mutation을 실행시키면&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;mutation&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;requestSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;k1a11220@naver.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;false 에러가 나오는데 이건 datamodel에서 loginSecret을 !(필수)로 했기 때문입니다.&lt;/p&gt;
+
+&lt;p&gt;prisma와 graphql 모두 바꿔줍니다.&lt;/p&gt;
+&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loginSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loginSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그 다음 mutation을 실행시키면 ture값이 반환되고 어드민 페이지에 들어가서 살펴보면&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-7/admin.png&quot; alt=&quot;admin&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;loginSecret값이 들어와있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 6. Create Account - Part1</title><link href="http://localhost:4000/prismagram/prismagram-6/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 6. Create Account - Part1" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-6</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-6/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.&lt;/strong&gt;&lt;/p&gt;
 
@@ -174,45 +287,78 @@
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Query&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;something&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈</title><link href="http://localhost:4000/issue/Issue-4/" rel="alternate" type="text/html" title="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-4</id><content type="html" xml:base="http://localhost:4000/issue/Issue-4/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 5. prisma와 graphql의 연결</title><link href="http://localhost:4000/prismagram/prismagram-5/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 5. prisma와 graphql의 연결" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-5</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-5/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다.&lt;br /&gt;
-Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다.&lt;/p&gt;
+&lt;h2 id=&quot;1-graphql-파일-생성하기&quot;&gt;1. graphql 파일 생성하기&lt;/h2&gt;
 
-&lt;h3 id=&quot;간단한-예시&quot;&gt;간단한 예시&lt;/h3&gt;
-&lt;p&gt;A페이지에서 사용자가 blank 속성의 테그를 클릭하여 B페이지로 이동 -&amp;gt; 다시 A페이지로 돌아왔을 때는 A페이지 처럼 보이는 피싱사이트로 바뀜.
-&lt;img src=&quot;/assets/2020-03-26-Issue4/sample.JPG&quot; alt=&quot;error&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;prisma와 graphql의 연결을 위해서는 graphql 파일이 필요합니다.&lt;/p&gt;
+
+&lt;p&gt;api폴더에 models.graphql 파일을 만들어줍니다.&lt;/p&gt;
+
+&lt;p&gt;datamodel.prisma에 있던 내용을 모두 복사해서 models.graphql파일에 넣습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-5/prisma.png&quot; alt=&quot;prisma&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이때 graphql에서는 @를 인식하지 못하기 때문에 꼭 @id, @unique, @relation을 삭제해주셔야 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-5/graphql.png&quot; alt=&quot;graphql&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-fragment&quot;&gt;2. $fragment&lt;/h2&gt;
+
+&lt;p&gt;prisma는 무한 query 공격을 막기 위해서 $fragment를 사용합니다.&lt;br /&gt;
+아래 예시를 봅시다.&lt;/p&gt;
+
+&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;userById(&quot;sdasasd&quot;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;얼핏보면 문제가 없는 것 같지만&lt;/p&gt;
+
+&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;userById(&quot;sdasasd&quot;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이런식으로 코드를 짜면 무한query 공격이 올 수 있기 때문에 $fragment를 사용하는 것입니다.&lt;/p&gt;
+
+&lt;p&gt;$fragment에 대해서는 따로 정리하도록 하겠습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Issue] react build시 index.html 빈화면이 나오는 이슈</title><link href="http://localhost:4000/issue/Issue-3/" rel="alternate" type="text/html" title="[Issue] react build시 index.html 빈화면이 나오는 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-3</id><content type="html" xml:base="http://localhost:4000/issue/Issue-3/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+
+&lt;p&gt;index.html에서의 static/js와 css 경로가 잘못되었기 때문입니다.&lt;br /&gt;
+chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류가 나옵니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-03-26-Issue3/error-1.png&quot; alt=&quot;error&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
 
-&lt;p&gt;target=”_blank” 와 rel=”noopener noreferrer”을 같이 적용하여 문제를 해결합니다.&lt;br /&gt;
-rel=”noopener noreferrer”는 rel=noopener 속성이 부여된 링크를 통해 열린 페이지는 opener의 location변경과 같은 자바스크립트 요청을 거부합니다.&lt;br /&gt;
-쉽게 말씀드리자면 A페이지의 정보를 바꾸지 못한다는 뜻 입니다.&lt;/p&gt;
+&lt;p&gt;js와 css경로가 /static/….으로 되어있는데 ./static으로 변경해주시면 문제없이 출력됩니다.&lt;/p&gt;
 
-&lt;p&gt;따라서 아래와 같은 코드에 noopener 속성을 추가합니다.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/css/main.ab056bcf.chunk.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/js/2.fc65b5d6.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/js/main.6527b855.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://drive.google.com/&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-Catalog
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;저렇게 /경로로 되어있는 코드들을 수정해주셔야 합니다.&lt;/p&gt;
 
-&lt;p&gt;이렇게요!&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/css/main.ab056bcf.chunk.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/2.fc65b5d6.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/main.6527b855.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;noopener noreferrer&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://drive.google.com/&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-Catalog
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기</title><link href="http://localhost:4000/prismagram/prismagram-2/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-2</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-2/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 수정해주시면 문제없이 출력됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기</title><link href="http://localhost:4000/prismagram/prismagram-2/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-2</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-2/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;1-morgan-설치하기&quot;&gt;1. morgan 설치하기&lt;/h2&gt;
 
@@ -403,123 +549,48 @@ Prisma에서 프로젝트를 만든 뒤 로컬 파일과의 연동이 필요합�
 
 &lt;p&gt;스크립트에 do 대신에 prisma로 할 경우 스크립트 실행할 때 무한루프가 발생합니다.&lt;br /&gt;
 prisma 명령어가 콘솔에서 안먹는 경우에 yarn prisma를 해서 생기는데,&lt;br /&gt;
-prisma 대신에 do나 다른 스크립트로 대체하면 됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Issue] react build시 index.html 빈화면이 나오는 이슈</title><link href="http://localhost:4000/issue/Issue-3/" rel="alternate" type="text/html" title="[Issue] react build시 index.html 빈화면이 나오는 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-3</id><content type="html" xml:base="http://localhost:4000/issue/Issue-3/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+prisma 대신에 do나 다른 스크립트로 대체하면 됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈</title><link href="http://localhost:4000/issue/Issue-4/" rel="alternate" type="text/html" title="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-4</id><content type="html" xml:base="http://localhost:4000/issue/Issue-4/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
 
-&lt;p&gt;index.html에서의 static/js와 css 경로가 잘못되었기 때문입니다.&lt;br /&gt;
-chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류가 나옵니다.&lt;/p&gt;
+&lt;p&gt;Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다.&lt;br /&gt;
+Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-26-Issue3/error-1.png&quot; alt=&quot;error&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;간단한-예시&quot;&gt;간단한 예시&lt;/h3&gt;
+&lt;p&gt;A페이지에서 사용자가 blank 속성의 테그를 클릭하여 B페이지로 이동 -&amp;gt; 다시 A페이지로 돌아왔을 때는 A페이지 처럼 보이는 피싱사이트로 바뀜.
+&lt;img src=&quot;/assets/2020-03-26-Issue4/sample.JPG&quot; alt=&quot;error&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
 
-&lt;p&gt;js와 css경로가 /static/….으로 되어있는데 ./static으로 변경해주시면 문제없이 출력됩니다.&lt;/p&gt;
+&lt;p&gt;target=”_blank” 와 rel=”noopener noreferrer”을 같이 적용하여 문제를 해결합니다.&lt;br /&gt;
+rel=”noopener noreferrer”는 rel=noopener 속성이 부여된 링크를 통해 열린 페이지는 opener의 location변경과 같은 자바스크립트 요청을 거부합니다.&lt;br /&gt;
+쉽게 말씀드리자면 A페이지의 정보를 바꾸지 못한다는 뜻 입니다.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/css/main.ab056bcf.chunk.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/js/2.fc65b5d6.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/js/main.6527b855.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;따라서 아래와 같은 코드에 noopener 속성을 추가합니다.&lt;/p&gt;
 
-&lt;p&gt;저렇게 /경로로 되어있는 코드들을 수정해주셔야 합니다.&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://drive.google.com/&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Catalog
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/css/main.ab056bcf.chunk.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/2.fc65b5d6.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/main.6527b855.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;이렇게요!&lt;/p&gt;
 
-&lt;p&gt;이렇게 수정해주시면 문제없이 출력됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법</title><link href="http://localhost:4000/issue/Issue-2/" rel="alternate" type="text/html" title="[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법" /><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-2</id><content type="html" xml:base="http://localhost:4000/issue/Issue-2/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;noopener noreferrer&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://drive.google.com/&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Catalog
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법</title><link href="http://localhost:4000/issue/Issue-2/" rel="alternate" type="text/html" title="[Issue] shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted 에러 해결법" /><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-2</id><content type="html" xml:base="http://localhost:4000/issue/Issue-2/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
 
 &lt;p&gt;삭제된 디렉토리에서 명령을 실행할 때 생기는 오류입니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
 
-&lt;p&gt;cd ..를 통해 삭제된 디렉토리에서 나간 뒤 다시 접근하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] git fatal: remote origin already exists. 에러 해결법</title><link href="http://localhost:4000/issue/issue-1/" rel="alternate" type="text/html" title="[Issue] git fatal: remote origin already exists. 에러 해결법" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://localhost:4000/issue/issue-1</id><content type="html" xml:base="http://localhost:4000/issue/issue-1/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
-
-&lt;p&gt;깃허브에 먼저 레포지토리를 생성 후 기존 로컬에 있던 폴더를 오리진 설정시 생기는 오류입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
-
-&lt;p&gt;따라서 이때 remote origin을 하기 전 git remote rm origin을 실행한 뒤 다시 git remote origin {link} 하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계</title><link href="http://localhost:4000/engineering/jig/" rel="alternate" type="text/html" title="[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계" /><published>2020-03-23T00:00:00+09:00</published><updated>2020-03-23T00:00:00+09:00</updated><id>http://localhost:4000/engineering/jig</id><content type="html" xml:base="http://localhost:4000/engineering/jig/">&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;개요&quot;&gt;개요&lt;/h2&gt;
-
-&lt;p&gt;파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다.&lt;/p&gt;
-
-&lt;p&gt;드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;1-사다리꼴나사란&quot;&gt;1. 사다리꼴나사란&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/tr-2.jpg&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;정의&quot;&gt;정의&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;“사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;2-사다리꼴나사-선정&quot;&gt;2. 사다리꼴나사 선정&lt;/h2&gt;
-
-&lt;p&gt;TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다.&lt;/p&gt;
-
-&lt;p&gt;210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다.&lt;/p&gt;
-
-&lt;p&gt;사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/tr-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;3-고정부-설계&quot;&gt;3. 고정부 설계&lt;/h2&gt;
-
-&lt;p&gt;제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 초기상태에서 드릴은 올라가 있어야 함.
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 나사가 안정적으로 고정되어야 함.
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 사람이 직접 운동을 전달할 수 있어야 함.
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함.
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 스프링을 사용하여 항상 힘을 받아 올라가 있게 함.
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함.
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함.
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌.
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/spring.PNG&quot; alt=&quot;스프링 설치부분&quot; title=&quot;스프링 설치부분&quot; /&gt;
-스프링 설치부분&lt;/p&gt;
-
-&lt;h2 id=&quot;4-스프링-선정-및-관련부품-설계&quot;&gt;4. 스프링 선정 및 관련부품 설계.&lt;/h2&gt;
-
-&lt;p&gt;초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/spring-2.PNG&quot; alt=&quot;스프링 설치부분&quot; title=&quot;스프링 설치부분&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;4-du부시-베어링-선정-핸들&quot;&gt;4. DU부시, 베어링 선정, 핸들&lt;/h2&gt;
-
-&lt;p&gt;수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다.&lt;/p&gt;
-
-&lt;p&gt;DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다.&lt;/p&gt;
-
-&lt;p&gt;가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/duBush-2.PNG&quot; alt=&quot;DU부시 선정&quot; title=&quot;DU부시 선정&quot; /&gt;
-DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/duBush-1.PNG&quot; alt=&quot;DU부시 설계&quot; title=&quot;DU부시 설계&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/bearing.PNG&quot; alt=&quot;베어링 선정&quot; title=&quot;베어링 선정&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;5-어셈블리&quot;&gt;5. 어셈블리&lt;/h2&gt;
-
-&lt;p&gt;구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-23/assy-1.PNG&quot; alt=&quot;Image with caption&quot; /&gt;
-&lt;img src=&quot;/assets/2020-03-23/assy-2.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;어셈블리상에서 확인되는 간섭이 없습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="기구설계" /><category term="사다리꼴 나사" /><summary type="html">개요 파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다. 드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다. 1. 사다리꼴나사란 정의 “사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을 내고 끝이 뭉뚝한 것으로, 주로 두 개 이상의 부품을 체결하거나 고정하는 데 사용되는 것]를 말한다. “사다리꼴수나사, 사다리꼴스크루, 사다리꼴나사산나사”(이)라고도 한다. 나사산의 단면이 사각인 “사각나사”는 가공하기가 쉽지 않기 때문에 이를 대신해 “사다리꼴나사”가 많이 사용되고 있다. 사각나사가 힘을 전달하는 용도로 사용되는 반면 사다리꼴나사는 선반의 리드나사 및 스톱밸브의 밸브대, 공작기계의 이송나사 등과 같이 운동을 전달하는 목적으로 많이 사용되고 있다. 사다리꼴나사에는 “미터계 사다리꼴나사(TR)”와 “인치계 사다리꼴나사(TW)” 등이 있다. 미터계는 나사산의 각도가 30˚, 인치계는 29˚이다. 이처럼 사다리꼴나사는 운동을 전달하는 목적으로 사용되므로 제가 설계할 지그에도 문제없이 사용 가능할것으로 보입니다. 2. 사다리꼴나사 선정 TR나사의 크기는 운동을 전달시킬 물체의 크기에 비례하여 선정하는 것이 좋습니다. 210mm x 210mm 판 2개와 모터가 움직이므로 약 직경 20mm정도의 사다리꼴 나사를 선정합니다. 사다리꼴 나사는 주문제작으로 만들어지기 때문에 디테일한 모델링은 하지 않고 간섭이 생기는지 확인하기 위해 간단하게 모델링합니다. 3. 고정부 설계 제가 생각한 안정적으로 지그를 사용할 수 있도록 하는 설계 조건들은 아래와 같습니다. - 초기상태에서 드릴은 올라가 있어야 함. - 나사가 안정적으로 고정되어야 함. - 사람이 직접 운동을 전달할 수 있어야 함. - 이동을 안내해주는 가이드포스트가 안정적으로 움직여야함. 위의 조건을 만족시키기 위해서 아래와 같은 방법을 사용하여 해결했습니다. - 스프링을 사용하여 항상 힘을 받아 올라가 있게 함. - 베어링을 나사의 축과 결합하고, 축이 고정판을 관통하여 보다 안정적으로 고정되게 함. - 나사의 축과 핸들을 연결하여 사람이 직접 관통깊이를 조절할 수 있게 함. - DU부시를 가이드포스트에 삽입하여 운동을 부드럽게 해줌. 스프링 설치부분 4. 스프링 선정 및 관련부품 설계. 초기상태에서 계속 올라가있게 하기 위해 스프링을 사용합니다. 이때 스프링의 가이드 역할을 해주는 M12볼트를 삽입하여 스프링을 고정해줍니다. 4. DU부시, 베어링 선정, 핸들 수동으로 이송을 조절해야하기 때문에 핸들을 사용했습니다. 내경이 맞고 키와 세트스크류로 고정하는 핸들을 선정하였습니다. DU부시와 베어링을 선정합니다. DU부시는 저렴한 가격으로 스무스한 운동을 할 수 있게 도와주는 부시입니다. 가이드의 지름이 15mm이므로 내경 15mm DU부시를 선정하도록 하겠습니다. DU부시 3D 데이터가 없어 치수를 바탕으로 직접 모델링 하였습니다. 베어링 역시 축의 치수에 맞춰 내경 10mm로 선정하였습니다. 이때 축이 판을 관통하여 고정되는점을 감안하여 베어링을 선정합니다. 5. 어셈블리 구매품의 모델링이 다 준비되었으면 어셈블리를 하여 제품에 간섭이 생기는지 확인합니다. 어셈블리상에서 확인되는 간섭이 없습니다.</summary></entry></feed>
+&lt;p&gt;cd ..를 통해 삭제된 디렉토리에서 나간 뒤 다시 접근하면 해결됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry></feed>

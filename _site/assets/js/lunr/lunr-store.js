@@ -76,4 +76,16 @@ var store = [{
         "tags": ["Develop"],
         "url": "http://localhost:4000/prismagram/prismagram-6/",
         "teaser": null
+      },{
+        "title": "[prismagram] [BackEnd] 7. Create Account - Part2",
+        "excerpt":"모든 내용은 MacOS Catalina 기준으로 작성되었습니다 await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다. 1. 비밀값 요청기능 사용자를 만들었으면 비밀값을 요청하고 확인하는 기능을 구현합니다. 주로 사용하는 비밀값은 형용사+명사를 조합해서 만듭니다. ex) violent tank User 폴더에 requestSecret 폴더를 만듭니다. graphql 파일에 requestSecret Mutation을 추가합니다. 이때 Boolean 타입을 반환합니다. type Mutation {...","categories": ["prismagram"],
+        "tags": ["Develop"],
+        "url": "http://localhost:4000/prismagram/prismagram-7/",
+        "teaser": null
+      },{
+        "title": "[ETC] 압력용기 수입 인증에 관하여",
+        "excerpt":"개요 중국에서 60L에 6Bar 짜리 압력탱크를 수입하여 사용하려고 하는데 관련 법령과 검사기준을 정리하겠습니다. 1. 인증을 받아야 하는 경우 안전 및 검사기준(노동부 고시 제2001-59호) 제2조의 규정에 의하여 화학공정 유체취급용기 및 모든 사업장의 공기 및 질소저장탱크 등으로서 사용압력이 게이지 압력으로 0.2㎏f/㎠ (20 kpa) 이상이 되고, 사용압력 (단위：㎏f/㎠)과 용기 내용적 (단위：㎥) 의 곱의...","categories": ["Trade"],
+        "tags": ["인증","무역"],
+        "url": "http://localhost:4000/trade/tank/",
+        "teaser": null
       }]
