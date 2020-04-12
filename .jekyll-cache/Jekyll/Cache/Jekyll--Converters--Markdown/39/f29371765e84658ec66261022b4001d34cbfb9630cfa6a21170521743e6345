@@ -1,0 +1,104 @@
+I"<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+
+<p><strong>await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.</strong></p>
+
+<h2 id="1-nodemailer-설치하기">1. nodemailer 설치하기</h2>
+
+<p>nodemailer를 활용하여 메일을 보내봅시다.<br />
+먼저 nodemailer를 설치합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add nodemailer
+</code></pre></div></div>
+
+<p>nodemailer를 설치했으면 utils.js에 메일에 들어갈 내용을 작성해줍니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">sendMail</span> <span class="o">=</span> <span class="nx">email</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">sendSecretMail</span> <span class="o">=</span> <span class="p">(</span><span class="nx">adress</span><span class="p">,</span> <span class="nx">secret</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">email</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">from</span><span class="p">:</span> <span class="dl">'</span><span class="s1">sbs@prismagram.com</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">to</span><span class="p">:</span> <span class="nx">adress</span><span class="p">,</span>
+        <span class="na">subject</span><span class="p">:</span> <span class="dl">'</span><span class="s1">🔒Login Secret for Prismagram🔒</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">html</span><span class="p">:</span> <span class="s2">`Hello Your login secret is </span><span class="p">${</span><span class="nx">secret</span><span class="p">}</span><span class="s2">. &lt;br/&gt; Copy paste on the app/website to login`</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="2-transport-설치하기">2. transport 설치하기</h2>
+
+<p>그런데, 메일을 전송해주기 위해서는 transport를 설치해줘야 합니다. 일단 sendgrid를 사용해보겠습니다.<br />
+sendgrid에서 회원가입을 하고 sendgrid transport를 설치합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add nodemailer-sendgrid-transport
+</code></pre></div></div>
+
+<p>utils.js에 노드메일러와 트랜스포트를 import 합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">nodemailer</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">nodemailer</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">sgTransport</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">nodemailer-sendgrid-transport</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>그리고 export const sendMail = email =&gt; null;에서 null을 지우고 api_user와 api_key를 입력합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">sendMail</span> <span class="o">=</span> <span class="nx">email</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">auth</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">api_user</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SENDGRID_USERNAME</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">api_key</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SENDGRID_PASSWORD</span><span class="dl">'</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>그리고 username과 password는 .env에 저장합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">SENDGRID_USERNAME</span><span class="o">=</span><span class="dl">"</span><span class="s2">사용자이름 입력</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">SENDGRID_PASSWORD</span><span class="o">=</span><span class="dl">"</span><span class="s2">비밀번호 입력</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>server.js에 utils를 import 합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="dl">'</span><span class="s1">./utils</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>console.log로 .env 상의 내용을 확인하면 undefined로 출력되는데 이는 server와 util에 동일한 내용을 import 해주면 해결됩니다.</p>
+
+<p>utils.js</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">dotenv</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">dotenv</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">path</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">path</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">dotenv</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span> <span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">.env</span><span class="dl">'</span><span class="p">)</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="이슈">이슈</h2>
+
+<p>yarn dev 할때</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>events.js:298
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (net.js:1309:16)
+    at listenInCluster (net.js:1357:12)
+    at Server.listen (net.js:1445:7)
+    at /Users/beomsoo/Documents/GitHub/prismagram/node_modules/graphql-yoga/src/index.ts:391:22
+    at new Promise (&lt;anonymous&gt;)
+    at GraphQLServer.start (/Users/beomsoo/Documents/GitHub/prismagram/node_modules/graphql-yoga/src/index.ts:389:12)
+    at Object.&lt;anonymous&gt; (/Users/beomsoo/Documents/GitHub/prismagram/src/server.js:16:8)
+    at Module._compile (internal/modules/cjs/loader.js:1157:30)
+    at Module._compile (/Users/beomsoo/Documents/GitHub/prismagram/node_modules/pirates/lib/index.js:99:24)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1177:10)
+Emitted 'error' event on WebSocketServer instance at:
+    at Server.emit (events.js:321:20)
+    at Server.EventEmitter.emit (domain.js:482:12)
+    at emitErrorNT (net.js:1336:8)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '::',
+  port: 4000
+}
+</code></pre></div></div>
+
+:ET

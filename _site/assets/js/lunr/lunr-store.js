@@ -88,4 +88,10 @@ var store = [{
         "tags": ["인증","무역"],
         "url": "http://localhost:4000/trade/tank/",
         "teaser": null
+      },{
+        "title": "[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1",
+        "excerpt":"모든 내용은 MacOS Catalina 기준으로 작성되었습니다 await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다. 1. nodemailer 설치하기 nodemailer를 활용하여 메일을 보내봅시다. 먼저 nodemailer를 설치합니다. yarn add nodemailer nodemailer를 설치했으면 utils.js에 메일에 들어갈 내용을 작성해줍니다. export const sendMail = email =&gt; null; export const sendSecretMail = (adress, secret) =&gt; { const...","categories": ["prismagram"],
+        "tags": ["Develop","Issue"],
+        "url": "http://localhost:4000/prismagram/prismagram-8/",
+        "teaser": null
       }]

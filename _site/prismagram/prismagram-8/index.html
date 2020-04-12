@@ -1,0 +1,704 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1 - 범수의 기술 블로그</title>
+<meta name="description" content="모든 내용은 MacOS Catalina 기준으로 작성되었습니다 ">
+
+
+  <meta name="author" content="Beomsoo">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="범수의 기술 블로그">
+<meta property="og:title" content="[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1">
+<meta property="og:url" content="http://localhost:4000/prismagram/prismagram-8/">
+
+
+  <meta property="og:description" content="모든 내용은 MacOS Catalina 기준으로 작성되었습니다 ">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-04-12T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2020-04-12T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/prismagram/prismagram-8/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Beomsoo",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="범수의 기술 블로그 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          범수의 기술 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/me.jpeg" alt="Beomsoo" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Beomsoo</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Let’s make something FUN!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">ROK</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:k1a11220@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/k1a11220" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:k1a11220@naver.com">
+            <meta itemprop="email" content="k1a11220@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> 이메일
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1">
+    <meta itemprop="description" content="모든 내용은 MacOS Catalina 기준으로 작성되었습니다">
+    <meta itemprop="datePublished" content="2020-04-12T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2020-04-12T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1
+</h1>
+          
+            
+
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2020-04-12T00:00:00+09:00">April 12, 2020</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+
+<p><strong>await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.</strong></p>
+
+<h2 id="1-nodemailer-설치하기">1. nodemailer 설치하기</h2>
+
+<p>nodemailer를 활용하여 메일을 보내봅시다.<br />
+먼저 nodemailer를 설치합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add nodemailer
+</code></pre></div></div>
+
+<p>nodemailer를 설치했으면 utils.js에 메일에 들어갈 내용을 작성해줍니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">sendMail</span> <span class="o">=</span> <span class="nx">email</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">sendSecretMail</span> <span class="o">=</span> <span class="p">(</span><span class="nx">adress</span><span class="p">,</span> <span class="nx">secret</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">email</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">from</span><span class="p">:</span> <span class="dl">'</span><span class="s1">sbs@prismagram.com</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">to</span><span class="p">:</span> <span class="nx">adress</span><span class="p">,</span>
+        <span class="na">subject</span><span class="p">:</span> <span class="dl">'</span><span class="s1">🔒Login Secret for Prismagram🔒</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">html</span><span class="p">:</span> <span class="s2">`Hello Your login secret is </span><span class="p">${</span><span class="nx">secret</span><span class="p">}</span><span class="s2">. &lt;br/&gt; Copy paste on the app/website to login`</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="2-transport-설치하기">2. transport 설치하기</h2>
+
+<p>그런데, 메일을 전송해주기 위해서는 transport를 설치해줘야 합니다. 일단 sendgrid를 사용해보겠습니다.<br />
+sendgrid에서 회원가입을 하고 sendgrid transport를 설치합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add nodemailer-sendgrid-transport
+</code></pre></div></div>
+
+<p>utils.js에 노드메일러와 트랜스포트를 import 합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">nodemailer</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">nodemailer</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">sgTransport</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">nodemailer-sendgrid-transport</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>그리고 export const sendMail = email =&gt; null;에서 null을 지우고 api_user와 api_key를 입력합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">sendMail</span> <span class="o">=</span> <span class="nx">email</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">auth</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">api_user</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SENDGRID_USERNAME</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">api_key</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SENDGRID_PASSWORD</span><span class="dl">'</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>그리고 username과 password는 .env에 저장합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">SENDGRID_USERNAME</span><span class="o">=</span><span class="dl">"</span><span class="s2">사용자이름 입력</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">SENDGRID_PASSWORD</span><span class="o">=</span><span class="dl">"</span><span class="s2">비밀번호 입력</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>server.js에 utils를 import 합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="dl">'</span><span class="s1">./utils</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>console.log로 .env 상의 내용을 확인하면 undefined로 출력되는데 이는 server와 util에 동일한 내용을 import 해주면 해결됩니다.</p>
+
+<p>utils.js</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">dotenv</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">dotenv</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">path</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">path</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">dotenv</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span> <span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">.env</span><span class="dl">'</span><span class="p">)</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="3-메일-전송되는지-테스트해보기">3. 메일 전송되는지 테스트해보기</h2>
+
+<p>sendSecretmail은 내부에서 실행되는 함수이므로 export를 지웁니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">sendSecretMail</span> <span class="o">=</span> <span class="p">(</span><span class="nx">adress</span><span class="p">,</span> <span class="nx">secret</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">email</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">from</span><span class="p">:</span> <span class="dl">'</span><span class="s1">sbs@prismagram.com</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">to</span><span class="p">:</span> <span class="nx">adress</span><span class="p">,</span>
+        <span class="na">subject</span><span class="p">:</span> <span class="dl">'</span><span class="s1">🔒Login Secret for Prismagram🔒</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">html</span><span class="p">:</span> <span class="s2">`Hello Your login secret is </span><span class="p">${</span><span class="nx">secret</span><span class="p">}</span><span class="s2">. &lt;br/&gt; Copy paste on the app/website to login`</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>server.js에 함수를 실행시켜봅니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">sendSecretMail</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./utils</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">sendSecretMail</span><span class="p">(</span><span class="dl">'</span><span class="s1">k1a11220@naver.com</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">123</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>그런데, sendgrid가 계정승인을 안해줘서 mailgun으로 바꾸겠습니다.</p>
+
+<h2 id="이슈">이슈</h2>
+
+<p>yarn dev 할때 포트 중복이라고 오류가 나옵니다</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">events</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">298</span>
+      <span class="k">throw</span> <span class="nx">er</span><span class="p">;</span> <span class="c1">// Unhandled 'error' event</span>
+      <span class="o">^</span>
+
+<span class="nb">Error</span><span class="p">:</span> <span class="nx">listen</span> <span class="nx">EADDRINUSE</span><span class="p">:</span> <span class="nx">address</span> <span class="nx">already</span> <span class="k">in</span> <span class="nx">use</span> <span class="p">:::</span><span class="mi">4000</span>
+    <span class="nx">at</span> <span class="nx">Server</span><span class="p">.</span><span class="nx">setupListenHandle</span> <span class="p">[</span><span class="k">as</span> <span class="nx">_listen2</span><span class="p">]</span> <span class="p">(</span><span class="nx">net</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">1309</span><span class="p">:</span><span class="mi">16</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">listenInCluster</span> <span class="p">(</span><span class="nx">net</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">1357</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">Server</span><span class="p">.</span><span class="nx">listen</span> <span class="p">(</span><span class="nx">net</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">1445</span><span class="p">:</span><span class="mi">7</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="o">/</span><span class="nx">Users</span><span class="o">/</span><span class="nx">beomsoo</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">GitHub</span><span class="o">/</span><span class="nx">prismagram</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">graphql</span><span class="o">-</span><span class="nx">yoga</span><span class="o">/</span><span class="nx">src</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">ts</span><span class="p">:</span><span class="mi">391</span><span class="p">:</span><span class="mi">22</span>
+    <span class="nx">at</span> <span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">anonymous</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">GraphQLServer</span><span class="p">.</span><span class="nx">start</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">beomsoo</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">GitHub</span><span class="o">/</span><span class="nx">prismagram</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">graphql</span><span class="o">-</span><span class="nx">yoga</span><span class="o">/</span><span class="nx">src</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">ts</span><span class="p">:</span><span class="mi">389</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nb">Object</span><span class="p">.</span><span class="o">&lt;</span><span class="nx">anonymous</span><span class="o">&gt;</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">beomsoo</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">GitHub</span><span class="o">/</span><span class="nx">prismagram</span><span class="o">/</span><span class="nx">src</span><span class="o">/</span><span class="nx">server</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mi">8</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">_compile</span> <span class="p">(</span><span class="nx">internal</span><span class="o">/</span><span class="nx">modules</span><span class="o">/</span><span class="nx">cjs</span><span class="o">/</span><span class="nx">loader</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">1157</span><span class="p">:</span><span class="mi">30</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">_compile</span> <span class="p">(</span><span class="sr">/Users/</span><span class="nx">beomsoo</span><span class="o">/</span><span class="nx">Documents</span><span class="o">/</span><span class="nx">GitHub</span><span class="o">/</span><span class="nx">prismagram</span><span class="o">/</span><span class="nx">node_modules</span><span class="o">/</span><span class="nx">pirates</span><span class="o">/</span><span class="nx">lib</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">99</span><span class="p">:</span><span class="mi">24</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">_extensions</span><span class="p">..</span><span class="nx">js</span> <span class="p">(</span><span class="nx">internal</span><span class="o">/</span><span class="nx">modules</span><span class="o">/</span><span class="nx">cjs</span><span class="o">/</span><span class="nx">loader</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">1177</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>
+<span class="nx">Emitted</span> <span class="dl">'</span><span class="s1">error</span><span class="dl">'</span> <span class="nx">event</span> <span class="nx">on</span> <span class="nx">WebSocketServer</span> <span class="nx">instance</span> <span class="nx">at</span><span class="p">:</span>
+    <span class="nx">at</span> <span class="nx">Server</span><span class="p">.</span><span class="nx">emit</span> <span class="p">(</span><span class="nx">events</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">321</span><span class="p">:</span><span class="mi">20</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">Server</span><span class="p">.</span><span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">emit</span> <span class="p">(</span><span class="nx">domain</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">482</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">emitErrorNT</span> <span class="p">(</span><span class="nx">net</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">1336</span><span class="p">:</span><span class="mi">8</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="nx">processTicksAndRejections</span> <span class="p">(</span><span class="nx">internal</span><span class="o">/</span><span class="nx">process</span><span class="o">/</span><span class="nx">task_queues</span><span class="p">.</span><span class="nx">js</span><span class="p">:</span><span class="mi">84</span><span class="p">:</span><span class="mi">21</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nl">code</span><span class="p">:</span> <span class="dl">'</span><span class="s1">EADDRINUSE</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">errno</span><span class="p">:</span> <span class="dl">'</span><span class="s1">EADDRINUSE</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">syscall</span><span class="p">:</span> <span class="dl">'</span><span class="s1">listen</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">address</span><span class="p">:</span> <span class="dl">'</span><span class="s1">::</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">port</span><span class="p">:</span> <span class="mi">4000</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>nodemon에 –delay 2s를 추가하거나 포트값을 변경해도 동일하게 오류가 나옵니다.
+따라서 그냥 server.js에 시작포트를 입력해줍니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">server</span><span class="p">.</span><span class="nx">start</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="mi">4000</span> <span class="p">},</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Server running on port http://localhost:</span><span class="p">${</span><span class="nx">PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">));</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#develop" class="page__taxonomy-item" rel="tag">Develop</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#issue" class="page__taxonomy-item" rel="tag">Issue</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#prismagram" class="page__taxonomy-item" rel="tag">prismagram</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-04-12">April 12, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5Bprismagram%5D+%5BBackEnd%5D+8.+nodemailer%EB%A5%BC+%ED%99%9C%EC%9A%A9%ED%95%9C+%EB%A9%94%EC%9D%BC%EB%B3%B4%EB%82%B4%EA%B8%B0+-+Part1%20http%3A%2F%2Flocalhost%3A4000%2Fprismagram%2Fprismagram-8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fprismagram%2Fprismagram-8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fprismagram%2Fprismagram-8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/trade/tank/" class="pagination--pager" title="[ETC] 압력용기 수입 인증에 관하여
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/trade/tank/" rel="permalink">[ETC] 압력용기 수입 인증에 관하여
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 01 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">개요
+
+중국에서 60L에 6Bar 짜리 압력탱크를 수입하여 사용하려고 하는데 관련 법령과 검사기준을 정리하겠습니다.
+
+1. 인증을 받아야 하는 경우
+
+안전 및 검사기준(노동부 고시 제2001-59호) 제2조의 규정에 의하여 화학공정 유체취급용기 및 모든 사업장의 공기 및 질소저장탱...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/prismagram/prismagram-7/" rel="permalink">[prismagram] [BackEnd] 7. Create Account - Part2
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 27 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">모든 내용은 MacOS Catalina 기준으로 작성되었습니다
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/prismagram/prismagram-6/" rel="permalink">[prismagram] [BackEnd] 6. Create Account - Part1
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 27 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">모든 내용은 MacOS Catalina 기준으로 작성되었습니다
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/prismagram/prismagram-5/" rel="permalink">[prismagram] [BackEnd] 5. prisma와 graphql의 연결
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> March 27 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">모든 내용은 MacOS Catalina 기준으로 작성되었습니다
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Beomsoo. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/prismagram/prismagram-8/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/prismagram/prismagram-8"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://k1a11220-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
