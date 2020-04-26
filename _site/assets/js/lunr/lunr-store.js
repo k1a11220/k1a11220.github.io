@@ -23,7 +23,7 @@ var store = [{
         "url": "http://localhost:4000/issue/issue-1/",
         "teaser": null
       },{
-        "title": "[Engineering] 1. 사다리꼴(TR)나사를 이용한 지그설계",
+        "title": "[Engineering] 사다리꼴(TR)나사를 이용한 지그설계",
         "excerpt":"개요 파이프를 고정하면서 단순히 누르기만 하면 구멍이 가공되는 지그를 개발하고있습니다. 드릴가동은 모터를 사용하여 해결하였지만, 드릴에 수직방향의 힘을 균등하게 주는 방법을 생각하고 있었는데 사다리꼴나사를 이용하면 좋을 것 같아 사다리꼴나사를 통한 설계를 해보려고 합니다. 1. 사다리꼴나사란 정의 “사다리꼴나사”(이)란 나사산의 단면이 사다리꼴이고, 나사산 각도가 30˚ 내외인 나사[원통 또는 원기둥의 표면에 나선(螺旋) 모양의 홈을...","categories": ["Engineering"],
         "tags": ["기구설계","사다리꼴 나사"],
         "url": "http://localhost:4000/engineering/jig/",
@@ -93,5 +93,11 @@ var store = [{
         "excerpt":"모든 내용은 MacOS Catalina 기준으로 작성되었습니다 await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다. 1. nodemailer 설치하기 nodemailer를 활용하여 메일을 보내봅시다. 먼저 nodemailer를 설치합니다. yarn add nodemailer nodemailer를 설치했으면 utils.js에 메일에 들어갈 내용을 작성해줍니다. export const sendMail = email =&gt; null; export const sendSecretMail = (adress, secret) =&gt; { const...","categories": ["prismagram"],
         "tags": ["Develop","Issue"],
         "url": "http://localhost:4000/prismagram/prismagram-8/",
+        "teaser": null
+      },{
+        "title": "[Engineering] 솔리드웍스를 활용한 체적구하기",
+        "excerpt":"1. 모델 설계하기 간단하게 내부 체적을 구할 수 있는 그릇을 설계합니다. 2. 물성치 확인하기 평가탭에서 물성치를 클릭하여 확인합니다. 3. 원하는 체적만큼 피처 생성하기 피쳐탭에서 기준면을 생성합니다. 이때 체적이 채워지는 높이까지 면을 생성합니다. 기준면을 생성하였으면 교차기능을 활용하여 내부를 채워줍니다. 이때, 면과 바디를 선택하고 내부영역 작성을 선택합니다. 4. 체적 확인하기 생성된 내부...","categories": ["Engineering"],
+        "tags": ["해석","솔리드웍스"],
+        "url": "http://localhost:4000/engineering/fusion-1/",
         "teaser": null
       }]

@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-12T18:08:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1</title><link href="http://localhost:4000/prismagram/prismagram-8/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1" /><published>2020-04-12T00:00:00+09:00</published><updated>2020-04-12T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-8</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-8/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-26T18:13:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[Engineering] 솔리드웍스를 활용한 체적구하기</title><link href="http://localhost:4000/engineering/fusion-1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스를 활용한 체적구하기" /><published>2020-04-26T00:00:00+09:00</published><updated>2020-04-26T00:00:00+09:00</updated><id>http://localhost:4000/engineering/fusion-1</id><content type="html" xml:base="http://localhost:4000/engineering/fusion-1/">&lt;h2 id=&quot;1-모델-설계하기&quot;&gt;1. 모델 설계하기&lt;/h2&gt;
+
+&lt;p&gt;간단하게 내부 체적을 구할 수 있는 그릇을 설계합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/1.PNG&quot; alt=&quot;그릇 모델링&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-물성치-확인하기&quot;&gt;2. 물성치 확인하기&lt;/h2&gt;
+
+&lt;p&gt;평가탭에서 물성치를 클릭하여 확인합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/2.PNG&quot; alt=&quot;물성치&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-원하는-체적만큼-피처-생성하기&quot;&gt;3. 원하는 체적만큼 피처 생성하기&lt;/h2&gt;
+
+&lt;p&gt;피쳐탭에서 기준면을 생성합니다. 이때 체적이 채워지는 높이까지 면을 생성합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/3.PNG&quot; alt=&quot;면1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/4.PNG&quot; alt=&quot;면2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;기준면을 생성하였으면 교차기능을 활용하여 내부를 채워줍니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/5.PNG&quot; alt=&quot;교차1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이때, 면과 바디를 선택하고 내부영역 작성을 선택합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/6.PNG&quot; alt=&quot;교차2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/8.PNG&quot; alt=&quot;교차3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/9.PNG&quot; alt=&quot;교차4&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-체적-확인하기&quot;&gt;4. 체적 확인하기&lt;/h2&gt;
+
+&lt;p&gt;생성된 내부 바디를 선택하고 물성치를 확인하면, 내부체적인 볼륨을 확인할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/10.PNG&quot; alt=&quot;체적&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="해석" /><category term="솔리드웍스" /><summary type="html">1. 모델 설계하기</summary></entry><entry><title type="html">[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1</title><link href="http://localhost:4000/prismagram/prismagram-8/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1" /><published>2020-04-12T00:00:00+09:00</published><updated>2020-04-12T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-8</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-8/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.&lt;/strong&gt;&lt;/p&gt;
 
@@ -488,73 +524,45 @@ chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류�
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/2.fc65b5d6.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/main.6527b855.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;이렇게 수정해주시면 문제없이 출력됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기</title><link href="http://localhost:4000/prismagram/prismagram-2/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-2</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-2/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 수정해주시면 문제없이 출력됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈</title><link href="http://localhost:4000/issue/Issue-4/" rel="alternate" type="text/html" title="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-4</id><content type="html" xml:base="http://localhost:4000/issue/Issue-4/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
 
-&lt;h2 id=&quot;1-morgan-설치하기&quot;&gt;1. morgan 설치하기&lt;/h2&gt;
+&lt;p&gt;Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다.&lt;br /&gt;
+Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;logging module인 morgan을 추가합니다.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&quot;간단한-예시&quot;&gt;간단한 예시&lt;/h3&gt;
+&lt;p&gt;A페이지에서 사용자가 blank 속성의 테그를 클릭하여 B페이지로 이동 -&amp;gt; 다시 A페이지로 돌아왔을 때는 A페이지 처럼 보이는 피싱사이트로 바뀜.
+&lt;img src=&quot;/assets/2020-03-26-Issue4/sample.JPG&quot; alt=&quot;error&quot; /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add morgan
+&lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
+
+&lt;p&gt;target=”_blank” 와 rel=”noopener noreferrer”을 같이 적용하여 문제를 해결합니다.&lt;br /&gt;
+rel=”noopener noreferrer”는 rel=noopener 속성이 부여된 링크를 통해 열린 페이지는 opener의 location변경과 같은 자바스크립트 요청을 거부합니다.&lt;br /&gt;
+쉽게 말씀드리자면 A페이지의 정보를 바꾸지 못한다는 뜻 입니다.&lt;/p&gt;
+
+&lt;p&gt;따라서 아래와 같은 코드에 noopener 속성을 추가합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://drive.google.com/&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Catalog
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;server.js에 morgan을 추가합니다.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;이렇게요!&lt;/p&gt;
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;morgan&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;noopener noreferrer&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://drive.google.com/&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Catalog
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;morgan을 추가하면 console에 다음과 같이 실시간으로 포트가 출력됩니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;121&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;032&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25787&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;315&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25787&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;159&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;741&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25787&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25786&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;661&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25786&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;104&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;morgan은 logging module 인데, graphql 서버에는 express 서버가 내장되어 있습니다.&lt;/p&gt;
-
-&lt;p&gt;이때 모든 파일은 schema.js에서 합칩니다. api폴더에 필요한 graphql, resolvers파일을 계속 추가하여 구조를 만들겁니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;2-merge-에-필요한-라이브러리-설치&quot;&gt;2. merge 에 필요한 라이브러리 설치&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add graphql-tools merge-graphql-schemas
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;makeExecutableSchema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;graphql-tools&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fileLoader&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mergeResolvers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mergeTypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;merge-graphql-schemas&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;fileLoader : 인자로 경로를 받아 파일을 불러옵니다.&lt;br /&gt;
-path.join : 해당 경로의 파일들을 가져옵니다.&lt;br /&gt;
-makeExecutabelSchema : type, resolver를 schema 형태로 만들어 줍니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;3-schema를-서버에서-사용하기&quot;&gt;3. schema를 서버에서 사용하기&lt;/h2&gt;
-
-&lt;h4 id=&quot;서버에서-불러오기&quot;&gt;서버에서 불러오기&lt;/h4&gt;
-
-&lt;p&gt;server.js에 다음을 추가합니다.&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;schema&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./schema&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;실행하기&quot;&gt;실행하기&lt;/h4&gt;
-
-&lt;p&gt;schema로 서버를 실행시킵니다.&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GraphQLServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;이슈&quot;&gt;이슈&lt;/h2&gt;
-
-&lt;p&gt;Query를 찾을 수 없다고 하는 에러.&lt;br /&gt;
-server.js, schema.js파일은 api 밖에 있어야 합니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 3. Prisma Datamodel 만들기</title><link href="http://localhost:4000/prismagram/prismagram-3/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 3. Prisma Datamodel 만들기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-3</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-3/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[prismagram] [BackEnd] 3. Prisma Datamodel 만들기</title><link href="http://localhost:4000/prismagram/prismagram-3/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 3. Prisma Datamodel 만들기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-3</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-3/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;1-prisma란&quot;&gt;1. Prisma란?&lt;/h2&gt;
 
@@ -679,42 +687,4 @@ Prisma에서 프로젝트를 만든 뒤 로컬 파일과의 연동이 필요합�
 
 &lt;p&gt;스크립트에 do 대신에 prisma로 할 경우 스크립트 실행할 때 무한루프가 발생합니다.&lt;br /&gt;
 prisma 명령어가 콘솔에서 안먹는 경우에 yarn prisma를 해서 생기는데,&lt;br /&gt;
-prisma 대신에 do나 다른 스크립트로 대체하면 됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈</title><link href="http://localhost:4000/issue/Issue-4/" rel="alternate" type="text/html" title="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-4</id><content type="html" xml:base="http://localhost:4000/issue/Issue-4/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
-
-&lt;p&gt;Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다.&lt;br /&gt;
-Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;간단한-예시&quot;&gt;간단한 예시&lt;/h3&gt;
-&lt;p&gt;A페이지에서 사용자가 blank 속성의 테그를 클릭하여 B페이지로 이동 -&amp;gt; 다시 A페이지로 돌아왔을 때는 A페이지 처럼 보이는 피싱사이트로 바뀜.
-&lt;img src=&quot;/assets/2020-03-26-Issue4/sample.JPG&quot; alt=&quot;error&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
-
-&lt;p&gt;target=”_blank” 와 rel=”noopener noreferrer”을 같이 적용하여 문제를 해결합니다.&lt;br /&gt;
-rel=”noopener noreferrer”는 rel=noopener 속성이 부여된 링크를 통해 열린 페이지는 opener의 location변경과 같은 자바스크립트 요청을 거부합니다.&lt;br /&gt;
-쉽게 말씀드리자면 A페이지의 정보를 바꾸지 못한다는 뜻 입니다.&lt;/p&gt;
-
-&lt;p&gt;따라서 아래와 같은 코드에 noopener 속성을 추가합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://drive.google.com/&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-Catalog
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게요!&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;noopener noreferrer&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://drive.google.com/&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-Catalog
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry></feed>
+prisma 대신에 do나 다른 스크립트로 대체하면 됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry></feed>
