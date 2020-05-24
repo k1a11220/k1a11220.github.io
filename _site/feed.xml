@@ -1,4 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-26T18:13:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[Engineering] 솔리드웍스를 활용한 체적구하기</title><link href="http://localhost:4000/engineering/fusion-1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스를 활용한 체적구하기" /><published>2020-04-26T00:00:00+09:00</published><updated>2020-04-26T00:00:00+09:00</updated><id>http://localhost:4000/engineering/fusion-1</id><content type="html" xml:base="http://localhost:4000/engineering/fusion-1/">&lt;h2 id=&quot;1-모델-설계하기&quot;&gt;1. 모델 설계하기&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-24T20:55:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[Engineering] 솔리드웍스에서 로보체인 구현하기</title><link href="http://localhost:4000/engineering/robochain1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스에서 로보체인 구현하기" /><published>2020-05-01T00:00:00+09:00</published><updated>2020-05-01T00:00:00+09:00</updated><id>http://localhost:4000/engineering/robochain1</id><content type="html" xml:base="http://localhost:4000/engineering/robochain1/">&lt;h2 id=&quot;1-설치될-장비-확인하기&quot;&gt;1. 설치될 장비 확인하기&lt;/h2&gt;
+
+&lt;p&gt;로보체인이 장착될 장비를 살펴봅니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/1.PNG&quot; alt=&quot;장비사진&quot; /&gt;
+&lt;img src=&quot;/assets/2020-05-01-robochain1/2.PNG&quot; alt=&quot;장비사진&quot; /&gt;
+&lt;img src=&quot;/assets/2020-05-01-robochain1/3.PNG&quot; alt=&quot;장비사진&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;로보체인은 상하좌우로 움직이는 자동화기기에 전력이나 유압을 공급하기 위해 연결한 전선과 호스를 감싸는 특수 체인입니다.&lt;/p&gt;
+
+&lt;p&gt;이 장비는 좌우로 움직이는 로봇위의 그릇의 케이블을 감싸야 하기 때문에 로보체인을 사용합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-로보체인-선정하기&quot;&gt;2. 로보체인 선정하기&lt;/h2&gt;
+
+&lt;p&gt;보통 로보체인은 한신체인이라는 업체에서 구매하여 사용합니다.  한신체인의 홈페이지에 들어가 로보체인을 살펴봅시다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/4.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;필요한 케이블의 크기와 개수를 참고하여 로보체인을 선정하였습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-로보체인-경로-스케치하기&quot;&gt;3. 로보체인 경로 스케치하기&lt;/h2&gt;
+
+&lt;p&gt;로보체인이 움직이는 경로를 스케치로 그려줍니다.&lt;br /&gt;
+일반적인 상황에서는 로보체인을 중심에 놓기 때문에 길이의 1/2 + 곡률로 지정합니다&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/5.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-로보체인-3d-파일-확인하기&quot;&gt;4. 로보체인 3D 파일 확인하기&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/6.PNG&quot; alt=&quot;로보체인&quot; /&gt;
+&lt;img src=&quot;/assets/2020-05-01-robochain1/7.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;홈페이지에서 다운로드한 로보체인의 모델링에서 부품별로 개별파트를 만들어 저장합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;5-로보체인-어셈블리-만들기&quot;&gt;5. 로보체인 어셈블리 만들기&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/8.PNG&quot; alt=&quot;로보체인&quot; /&gt;
+&lt;img src=&quot;/assets/2020-05-01-robochain1/9.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;로보체인과 경로의 정면을 일치시켜 로보체인의 중심에 경로가 올 수 있도록 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;6-체인패턴을-이용하여-로보체인-패턴-만들기&quot;&gt;6. 체인패턴을 이용하여 로보체인 패턴 만들기&lt;/h2&gt;
+
+&lt;p&gt;삽입/부품패턴/체인패턴을 선택합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/10.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/11.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/12.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이어서 미리 그려둔 체인경로를 지정해줍니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/13.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;체인의 축과 구멍을 차례대로 지정해줍니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/14.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이때 경로 지정면은 경로와 일치하는면, 정면을 선택해줍니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/15.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;만약 체인 개수가 경로의 길이보다 많아지면 생성오류가 뜨니 조심하셔야 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/16.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;원하는 개수만큼 체인을 조정하면 사용하면 끝!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/17.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;7-생성된-체인-어셈블리-삽입하기&quot;&gt;7. 생성된 체인 어셈블리 삽입하기&lt;/h2&gt;
+
+&lt;p&gt;원하는 만큼 체인이 생성되었으면 탑 어셈블리에 체인을 삽입합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/18.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;체인의 카운터싱크와 부품의 탭구멍을 일치시켜주면 완성됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/19.PNG&quot; alt=&quot;로보체인&quot; /&gt;
+&lt;img src=&quot;/assets/2020-05-01-robochain1/20.PNG&quot; alt=&quot;로보체인&quot; /&gt;
+&lt;img src=&quot;/assets/2020-05-01-robochain1/21.PNG&quot; alt=&quot;로보체인&quot; /&gt;
+&lt;img src=&quot;/assets/2020-05-01-robochain1/22.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="설계" /><category term="어셈블리" /><category term="솔리드웍스" /><summary type="html">1. 설치될 장비 확인하기</summary></entry><entry><title type="html">[Engineering] 솔리드웍스를 활용한 체적구하기</title><link href="http://localhost:4000/engineering/fusion-1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스를 활용한 체적구하기" /><published>2020-04-26T00:00:00+09:00</published><updated>2020-04-26T00:00:00+09:00</updated><id>http://localhost:4000/engineering/fusion-1</id><content type="html" xml:base="http://localhost:4000/engineering/fusion-1/">&lt;h2 id=&quot;1-모델-설계하기&quot;&gt;1. 모델 설계하기&lt;/h2&gt;
 
 &lt;p&gt;간단하게 내부 체적을 구할 수 있는 그릇을 설계합니다.&lt;/p&gt;
 
@@ -626,65 +708,4 @@ Prisma에서 프로젝트를 만든 뒤 로컬 파일과의 연동이 필요합�
     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기</title><link href="http://localhost:4000/prismagram/prismagram-4/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 4. Prisma에서 데이터 받아오기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-4</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-4/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;1-prisma-client&quot;&gt;1. Prisma client&lt;/h2&gt;
-
-&lt;p&gt;Prisma와 api를 연결하기 위해서는 Prisma client가 필요합니다.&lt;br /&gt;
-예를들면 영화 api처럼 Prisma에서 정의한 데이터를 쉽게 가져올 수 있도록 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add prisma-client-lib
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;2-스크립트-추가&quot;&gt;2. 스크립트 추가&lt;/h2&gt;
-
-&lt;p&gt;package.json에서 다음과 같은 스크립트를 추가합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yarn prisma deploy&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yarn prisma generate&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;do&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;yarn run deploy &amp;amp;&amp;amp; yarn run generate&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;nodemon --exec babel-node src/server.js”
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;js파일에&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;../../../generated/prisma-client&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;Query&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;hello&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;3-prismayml-살펴보기&quot;&gt;3. prisma.yml 살펴보기&lt;/h2&gt;
-
-&lt;p&gt;prisma.yml 파일을 보면…&lt;/p&gt;
-
-&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;endpoint:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;https://us1.prisma.sh/blablabla....&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;datamodel:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;datamodel.prisma&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;generate:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;generator:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;javascript-client&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;output:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;./generated/prisma-client/&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;generated 폴더에 있는 index, prisma-schema 파일을 통해 prisma와 정보를 주고받습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;이슈&quot;&gt;이슈&lt;/h2&gt;
-
-&lt;p&gt;prisma.yml파일은 git에 커밋하면 안됩니다. 여기에 endpoint url이 있는데 endpoint에서 모든 데이터를 조회할 수 있기 때문에 .gitignore에 추가합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Next.js build output
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;generated&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yml&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;만약 prisma에 문제가 생긴다면 모든 서비스와 url을 변경해야 합니다.&lt;/p&gt;
-
-&lt;p&gt;스크립트에 do 대신에 prisma로 할 경우 스크립트 실행할 때 무한루프가 발생합니다.&lt;br /&gt;
-prisma 명령어가 콘솔에서 안먹는 경우에 yarn prisma를 해서 생기는데,&lt;br /&gt;
-prisma 대신에 do나 다른 스크립트로 대체하면 됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry></feed>
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry></feed>
