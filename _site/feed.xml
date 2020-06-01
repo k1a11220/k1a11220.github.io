@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-24T20:55:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[Engineering] 솔리드웍스에서 로보체인 구현하기</title><link href="http://localhost:4000/engineering/robochain1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스에서 로보체인 구현하기" /><published>2020-05-01T00:00:00+09:00</published><updated>2020-05-01T00:00:00+09:00</updated><id>http://localhost:4000/engineering/robochain1</id><content type="html" xml:base="http://localhost:4000/engineering/robochain1/">&lt;h2 id=&quot;1-설치될-장비-확인하기&quot;&gt;1. 설치될 장비 확인하기&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-01T11:04:00+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[fusion 360] fusion 360 도면 템플릿 만들기</title><link href="http://localhost:4000/fusion%20360/fusion360-1/" rel="alternate" type="text/html" title="[fusion 360] fusion 360 도면 템플릿 만들기" /><published>2020-05-31T00:00:00+09:00</published><updated>2020-05-31T00:00:00+09:00</updated><id>http://localhost:4000/fusion%20360/fusion360-1</id><content type="html" xml:base="http://localhost:4000/fusion%20360/fusion360-1/">&lt;h2 id=&quot;0-퓨전-360의-도면&quot;&gt;0. 퓨전 360의 도면&lt;/h2&gt;
+
+&lt;p&gt;퓨전 360에서 기본으로 제공되는 도면 템플릿은 바로 사용하기에는 조금 부족한 부분들이 있어 직접 디자인한 템플릿을 만들어 사용해보려고 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-도면-표제란-만들기&quot;&gt;1. 도면 표제란 만들기.&lt;/h2&gt;
+
+&lt;p&gt;퓨전 360 내부에서도 도면 표제란을 만들 수 있지만 저는 오토캐드에서 만든 표제란을 불러오겠습니다.&lt;/p&gt;
+
+&lt;p&gt;오토캐드를 실행시켜줍니다.&lt;/p&gt;
+
+&lt;p&gt;먼저 간단하게 표제란을 그리겠습니다.&lt;br /&gt;
+표제란에 들어갈 항목들의 제목도 입력합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/1.png&quot; alt=&quot;오토캐드&quot; /&gt;
+&lt;img src=&quot;/assets/2020-05-31-fusion360-1/2.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;퓨전에서 설정한 attributes를 불러와 표제란에 입력해야 하기 떄문에 오토캐드의 attdef 명령어를 사용해서 속성을 넣어줍니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/3.png&quot; alt=&quot;오토캐드&quot; /&gt;
+&lt;img src=&quot;/assets/2020-05-31-fusion360-1/4.png&quot; alt=&quot;오토캐드&quot; /&gt;
+&lt;img src=&quot;/assets/2020-05-31-fusion360-1/5.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Drawn은 퓨전 360의 기본 속성인 Created_by를 사용하겠습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/6.png&quot; alt=&quot;오토캐드&quot; /&gt;
+&lt;img src=&quot;/assets/2020-05-31-fusion360-1/7.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Created_Date도 같이 적어줍니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/8.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이아서 다른 속성들도 입력해서 표제란을 완성합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-표제란-내보내기&quot;&gt;2. 표제란 내보내기&lt;/h2&gt;
+
+&lt;p&gt;표제란을 다 만들었으면 wblock 명령어를 통해 내보내주어야 합니다. 만약 wblock을 사용하지 않고 그냥 dwg를 퓨전에서 불러오면 에러가 뜹니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/9.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;단위는 mm로 설정해줍니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/10.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/11.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이때 블록의 삽입 기준점은 오른쪽 아래를 설정해주셔야 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/12.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/13.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;버전은 2010년으로 저장하시면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/14.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-퓨전-360에서-불러오기&quot;&gt;3. 퓨전 360에서 불러오기&lt;/h2&gt;
+
+&lt;p&gt;퓨전을 실행합니다. 퓨전에서는 드로잉템플릿을 만드는 기능이 내장되어있기 때문에 템플릿은 쉽게 만들수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/15.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;New Drawing Template를 실행합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/16.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;크기는 a3, 템플릿은 From Scratch, 단위는 mm, ISO로 하겠습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/17.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;템플릿 / sheet1 / Sheet Settings / Title Block / New Title Block을 클릭합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/18.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이때 타이틀블록의 소스를 from DWG file에서 가져오면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/19.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아까 만들었던 block을 선택하면&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/20.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;도면 템플릿에 반영이 됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/21.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-도면-템플릿-저장하기&quot;&gt;4. 도면 템플릿 저장하기&lt;/h2&gt;
+
+&lt;p&gt;이렇게 만들어진 도면 템플릿을 COM 폴더에 저장하도록 하겠습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/22.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;5-도면-템플릿-불러오기&quot;&gt;5. 도면 템플릿 불러오기&lt;/h2&gt;
+
+&lt;p&gt;그럼 만든 도면 템플릿을 불러와 사용해보겠습니다. 먼저, 도면을 작성할 모델을 불러옵니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/23.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;도면을 작성하게 되면 아래와 같은 선택창이 나옵니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/24.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그럼 여기서 Template를 from Scratch가 아닌 Browse를 통해 지정할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/25.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;COM 폴더에 있는 템플릿을 선택합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/26.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이때, 템플릿을 선택하게 되면 단위나 도면크기등은 바꿀수 없기 때문에 템플릿을 상황에 맞게 여러개 만들어 놓고 사용하셔야 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/27.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;OK를 누르시면 도면 템플릿이 아름답게 반영되어 있는걸 확인할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/28.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="도면" /><category term="표제란" /><category term="퓨전360" /><category term="fusion 360" /><summary type="html">0. 퓨전 360의 도면</summary></entry><entry><title type="html">[Engineering] 솔리드웍스에서 로보체인 구현하기</title><link href="http://localhost:4000/engineering/robochain1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스에서 로보체인 구현하기" /><published>2020-05-01T00:00:00+09:00</published><updated>2020-05-01T00:00:00+09:00</updated><id>http://localhost:4000/engineering/robochain1</id><content type="html" xml:base="http://localhost:4000/engineering/robochain1/">&lt;h2 id=&quot;1-설치될-장비-확인하기&quot;&gt;1. 설치될 장비 확인하기&lt;/h2&gt;
 
 &lt;p&gt;로보체인이 장착될 장비를 살펴봅니다.&lt;/p&gt;
 
@@ -644,68 +759,4 @@ Catalog
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[prismagram] [BackEnd] 3. Prisma Datamodel 만들기</title><link href="http://localhost:4000/prismagram/prismagram-3/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 3. Prisma Datamodel 만들기" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-3</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-3/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;1-prisma란&quot;&gt;1. Prisma란?&lt;/h2&gt;
-
-&lt;p&gt;Prisma는 ORM입니다. - Object-relational mapping (객체관계연결)&lt;br /&gt;
-Prisma는 어플리케이션에 필요한 모델을 graphql로 정의할 수 있습니다.&lt;br /&gt;
-Prisma에서 프로젝트를 만든 뒤 로컬 파일과의 연동이 필요합니다.&lt;/p&gt;
-
-&lt;h4 id=&quot;prisma-설치&quot;&gt;Prisma 설치&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;prisma init
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;2-datamodel-정의하기&quot;&gt;2. Datamodel 정의하기&lt;/h2&gt;
-
-&lt;p&gt;datamodel.prisma 파일을 열어 살펴봅시다.&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;id&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;기본적으로 User가 생성되어 있습니다.&lt;br /&gt;
-만약, 여기에 인스타그램처럼 following과 follwers를 만들려고 한다면 아래처럼 만들면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!]!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FollowRelation&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;followers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!]!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FollowRelation&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이때 @relation이란 말 그대로 연관되어 있는 Data입니다. 이는 나중에 Prisma 프로젝트를 통해 따로 정리하겠습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;이슈&quot;&gt;이슈&lt;/h2&gt;
-
-&lt;p&gt;아래처럼 Datamodel 작성시 type마다 id를 부여하지 않아서 에러가 발생합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Comment&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;따라서 모든 type에 id를 추가하여 에러를 해결할 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Comment&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry></feed>
+&lt;p&gt;이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry></feed>
