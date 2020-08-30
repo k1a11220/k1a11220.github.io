@@ -1,11 +1,11 @@
-I"�<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+I"�<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
 
 <h2 id="1-prisma-client">1. Prisma client</h2>
 
 <p>Prisma와 api를 연결하기 위해서는 Prisma client가 필요합니다.<br />
 예를들면 영화 api처럼 Prisma에서 정의한 데이터를 쉽게 가져올 수 있도록 합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add prisma-client-lib
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add prisma-client-lib
 </code></pre></div></div>
 
 <h2 id="2-스크립트-추가">2. 스크립트 추가</h2>
@@ -50,9 +50,9 @@
 <p>prisma.yml파일은 git에 커밋하면 안됩니다. 여기에 endpoint url이 있는데 endpoint에서 모든 데이터를 조회할 수 있기 때문에 .gitignore에 추가합니다.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Next.js build output
-</span><span class="o">.</span><span class="nb">next</span>
+</span><span class="p">.</span><span class="nb">next</span>
 <span class="n">generated</span>
-<span class="n">prisma</span><span class="o">.</span><span class="n">yml</span>
+<span class="n">prisma</span><span class="p">.</span><span class="n">yml</span>
 </code></pre></div></div>
 
 <p>만약 prisma에 문제가 생긴다면 모든 서비스와 url을 변경해야 합니다.</p>

@@ -1,0 +1,47 @@
+I"<h2 id="0-개발환경-구축">0. 개발환경 구축.</h2>
+
+<p>맥에서 개발환경 구축을 위한 메뉴얼을 작성했습니다.</p>
+
+<h2 id="1-brew-설치">1. Brew 설치</h2>
+
+<p>Brew를 설치합니다. Brew는 패키지 관리자로 쉽게 소프트웨어 설치를 도와줍니다.</p>
+
+<p><a href="https://brew.sh/index_ko">Brew 설치링크</a></p>
+
+<h2 id="2-xcode-vscode-github-desktop-설치">2. Xcode, vscode, GitHub Desktop 설치</h2>
+
+<p>ios 개발을 위한 Xcode와 코드에디터로 사용할 vscode, gui로 GitHub를 관리할수 있는 GitHub Desktop을 설치합니다.</p>
+
+<p><a href="https://apps.apple.com/kr/app/xcode/id497799835?mt=12">Xcode 설치링크</a><br />
+<a href="https://code.visualstudio.com">vscode 설치링크</a><br />
+<a href="https://desktop.github.com">GitHub Desktop 설치링크</a></p>
+
+<h2 id="3-iterm2-설치">3. iTerm2 설치</h2>
+
+<p>터미널로 사용할 iTerm2를 설치합니다.</p>
+
+<p><a href="https://www.iterm2.com">iTerm2 설치링크</a></p>
+
+<h2 id="4-oh-my-zsh-설치">4. Oh my zsh 설치</h2>
+
+<p>Oh my zsh 는 테마 및 기타 플러그인 사용을 위해 설치합니다.</p>
+
+<p>이전에 설치한 Brew를 이용합니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>zsh
+brew <span class="nb">install </span>curl
+sh <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h2 id="5-터미널-테마-설정">5. 터미널 테마 설정</h2>
+
+<p><a href="https://github.com/altercation/solarized">solarized 테마</a></p>
+
+<p>다운받아서 설정 -&gt; 프로파일 -&gt; 프리셋 설정</p>
+
+<p>Meslo LG M for Powerline 설치, 폰트 변경</p>
+
+<h2 id="6-vscode-폰트-변경">6. vscode 폰트 변경</h2>
+
+<p>Meslo LG M for Powerline 설치, 폰트 변경</p>
+:ET

@@ -1,4 +1,4 @@
-I"6<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+I"o<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
 
 <h2 id="프로젝트-셋업하기">프로젝트 셋업하기</h2>
 
@@ -16,19 +16,19 @@
   <li>
     <p>graphql-yoga</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add graphql-yoga
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add graphql-yoga
 </code></pre></div>    </div>
   </li>
   <li>
     <p>nodemon -D (src/server.js에 있는 코드를 실행하는 script를 작성하는데 필요합니다.)</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add nodemon -D
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add nodemon -D
 </code></pre></div>    </div>
   </li>
   <li>
     <p>babel-cli -D</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add babel-cli -D
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add babel-cli -D
 </code></pre></div>    </div>
   </li>
 </ul>

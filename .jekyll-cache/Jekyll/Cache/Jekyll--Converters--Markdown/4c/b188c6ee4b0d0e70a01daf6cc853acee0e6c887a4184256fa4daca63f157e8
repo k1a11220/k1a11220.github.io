@@ -1,4 +1,4 @@
-I"�<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+I"�<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
 
 <h2 id="1-prisma란">1. Prisma란?</h2>
 
@@ -8,7 +8,7 @@ Prisma에서 프로젝트를 만든 뒤 로컬 파일과의 연동이 필요합�
 
 <h4 id="prisma-설치">Prisma 설치</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prisma init
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prisma init
 </code></pre></div></div>
 
 <h2 id="2-datamodel-정의하기">2. Datamodel 정의하기</h2>

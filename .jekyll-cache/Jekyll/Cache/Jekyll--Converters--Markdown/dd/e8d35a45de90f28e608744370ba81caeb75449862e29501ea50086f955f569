@@ -1,4 +1,4 @@
-I"�#<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+I"�#<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
 
 <p><strong>await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.</strong></p>
 
@@ -26,7 +26,7 @@
   <li>User폴더를 만들고 그 안에 createAccount 폴더를 만듭니다.</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api/User/createAccount/.graphql &amp; .js
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api/User/createAccount/.graphql &amp; .js
 </code></pre></div></div>
 
 <ul>
@@ -95,7 +95,7 @@
   <li>datamodel 에서는 firstname createAccount에서는 firstName이라서 에러가 발생했었습니다. 따라서 datamodel을 수정해주신 뒤</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn prisma deploy --force
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn prisma deploy --force
 </code></pre></div></div>
 <p>로 업데이트 해주셔야합니다.</p>
 

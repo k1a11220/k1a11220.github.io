@@ -1,0 +1,653 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Web] http -&gt; https 로 변경하기 - 범수의 기술 블로그</title>
+<meta name="description" content="0. http랑 https의 차이가 뭔가요? ">
+
+
+  <meta name="author" content="Beomsoo">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="범수의 기술 블로그">
+<meta property="og:title" content="[Web] http -&gt; https 로 변경하기">
+<meta property="og:url" content="http://localhost:4000/web/http/">
+
+
+  <meta property="og:description" content="0. http랑 https의 차이가 뭔가요? ">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-08-18T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2020-08-18T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/web/http/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Beomsoo",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="범수의 기술 블로그 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          범수의 기술 블로그
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">tag</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/me.jpeg" alt="Beomsoo" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Beomsoo</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Let’s make something FUN!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">ROK</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:k1a11220@naver.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/k1a11220" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:k1a11220@naver.com">
+            <meta itemprop="email" content="k1a11220@naver.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> 이메일
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Web] http -&gt; https 로 변경하기">
+    <meta itemprop="description" content="0. http랑 https의 차이가 뭔가요?">
+    <meta itemprop="datePublished" content="2020-08-18T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2020-08-18T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Web] http -&gt; https 로 변경하기
+</h1>
+          
+            
+
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2020-08-18T00:00:00+09:00">August 18, 2020</time></p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="0-http랑-https의-차이가-뭔가요">0. http랑 https의 차이가 뭔가요?</h2>
+
+<p>HTTP는 하이퍼 텍스트 전송 프로토콜의(Hypertext Transfer Protocol)의 약자입니다. 쉽게 말하자면 서로 다른 시스템들끼리 통신을 주고받는 가장 기본적으로 사용하는 프로토콜입니다. 간단한 데이터 전송용으로 많이 사용되죠.</p>
+
+<p>HTTPS는 하이퍼 텍스트 전송 프로토콜 보안(Hypertext Transfer Protocol Secure)의 약자입니다. HTTP는 암호화 되어있지 않기 때문에 데이터가 쉽게 변조, 도난될 가능성이 높았습니다. 하지만 HTTPS는 SSL(보안 소켓 계층)을 사용함으로써 보안 문제를 해결했습니다. SSL은 대칭키, 공개키 방식의 암호화를 사용하여 데이터를 보호합니다.</p>
+
+<p>오늘은 http를 https로 변경하는 방법에 대해 알아볼 예정이니 이론적인 암호화 방식에 대해서는 나중에 자세히 포스팅하도록 하겠습니다.</p>
+
+<h2 id="1-ssl-인증서-발급받기">1. SSL 인증서 발급받기.</h2>
+
+<p>https로 인증하려면, SSL 인증서를 발급받아야 합니다. 호스팅 서비스를 받고있는 업체를 통해 인증서를 구매하는 것이 가장 빠른 방법입니다. 저는 호스팅케이알이라는 업체를 통해 웹호스팅을 하였으므로 인증서 구매 역시 동일하게 진행하도록 하겠습니다.
+<img src="/assets/2020-08-14-http/1.png" alt="인증서 구매" /></p>
+
+<p>인증서 종류는 Alpha SSL과 Domain SSL이 있습니다. 두개의 차이점은 Domain SSL이 하위버전 브라우저를 사용했을 때 강제로 암호화 강도를 높인다고 합니다. 요즘은 Alpha SSL로도 충분하다고 하니 특별한 사유가 없으면, 가격이 더 저렴한 Alpha SSL을 사용해주시면 됩니다.</p>
+
+<p>설치 지원을 선택하시면. 엔지니어가 알아서 인증서를 설치해줍니다. 서버종류는 본인이 사용하고있는 서버의 종류를 선택해주시면 됩니다. 저는 윈도우 기반 서버를 사용하고있기 때문에 MS IIS 7.0을 선택하였습니다.</p>
+
+<p>필요한 입력항목을 다 채우신 뒤 결재하시면 1~3일 내에 설치확인 메일이 옵니다. Approve SSL Application이라는 내용으로 왔는데 첨부된 링크를 클릭하여 승인해주시면 인증서 발급 절차가 진행됩니다. 이후 인증서가 발급되면 설치 완료 메일이 발송되며, 포트번호가 추가된 https 주소를 확인할수 있습니다.</p>
+
+<h2 id="2-html-코드-수정하기">2. html 코드 수정하기.</h2>
+
+<p>인증서가 설치 완료되어 https로 접속이 가능하다면 모든 접속자를 https로 바꿔주는 작업을 해야합니다. 기본적으로 모든 접속은 http로 이동됩니다. 인증서를 발급받아도 주소창에 www.asdasd.com으로 접속하면 브라우저는 자동으로 http://www.asdasd.com으로 이동시키기 때문입니다.</p>
+
+<p>보통 사용자들은 www.asdasd.com 형식으로 접속하지 https://www.asdasd.com로 접속하지는 않기 때문에 리디렉션 코드를 추가해줘야 합니다. 저는 리액트를 사용해서 개발했기 때문에 public / index.html 파일에 script와 meta 테그를 추가하도록 하겠습니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meta</span> <span class="na">https-equiv=</span><span class="s">"refresh"</span> <span class="na">content=</span><span class="s">"0;url=https://www.tnglab.co.kr:449/#/"</span> <span class="na">target=</span><span class="s">"_top"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://www.tnglab.co.kr:449/#/</span><span class="dl">"</span>
+
+  <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>http로 접속하여도 https로 리디렉션 시켜주는 코드입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"theme-color"</span> <span class="na">content=</span><span class="s">"#000000"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span>
+      <span class="na">name=</span><span class="s">"description"</span>
+      <span class="na">content=</span><span class="s">"Vacuum Part , Vacuum View Port , Integral viewport , Smart View port"</span>
+    <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span>
+      <span class="na">name=</span><span class="s">"keywords"</span>
+      <span class="na">content=</span><span class="s">"Vacuum Part , Vacuum View Port , Integral viewport , Smart View port"</span>
+    <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">https-equiv=</span><span class="s">"refresh"</span> <span class="na">content=</span><span class="s">"0;url=https://www.tnglab.co.kr:449/#/"</span> <span class="na">target=</span><span class="s">"_top"</span> <span class="nt">/&gt;</span>
+    <span class="c">&lt;!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    --&gt;</span>
+    <span class="nt">&lt;title&gt;</span>TNG<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;noscript&gt;</span>You need to enable JavaScript to run this app.<span class="nt">&lt;/noscript&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"root"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="c">&lt;!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the &lt;body&gt; tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+      
+    --&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+      <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://www.tnglab.co.kr:449/#/</span><span class="dl">"</span>
+
+      <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>이때, 발급받은 포트번호를 뒤에 꼭 붙여주셔야 합니다. 포트번호가 없으면 주소 인식을 하지 못해 접속이 불가합니다.</p>
+
+<p><img src="/assets/2020-08-14-http/2.png" alt="인증서 구매" /></p>
+
+<p>이젠 정상적으로 https 접속이 가능합니다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#develop" class="page__taxonomy-item" rel="tag">Develop</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#web" class="page__taxonomy-item" rel="tag">Web</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-08-18">August 18, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BWeb%5D+http+-%3E+https+%EB%A1%9C+%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fweb%2Fhttp%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fweb%2Fhttp%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fweb%2Fhttp%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/developing/macsetup/" class="pagination--pager" title="Mac OS 개발환경 구축하기
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/developing/macsetup/" rel="permalink">Mac OS 개발환경 구축하기
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> August 01 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">0. 개발환경 구축.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/fusion%20360/fusion360-1/" rel="permalink">[fusion 360] fusion 360 도면 템플릿 만들기
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 31 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">0. 퓨전 360의 도면
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/engineering/robochain1/" rel="permalink">[Engineering] 솔리드웍스에서 로보체인 구현하기
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> May 01 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">1. 설치될 장비 확인하기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/engineering/fusion-1/" rel="permalink">[Engineering] 솔리드웍스를 활용한 체적구하기
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> April 26 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">1. 모델 설계하기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Beomsoo. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/web/http/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/web/http"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://k1a11220-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

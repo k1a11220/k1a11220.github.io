@@ -1,4 +1,4 @@
-I"�<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+I"�<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
 
 <h2 id="1-morgan-설치하기">1. morgan 설치하기</h2>
 
@@ -6,7 +6,7 @@
   <li>logging module인 morgan을 추가합니다.</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add morgan
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add morgan
 </code></pre></div></div>
 
 <ul>
@@ -35,7 +35,7 @@
 <p>이때 모든 파일은 schema.js에서 합칩니다. api폴더에 필요한 graphql, resolvers파일을 계속 추가하여 구조를 만들겁니다.</p>
 
 <h2 id="2-merge-에-필요한-라이브러리-설치">2. merge 에 필요한 라이브러리 설치</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add graphql-tools merge-graphql-schemas
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add graphql-tools merge-graphql-schemas
 </code></pre></div></div>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">path</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">path</span><span class="dl">'</span><span class="p">;</span>

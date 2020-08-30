@@ -1,4 +1,4 @@
-I"�G<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
+I"�G<p><em>모든 내용은 MacOS Catalina 기준으로 작성되었습니다</em></p>
 
 <p><strong>await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.</strong></p>
 
@@ -7,7 +7,7 @@
 <p>nodemailer를 활용하여 메일을 보내봅시다.<br />
 먼저 nodemailer를 설치합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add nodemailer
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add nodemailer
 </code></pre></div></div>
 
 <p>nodemailer를 설치했으면 utils.js에 메일에 들어갈 내용을 작성해줍니다.</p>
@@ -29,7 +29,7 @@
 <p>그런데, 메일을 전송해주기 위해서는 transport를 설치해줘야 합니다. 일단 sendgrid를 사용해보겠습니다.<br />
 sendgrid에서 회원가입을 하고 sendgrid transport를 설치합니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add nodemailer-sendgrid-transport
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add nodemailer-sendgrid-transport
 </code></pre></div></div>
 
 <p>utils.js에 노드메일러와 트랜스포트를 import 합니다.</p>

@@ -1,4 +1,137 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-01T11:04:00+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[fusion 360] fusion 360 도면 템플릿 만들기</title><link href="http://localhost:4000/fusion%20360/fusion360-1/" rel="alternate" type="text/html" title="[fusion 360] fusion 360 도면 템플릿 만들기" /><published>2020-05-31T00:00:00+09:00</published><updated>2020-05-31T00:00:00+09:00</updated><id>http://localhost:4000/fusion%20360/fusion360-1</id><content type="html" xml:base="http://localhost:4000/fusion%20360/fusion360-1/">&lt;h2 id=&quot;0-퓨전-360의-도면&quot;&gt;0. 퓨전 360의 도면&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-30T15:03:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[Web] http -&amp;gt; https 로 변경하기</title><link href="http://localhost:4000/web/http/" rel="alternate" type="text/html" title="[Web] http -&amp;gt; https 로 변경하기" /><published>2020-08-18T00:00:00+09:00</published><updated>2020-08-18T00:00:00+09:00</updated><id>http://localhost:4000/web/http</id><content type="html" xml:base="http://localhost:4000/web/http/">&lt;h2 id=&quot;0-http랑-https의-차이가-뭔가요&quot;&gt;0. http랑 https의 차이가 뭔가요?&lt;/h2&gt;
+
+&lt;p&gt;HTTP는 하이퍼 텍스트 전송 프로토콜의(Hypertext Transfer Protocol)의 약자입니다. 쉽게 말하자면 서로 다른 시스템들끼리 통신을 주고받는 가장 기본적으로 사용하는 프로토콜입니다. 간단한 데이터 전송용으로 많이 사용되죠.&lt;/p&gt;
+
+&lt;p&gt;HTTPS는 하이퍼 텍스트 전송 프로토콜 보안(Hypertext Transfer Protocol Secure)의 약자입니다. HTTP는 암호화 되어있지 않기 때문에 데이터가 쉽게 변조, 도난될 가능성이 높았습니다. 하지만 HTTPS는 SSL(보안 소켓 계층)을 사용함으로써 보안 문제를 해결했습니다. SSL은 대칭키, 공개키 방식의 암호화를 사용하여 데이터를 보호합니다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 http를 https로 변경하는 방법에 대해 알아볼 예정이니 이론적인 암호화 방식에 대해서는 나중에 자세히 포스팅하도록 하겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-ssl-인증서-발급받기&quot;&gt;1. SSL 인증서 발급받기.&lt;/h2&gt;
+
+&lt;p&gt;https로 인증하려면, SSL 인증서를 발급받아야 합니다. 호스팅 서비스를 받고있는 업체를 통해 인증서를 구매하는 것이 가장 빠른 방법입니다. 저는 호스팅케이알이라는 업체를 통해 웹호스팅을 하였으므로 인증서 구매 역시 동일하게 진행하도록 하겠습니다.
+&lt;img src=&quot;/assets/2020-08-14-http/1.png&quot; alt=&quot;인증서 구매&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;인증서 종류는 Alpha SSL과 Domain SSL이 있습니다. 두개의 차이점은 Domain SSL이 하위버전 브라우저를 사용했을 때 강제로 암호화 강도를 높인다고 합니다. 요즘은 Alpha SSL로도 충분하다고 하니 특별한 사유가 없으면, 가격이 더 저렴한 Alpha SSL을 사용해주시면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;설치 지원을 선택하시면. 엔지니어가 알아서 인증서를 설치해줍니다. 서버종류는 본인이 사용하고있는 서버의 종류를 선택해주시면 됩니다. 저는 윈도우 기반 서버를 사용하고있기 때문에 MS IIS 7.0을 선택하였습니다.&lt;/p&gt;
+
+&lt;p&gt;필요한 입력항목을 다 채우신 뒤 결재하시면 1~3일 내에 설치확인 메일이 옵니다. Approve SSL Application이라는 내용으로 왔는데 첨부된 링크를 클릭하여 승인해주시면 인증서 발급 절차가 진행됩니다. 이후 인증서가 발급되면 설치 완료 메일이 발송되며, 포트번호가 추가된 https 주소를 확인할수 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-html-코드-수정하기&quot;&gt;2. html 코드 수정하기.&lt;/h2&gt;
+
+&lt;p&gt;인증서가 설치 완료되어 https로 접속이 가능하다면 모든 접속자를 https로 바꿔주는 작업을 해야합니다. 기본적으로 모든 접속은 http로 이동됩니다. 인증서를 발급받아도 주소창에 www.asdasd.com으로 접속하면 브라우저는 자동으로 http://www.asdasd.com으로 이동시키기 때문입니다.&lt;/p&gt;
+
+&lt;p&gt;보통 사용자들은 www.asdasd.com 형식으로 접속하지 https://www.asdasd.com로 접속하지는 않기 때문에 리디렉션 코드를 추가해줘야 합니다. 저는 리액트를 사용해서 개발했기 때문에 public / index.html 파일에 script와 meta 테그를 추가하도록 하겠습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;https-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;refresh&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0;url=https://www.tnglab.co.kr:449/#/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_top&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;https://www.tnglab.co.kr:449/#/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;http로 접속하여도 https로 리디렉션 시켜주는 코드입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width=device-width, initial-scale=1&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;theme-color&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#000000&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;description&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Vacuum Part , Vacuum View Port , Integral viewport , Smart View port&quot;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;keywords&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Vacuum Part , Vacuum View Port , Integral viewport , Smart View port&quot;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;https-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;refresh&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0;url=https://www.tnglab.co.kr:449/#/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_top&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike &quot;/favicon.ico&quot; or &quot;favicon.ico&quot;, &quot;%PUBLIC_URL%/favicon.ico&quot; will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;TNG&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;noscript&amp;gt;&lt;/span&gt;You need to enable JavaScript to run this app.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/noscript&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the &amp;lt;body&amp;gt; tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+      
+    --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;https://www.tnglab.co.kr:449/#/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+
+      &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이때, 발급받은 포트번호를 뒤에 꼭 붙여주셔야 합니다. 포트번호가 없으면 주소 인식을 하지 못해 접속이 불가합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-08-14-http/2.png&quot; alt=&quot;인증서 구매&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이젠 정상적으로 https 접속이 가능합니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Web" /><category term="Develop" /><summary type="html">0. http랑 https의 차이가 뭔가요?</summary></entry><entry><title type="html">Mac OS 개발환경 구축하기</title><link href="http://localhost:4000/developing/macsetup/" rel="alternate" type="text/html" title="Mac OS 개발환경 구축하기" /><published>2020-08-01T00:00:00+09:00</published><updated>2020-08-01T00:00:00+09:00</updated><id>http://localhost:4000/developing/macsetup</id><content type="html" xml:base="http://localhost:4000/developing/macsetup/">&lt;h2 id=&quot;0-개발환경-구축&quot;&gt;0. 개발환경 구축.&lt;/h2&gt;
+
+&lt;p&gt;맥에서 개발환경 구축을 위한 메뉴얼을 작성했습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-brew-설치&quot;&gt;1. Brew 설치&lt;/h2&gt;
+
+&lt;p&gt;Brew를 설치합니다. Brew는 패키지 관리자로 쉽게 소프트웨어 설치를 도와줍니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://brew.sh/index_ko&quot;&gt;Brew 설치링크&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-xcode-vscode-github-desktop-설치&quot;&gt;2. Xcode, vscode, GitHub Desktop 설치&lt;/h2&gt;
+
+&lt;p&gt;ios 개발을 위한 Xcode와 코드에디터로 사용할 vscode, gui로 GitHub를 관리할수 있는 GitHub Desktop을 설치합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://apps.apple.com/kr/app/xcode/id497799835?mt=12&quot;&gt;Xcode 설치링크&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://code.visualstudio.com&quot;&gt;vscode 설치링크&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://desktop.github.com&quot;&gt;GitHub Desktop 설치링크&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-iterm2-설치&quot;&gt;3. iTerm2 설치&lt;/h2&gt;
+
+&lt;p&gt;터미널로 사용할 iTerm2를 설치합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.iterm2.com&quot;&gt;iTerm2 설치링크&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-oh-my-zsh-설치&quot;&gt;4. Oh my zsh 설치&lt;/h2&gt;
+
+&lt;p&gt;Oh my zsh 는 테마 및 기타 플러그인 사용을 위해 설치합니다.&lt;/p&gt;
+
+&lt;p&gt;이전에 설치한 Brew를 이용합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;zsh
+brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;curl
+sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;5-터미널-테마-설정&quot;&gt;5. 터미널 테마 설정&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/altercation/solarized&quot;&gt;solarized 테마&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;다운받아서 설정 -&amp;gt; 프로파일 -&amp;gt; 프리셋 설정&lt;/p&gt;
+
+&lt;p&gt;Meslo LG M for Powerline 설치, 폰트 변경&lt;/p&gt;
+
+&lt;h2 id=&quot;6-vscode-폰트-변경&quot;&gt;6. vscode 폰트 변경&lt;/h2&gt;
+
+&lt;p&gt;Meslo LG M for Powerline 설치, 폰트 변경&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="developing" /><category term="developing" /><summary type="html">0. 개발환경 구축.</summary></entry><entry><title type="html">[fusion 360] fusion 360 도면 템플릿 만들기</title><link href="http://localhost:4000/fusion%20360/fusion360-1/" rel="alternate" type="text/html" title="[fusion 360] fusion 360 도면 템플릿 만들기" /><published>2020-05-31T00:00:00+09:00</published><updated>2020-05-31T00:00:00+09:00</updated><id>http://localhost:4000/fusion%20360/fusion360-1</id><content type="html" xml:base="http://localhost:4000/fusion%20360/fusion360-1/">&lt;h2 id=&quot;0-퓨전-360의-도면&quot;&gt;0. 퓨전 360의 도면&lt;/h2&gt;
 
 &lt;p&gt;퓨전 360에서 기본으로 제공되는 도면 템플릿은 바로 사용하기에는 조금 부족한 부분들이 있어 직접 디자인한 템플릿을 만들어 사용해보려고 합니다.&lt;/p&gt;
 
@@ -113,7 +246,7 @@
 
 &lt;p&gt;OK를 누르시면 도면 템플릿이 아름답게 반영되어 있는걸 확인할 수 있습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/28.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="도면" /><category term="표제란" /><category term="퓨전360" /><category term="fusion 360" /><summary type="html">0. 퓨전 360의 도면</summary></entry><entry><title type="html">[Engineering] 솔리드웍스에서 로보체인 구현하기</title><link href="http://localhost:4000/engineering/robochain1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스에서 로보체인 구현하기" /><published>2020-05-01T00:00:00+09:00</published><updated>2020-05-01T00:00:00+09:00</updated><id>http://localhost:4000/engineering/robochain1</id><content type="html" xml:base="http://localhost:4000/engineering/robochain1/">&lt;h2 id=&quot;1-설치될-장비-확인하기&quot;&gt;1. 설치될 장비 확인하기&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/28.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="fusion 360" /><category term="도면" /><category term="표제란" /><category term="퓨전360" /><category term="fusion 360" /><summary type="html">0. 퓨전 360의 도면</summary></entry><entry><title type="html">[Engineering] 솔리드웍스에서 로보체인 구현하기</title><link href="http://localhost:4000/engineering/robochain1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스에서 로보체인 구현하기" /><published>2020-05-01T00:00:00+09:00</published><updated>2020-05-01T00:00:00+09:00</updated><id>http://localhost:4000/engineering/robochain1</id><content type="html" xml:base="http://localhost:4000/engineering/robochain1/">&lt;h2 id=&quot;1-설치될-장비-확인하기&quot;&gt;1. 설치될 장비 확인하기&lt;/h2&gt;
 
 &lt;p&gt;로보체인이 장착될 장비를 살펴봅니다.&lt;/p&gt;
 
@@ -195,7 +328,7 @@
 &lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/19.PNG&quot; alt=&quot;로보체인&quot; /&gt;
 &lt;img src=&quot;/assets/2020-05-01-robochain1/20.PNG&quot; alt=&quot;로보체인&quot; /&gt;
 &lt;img src=&quot;/assets/2020-05-01-robochain1/21.PNG&quot; alt=&quot;로보체인&quot; /&gt;
-&lt;img src=&quot;/assets/2020-05-01-robochain1/22.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="설계" /><category term="어셈블리" /><category term="솔리드웍스" /><summary type="html">1. 설치될 장비 확인하기</summary></entry><entry><title type="html">[Engineering] 솔리드웍스를 활용한 체적구하기</title><link href="http://localhost:4000/engineering/fusion-1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스를 활용한 체적구하기" /><published>2020-04-26T00:00:00+09:00</published><updated>2020-04-26T00:00:00+09:00</updated><id>http://localhost:4000/engineering/fusion-1</id><content type="html" xml:base="http://localhost:4000/engineering/fusion-1/">&lt;h2 id=&quot;1-모델-설계하기&quot;&gt;1. 모델 설계하기&lt;/h2&gt;
+&lt;img src=&quot;/assets/2020-05-01-robochain1/22.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Engineering" /><category term="설계" /><category term="어셈블리" /><category term="솔리드웍스" /><summary type="html">1. 설치될 장비 확인하기</summary></entry><entry><title type="html">[Engineering] 솔리드웍스를 활용한 체적구하기</title><link href="http://localhost:4000/engineering/fusion-1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스를 활용한 체적구하기" /><published>2020-04-26T00:00:00+09:00</published><updated>2020-04-26T00:00:00+09:00</updated><id>http://localhost:4000/engineering/fusion-1</id><content type="html" xml:base="http://localhost:4000/engineering/fusion-1/">&lt;h2 id=&quot;1-모델-설계하기&quot;&gt;1. 모델 설계하기&lt;/h2&gt;
 
 &lt;p&gt;간단하게 내부 체적을 구할 수 있는 그릇을 설계합니다.&lt;/p&gt;
 
@@ -231,7 +364,7 @@
 
 &lt;p&gt;생성된 내부 바디를 선택하고 물성치를 확인하면, 내부체적인 볼륨을 확인할 수 있습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/10.PNG&quot; alt=&quot;체적&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="해석" /><category term="솔리드웍스" /><summary type="html">1. 모델 설계하기</summary></entry><entry><title type="html">[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1</title><link href="http://localhost:4000/prismagram/prismagram-8/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1" /><published>2020-04-12T00:00:00+09:00</published><updated>2020-04-12T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-8</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-8/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/10.PNG&quot; alt=&quot;체적&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Engineering" /><category term="해석" /><category term="솔리드웍스" /><summary type="html">1. 모델 설계하기</summary></entry><entry><title type="html">[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1</title><link href="http://localhost:4000/prismagram/prismagram-8/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1" /><published>2020-04-12T00:00:00+09:00</published><updated>2020-04-12T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-8</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-8/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.&lt;/strong&gt;&lt;/p&gt;
 
@@ -240,7 +373,7 @@
 &lt;p&gt;nodemailer를 활용하여 메일을 보내봅시다.&lt;br /&gt;
 먼저 nodemailer를 설치합니다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add nodemailer
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add nodemailer
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;nodemailer를 설치했으면 utils.js에 메일에 들어갈 내용을 작성해줍니다.&lt;/p&gt;
@@ -262,7 +395,7 @@
 &lt;p&gt;그런데, 메일을 전송해주기 위해서는 transport를 설치해줘야 합니다. 일단 sendgrid를 사용해보겠습니다.&lt;br /&gt;
 sendgrid에서 회원가입을 하고 sendgrid transport를 설치합니다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add nodemailer-sendgrid-transport
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add nodemailer-sendgrid-transport
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;utils.js에 노드메일러와 트랜스포트를 import 합니다.&lt;/p&gt;
@@ -361,7 +494,7 @@ sendgrid에서 회원가입을 하고 sendgrid transport를 설치합니다.&lt;
 따라서 그냥 server.js에 시작포트를 입력해줍니다.&lt;/p&gt;
 
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Server running on port http://localhost:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PORT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[ETC] 압력용기 수입 인증에 관하여</title><link href="http://localhost:4000/trade/tank/" rel="alternate" type="text/html" title="[ETC] 압력용기 수입 인증에 관하여" /><published>2020-04-01T00:00:00+09:00</published><updated>2020-04-01T00:00:00+09:00</updated><id>http://localhost:4000/trade/tank</id><content type="html" xml:base="http://localhost:4000/trade/tank/">&lt;h2 id=&quot;개요&quot;&gt;개요&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[ETC] 압력용기 수입 인증에 관하여</title><link href="http://localhost:4000/trade/tank/" rel="alternate" type="text/html" title="[ETC] 압력용기 수입 인증에 관하여" /><published>2020-04-01T00:00:00+09:00</published><updated>2020-04-01T00:00:00+09:00</updated><id>http://localhost:4000/trade/tank</id><content type="html" xml:base="http://localhost:4000/trade/tank/">&lt;h2 id=&quot;개요&quot;&gt;개요&lt;/h2&gt;
 
 &lt;p&gt;중국에서 60L에 6Bar 짜리 압력탱크를 수입하여 사용하려고 하는데 관련 법령과 검사기준을 정리하겠습니다.&lt;/p&gt;
 
@@ -399,7 +532,7 @@ sendgrid에서 회원가입을 하고 sendgrid transport를 설치합니다.&lt;
 |최초안전검사|안전검사|
 |——|—|
 |설치한 후 3년이내|최초안전검사 이후 2년마다(공정안전보고서를 제출하면 4년으로 연장가능)|
-압력용기의 사후관리는 정기검사를 통해 진행됩니다. 지정된 기관을 통해서 검사를 받으실 수 있는데요, 검사비용은 별도로 발생되니 꼭 참고하시길 바랍니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="인증" /><category term="무역" /><summary type="html">개요 중국에서 60L에 6Bar 짜리 압력탱크를 수입하여 사용하려고 하는데 관련 법령과 검사기준을 정리하겠습니다. 1. 인증을 받아야 하는 경우 안전 및 검사기준(노동부 고시 제2001-59호) 제2조의 규정에 의하여 화학공정 유체취급용기 및 모든 사업장의 공기 및 질소저장탱크 등으로서 사용압력이 게이지 압력으로 0.2㎏f/㎠ (20 kpa) 이상이 되고, 사용압력 (단위：㎏f/㎠)과 용기 내용적 (단위：㎥) 의 곱의 값이 1이상일 때 해당됩니다. 추가로 CE인증과 같이 해외에서 인증을 받았다 하더라도 면제대상이 아니면 다시 한국에서 인증을 받아야 합니다. 2. 검사기관 압력용기를 수입할때 저희 제품은 압력이 10Bar 이하이므로 한국산업안전보건공단에서 검사를 받게됩니다. 이때 바로 검사를 받는 것이 아니라 서면으로 검사신청을 해야합니다. 서면신청 필요서류 - 안전인증신청서 - 기술문서 외관 개략도 및 치수, 압력용기 설계조건, 내용적 계산서, 용접관련 자료 (방사선 비파괴검사- RT MAP,용접절차서, WPS, 방호장치 종류 및 사양 (안전 밸브, P &amp;amp; ID), 강도 계산서, 명판, 도면(세부 도면 , 참고자료 등) - 사업자등록증 사본 2. 안전인증신청서 작성요령 신청서를 살펴보면 대부분 큰 문제없이 작성 가능하지만 설치사업장명과 설치사업장 소재지는 아직 정해지지 않았을 경우 공란으로 기입하시면 됩니다. 3. 사후관리 산업안전 압력용기는 최초안전검사를 설치한 후 3년이내로 받아야 하며, 안전검사는 그 이후부터 2년마다 진행됩니다. 이때 공정안전보고서를 제출하여 확인을 받은 압력용기는 4년마다 받습니다. |최초안전검사|안전검사| |——|—| |설치한 후 3년이내|최초안전검사 이후 2년마다(공정안전보고서를 제출하면 4년으로 연장가능)| 압력용기의 사후관리는 정기검사를 통해 진행됩니다. 지정된 기관을 통해서 검사를 받으실 수 있는데요, 검사비용은 별도로 발생되니 꼭 참고하시길 바랍니다.</summary></entry><entry><title type="html">[prismagram] [BackEnd] 7. Create Account - Part2</title><link href="http://localhost:4000/prismagram/prismagram-7/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 7. Create Account - Part2" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-7</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-7/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+압력용기의 사후관리는 정기검사를 통해 진행됩니다. 지정된 기관을 통해서 검사를 받으실 수 있는데요, 검사비용은 별도로 발생되니 꼭 참고하시길 바랍니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Trade" /><category term="인증" /><category term="무역" /><summary type="html">개요 중국에서 60L에 6Bar 짜리 압력탱크를 수입하여 사용하려고 하는데 관련 법령과 검사기준을 정리하겠습니다. 1. 인증을 받아야 하는 경우 안전 및 검사기준(노동부 고시 제2001-59호) 제2조의 규정에 의하여 화학공정 유체취급용기 및 모든 사업장의 공기 및 질소저장탱크 등으로서 사용압력이 게이지 압력으로 0.2㎏f/㎠ (20 kpa) 이상이 되고, 사용압력 (단위：㎏f/㎠)과 용기 내용적 (단위：㎥) 의 곱의 값이 1이상일 때 해당됩니다. 추가로 CE인증과 같이 해외에서 인증을 받았다 하더라도 면제대상이 아니면 다시 한국에서 인증을 받아야 합니다. 2. 검사기관 압력용기를 수입할때 저희 제품은 압력이 10Bar 이하이므로 한국산업안전보건공단에서 검사를 받게됩니다. 이때 바로 검사를 받는 것이 아니라 서면으로 검사신청을 해야합니다. 서면신청 필요서류 - 안전인증신청서 - 기술문서 외관 개략도 및 치수, 압력용기 설계조건, 내용적 계산서, 용접관련 자료 (방사선 비파괴검사- RT MAP,용접절차서, WPS, 방호장치 종류 및 사양 (안전 밸브, P &amp;amp; ID), 강도 계산서, 명판, 도면(세부 도면 , 참고자료 등) - 사업자등록증 사본 2. 안전인증신청서 작성요령 신청서를 살펴보면 대부분 큰 문제없이 작성 가능하지만 설치사업장명과 설치사업장 소재지는 아직 정해지지 않았을 경우 공란으로 기입하시면 됩니다. 3. 사후관리 산업안전 압력용기는 최초안전검사를 설치한 후 3년이내로 받아야 하며, 안전검사는 그 이후부터 2년마다 진행됩니다. 이때 공정안전보고서를 제출하여 확인을 받은 압력용기는 4년마다 받습니다. |최초안전검사|안전검사| |——|—| |설치한 후 3년이내|최초안전검사 이후 2년마다(공정안전보고서를 제출하면 4년으로 연장가능)| 압력용기의 사후관리는 정기검사를 통해 진행됩니다. 지정된 기관을 통해서 검사를 받으실 수 있는데요, 검사비용은 별도로 발생되니 꼭 참고하시길 바랍니다.</summary></entry><entry><title type="html">[prismagram] [BackEnd] 7. Create Account - Part2</title><link href="http://localhost:4000/prismagram/prismagram-7/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 7. Create Account - Part2" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-7</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-7/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.&lt;/strong&gt;&lt;/p&gt;
 
@@ -524,7 +657,7 @@ Math.random은 0에서 1사이의 무작위 수를 생성합니다.&lt;br /&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-7/admin.png&quot; alt=&quot;admin&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;loginSecret값이 들어와있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 6. Create Account - Part1</title><link href="http://localhost:4000/prismagram/prismagram-6/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 6. Create Account - Part1" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-6</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-6/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;loginSecret값이 들어와있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 6. Create Account - Part1</title><link href="http://localhost:4000/prismagram/prismagram-6/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 6. Create Account - Part1" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-6</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-6/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.&lt;/strong&gt;&lt;/p&gt;
 
@@ -552,7 +685,7 @@ Math.random은 0에서 1사이의 무작위 수를 생성합니다.&lt;br /&gt;
   &lt;li&gt;User폴더를 만들고 그 안에 createAccount 폴더를 만듭니다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;api/User/createAccount/.graphql &amp;amp; .js
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;api/User/createAccount/.graphql &amp;amp; .js
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -621,7 +754,7 @@ Math.random은 0에서 1사이의 무작위 수를 생성합니다.&lt;br /&gt;
   &lt;li&gt;datamodel 에서는 firstname createAccount에서는 firstName이라서 에러가 발생했었습니다. 따라서 datamodel을 수정해주신 뒤&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn prisma deploy --force
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn prisma deploy --force
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;로 업데이트 해주셔야합니다.&lt;/p&gt;
 
@@ -650,7 +783,7 @@ Math.random은 0에서 1사이의 무작위 수를 생성합니다.&lt;br /&gt;
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Query&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;something&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 5. prisma와 graphql의 연결</title><link href="http://localhost:4000/prismagram/prismagram-5/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 5. prisma와 graphql의 연결" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-5</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-5/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [BackEnd] 5. prisma와 graphql의 연결</title><link href="http://localhost:4000/prismagram/prismagram-5/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 5. prisma와 graphql의 연결" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-5</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-5/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;1-graphql-파일-생성하기&quot;&gt;1. graphql 파일 생성하기&lt;/h2&gt;
 
@@ -700,63 +833,4 @@ Math.random은 0에서 1사이의 무작위 수를 생성합니다.&lt;br /&gt;
 
 &lt;p&gt;이런식으로 코드를 짜면 무한query 공격이 올 수 있기 때문에 $fragment를 사용하는 것입니다.&lt;/p&gt;
 
-&lt;p&gt;$fragment에 대해서는 따로 정리하도록 하겠습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Issue] react build시 index.html 빈화면이 나오는 이슈</title><link href="http://localhost:4000/issue/Issue-3/" rel="alternate" type="text/html" title="[Issue] react build시 index.html 빈화면이 나오는 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-3</id><content type="html" xml:base="http://localhost:4000/issue/Issue-3/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
-
-&lt;p&gt;index.html에서의 static/js와 css 경로가 잘못되었기 때문입니다.&lt;br /&gt;
-chorme에서 개발자도구를 열어보면 콘솔에 다음과 같은 오류가 나옵니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-26-Issue3/error-1.png&quot; alt=&quot;error&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
-
-&lt;p&gt;js와 css경로가 /static/….으로 되어있는데 ./static으로 변경해주시면 문제없이 출력됩니다.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/css/main.ab056bcf.chunk.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/js/2.fc65b5d6.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/static/js/main.6527b855.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;저렇게 /경로로 되어있는 코드들을 수정해주셔야 합니다.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/css/main.ab056bcf.chunk.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/2.fc65b5d6.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;  
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./static/js/main.6527b855.chunk.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;이렇게 수정해주시면 문제없이 출력됩니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry><entry><title type="html">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈</title><link href="http://localhost:4000/issue/Issue-4/" rel="alternate" type="text/html" title="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈" /><published>2020-03-26T00:00:00+09:00</published><updated>2020-03-26T00:00:00+09:00</updated><id>http://localhost:4000/issue/Issue-4</id><content type="html" xml:base="http://localhost:4000/issue/Issue-4/">&lt;h2 id=&quot;원인&quot;&gt;원인&lt;/h2&gt;
-
-&lt;p&gt;Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다.&lt;br /&gt;
-Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;간단한-예시&quot;&gt;간단한 예시&lt;/h3&gt;
-&lt;p&gt;A페이지에서 사용자가 blank 속성의 테그를 클릭하여 B페이지로 이동 -&amp;gt; 다시 A페이지로 돌아왔을 때는 A페이지 처럼 보이는 피싱사이트로 바뀜.
-&lt;img src=&quot;/assets/2020-03-26-Issue4/sample.JPG&quot; alt=&quot;error&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;해결방법&quot;&gt;해결방법&lt;/h2&gt;
-
-&lt;p&gt;target=”_blank” 와 rel=”noopener noreferrer”을 같이 적용하여 문제를 해결합니다.&lt;br /&gt;
-rel=”noopener noreferrer”는 rel=noopener 속성이 부여된 링크를 통해 열린 페이지는 opener의 location변경과 같은 자바스크립트 요청을 거부합니다.&lt;br /&gt;
-쉽게 말씀드리자면 A페이지의 정보를 바꾸지 못한다는 뜻 입니다.&lt;/p&gt;
-
-&lt;p&gt;따라서 아래와 같은 코드에 noopener 속성을 추가합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://drive.google.com/&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-Catalog
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게요!&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;className=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;noopener noreferrer&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://drive.google.com/&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-Catalog
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Develop" /><category term="Issue" /><summary type="html">원인</summary></entry></feed>
+&lt;p&gt;$fragment에 대해서는 따로 정리하도록 하겠습니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry></feed>

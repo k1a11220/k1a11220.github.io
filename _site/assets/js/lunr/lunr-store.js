@@ -112,4 +112,16 @@ var store = [{
         "tags": ["도면","표제란","퓨전360","fusion 360"],
         "url": "http://localhost:4000/fusion%20360/fusion360-1/",
         "teaser": null
+      },{
+        "title": "Mac OS 개발환경 구축하기",
+        "excerpt":"0. 개발환경 구축. 맥에서 개발환경 구축을 위한 메뉴얼을 작성했습니다. 1. Brew 설치 Brew를 설치합니다. Brew는 패키지 관리자로 쉽게 소프트웨어 설치를 도와줍니다. Brew 설치링크 2. Xcode, vscode, GitHub Desktop 설치 ios 개발을 위한 Xcode와 코드에디터로 사용할 vscode, gui로 GitHub를 관리할수 있는 GitHub Desktop을 설치합니다. Xcode 설치링크 vscode 설치링크 GitHub Desktop 설치링크...","categories": ["developing"],
+        "tags": ["developing"],
+        "url": "http://localhost:4000/developing/macsetup/",
+        "teaser": null
+      },{
+        "title": "[Web] http -> https 로 변경하기",
+        "excerpt":"0. http랑 https의 차이가 뭔가요? HTTP는 하이퍼 텍스트 전송 프로토콜의(Hypertext Transfer Protocol)의 약자입니다. 쉽게 말하자면 서로 다른 시스템들끼리 통신을 주고받는 가장 기본적으로 사용하는 프로토콜입니다. 간단한 데이터 전송용으로 많이 사용되죠. HTTPS는 하이퍼 텍스트 전송 프로토콜 보안(Hypertext Transfer Protocol Secure)의 약자입니다. HTTP는 암호화 되어있지 않기 때문에 데이터가 쉽게 변조, 도난될 가능성이 높았습니다....","categories": ["Web"],
+        "tags": ["Develop"],
+        "url": "http://localhost:4000/web/http/",
+        "teaser": null
       }]
