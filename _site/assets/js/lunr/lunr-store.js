@@ -124,4 +124,10 @@ var store = [{
         "tags": ["Develop"],
         "url": "http://localhost:4000/web/http/",
         "teaser": null
+      },{
+        "title": "[prismagram] [FrontEnd] 1. create-react-app",
+        "excerpt":"모든 내용은 MacOS Bigsur 기준으로 작성되었습니다 1. CRA (Create React App) 리액트 웹앱을 활용하여 제작할 예정이므로 CRA를 통해 프로젝트를 생성해 주어야 합니다. 먼저, github에 Repository를 만든 후 프로젝트를 생성합니다. npx create-react-app prismagram-frontend 2. Clean Up 프로젝트를 생성하였으면 순서대로 프로젝트를 정리해줍니다. App.js를 제외한 파일을 모두 제거한 뒤 src/components 폴더를 생성합니다. styled-components,...","categories": ["prismagram"],
+        "tags": ["Develop"],
+        "url": "http://localhost:4000/prismagram/prismagram-frontend-1/",
+        "teaser": null
       }]
