@@ -1,0 +1,72 @@
+I"�<p><em>모든 내용은 MacOS Bigsur 기준으로 작성되었습니다</em></p>
+
+<h2 id="1-apollo-client">1. Apollo Client</h2>
+
+<p>로그인 여부를 확인하기 위해 Apollo Client를 사용합니다. apollo-boost 라이브러리를 통해 Apollo Client를 사용하겠습니다.</p>
+
+<h2 id="2-client-만들기">2. Client 만들기</h2>
+
+<p>Apollo/Client.js를 생성합니다. Client.js에서 클라이언트를 제작할 수 있습니다.</p>
+
+<p>apollo-boost에서 Client를 추가하여 사용합니다. uri는 서버의 주소인 localhost:4000을 사용합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">ApolloClient</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">apollo-boost</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="k">new</span> <span class="nx">ApolloClient</span><span class="p">({</span>
+  <span class="na">uri</span><span class="p">:</span> <span class="dl">"</span><span class="s2">http://localhost:4000</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="3-appjs와-연결하기">3. App.js와 연결하기</h2>
+
+<p>기본적으로 적용될 스타일을 추가합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">createGlobalStyle</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">styled-components</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">reset</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">styled-reset</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">createGlobalStyle</span><span class="s2">`
+</span><span class="p">${</span><span class="nx">reset</span><span class="p">}</span><span class="s2">;
+* {
+    box-sizing:border-box;
+}
+`</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="4-themejs">4. Theme.js</h2>
+
+<p>공통으로 사용될 리소스들을 테마에 추가합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">BOX_BORDER</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">1px solid #e6e6e6</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">BORDER_RADIUS</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">4px</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">bgColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#FAFAFA</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">blackColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#262626</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">darkGreyColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#999</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">lightGreyColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#c7c7c7</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">redColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#ED4956</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">blueColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#3897f0</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">darkBlueColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#003569</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">whiteBox</span><span class="p">:</span> <span class="s2">`</span><span class="p">${</span><span class="nx">BOX_BORDER</span><span class="p">}</span><span class="s2">;
+             </span><span class="p">${</span><span class="nx">BORDER_RADIUS</span><span class="p">}</span><span class="s2">;
+             background-color:white;
+             `</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="5-appjs">5. App.js</h2>
+
+<p>컴포넌트와 테마를 불러옵니다. 실행이 잘 되는지 테스트해봅시다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ThemeProvider</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">styled-components</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">GlobalStyles</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../Styles/GlobalStyles</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Theme</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../Styles/Theme</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">ThemeProvider</span> <span class="nx">theme</span><span class="o">=</span><span class="p">{</span><span class="nx">Theme</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">GlobalStyles</span> <span class="o">/&gt;</span>
+    <span class="nx">안녕</span>
+  <span class="o">&lt;</span><span class="sr">/ThemeProvider</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+:ET

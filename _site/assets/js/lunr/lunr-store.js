@@ -130,4 +130,10 @@ var store = [{
         "tags": ["Develop"],
         "url": "http://localhost:4000/prismagram/prismagram-frontend-1/",
         "teaser": null
+      },{
+        "title": "[prismagram] [FrontEnd] 2. Setup Apollo-Client",
+        "excerpt":"모든 내용은 MacOS Bigsur 기준으로 작성되었습니다 1. Apollo Client 로그인 여부를 확인하기 위해 Apollo Client를 사용합니다. apollo-boost 라이브러리를 통해 Apollo Client를 사용하겠습니다. 2. Client 만들기 Apollo/Client.js를 생성합니다. Client.js에서 클라이언트를 제작할 수 있습니다. apollo-boost에서 Client를 추가하여 사용합니다. uri는 서버의 주소인 localhost:4000을 사용합니다. Client.js import ApolloClient from \"apollo-boost\"; export default new ApolloClient({...","categories": ["prismagram"],
+        "tags": ["Develop"],
+        "url": "http://localhost:4000/prismagram/prismagram-frontend-2/",
+        "teaser": null
       }]
