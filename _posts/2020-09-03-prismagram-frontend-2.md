@@ -108,3 +108,57 @@ export default new ApolloClient({
   },
 });
 ```
+
+## 5. Query
+
+backend의 Query를 호출하기 위해서는 client에서 Query를 작성해놔야 합니다.
+
+App.js에서 gql을 import 합시다.
+
+```js
+import { gql } from "apollo-boost";
+```
+
+```js
+const QUERY = gql`
+  {
+    isLoggedIn @client
+  }
+`;
+```
+
+## 6. App.js 코드
+
+```js
+import React from "react";
+import { gql } from "apollo-boost";
+import { ThemeProvider } from "styled-components";
+import GlobalStyles from "../Styles/GlobalStyles";
+import Theme from "../Styles/Theme";
+import Router from "./Router";
+import { useQuery } from "react-apollo-hooks";
+
+const QUERY = gql`
+  {
+    isLoggedIn @client
+  }
+`;
+
+export default () => {
+  const {
+    data: { isLoggedIn },
+  } = useQuery(QUERY);
+
+  return (
+    <ThemeProvider theme={Theme}>
+      <>
+        <GlobalStyles />
+        <Router isLoggedIn={isLoggedIn} />
+      </>
+    </ThemeProvider>
+  );
+};
+```
+
+token 값을 입력해주면 Auth 가 아닌 Feed 페이지가 나타납니다.
+![application](/assets/2020-09-03-prismagram-frontend-2/application.png)

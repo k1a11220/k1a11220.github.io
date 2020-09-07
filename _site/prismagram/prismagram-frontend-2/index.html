@@ -400,6 +400,57 @@ logUserOut Mutation은 token, cache를 초기화합니다.</p>
 <span class="p">});</span>
 </code></pre></div></div>
 
+<h2 id="5-query">5. Query</h2>
+
+<p>backend의 Query를 호출하기 위해서는 client에서 Query를 작성해놔야 합니다.</p>
+
+<p>App.js에서 gql을 import 합시다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">gql</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">apollo-boost</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">QUERY</span> <span class="o">=</span> <span class="nx">gql</span><span class="s2">`
+  {
+    isLoggedIn @client
+  }
+`</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="6-appjs-코드">6. App.js 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">gql</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">apollo-boost</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ThemeProvider</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">styled-components</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">GlobalStyles</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../Styles/GlobalStyles</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Theme</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../Styles/Theme</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Router</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./Router</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">useQuery</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-apollo-hooks</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">QUERY</span> <span class="o">=</span> <span class="nx">gql</span><span class="s2">`
+  {
+    isLoggedIn @client
+  }
+`</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span>
+    <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="nx">isLoggedIn</span> <span class="p">},</span>
+  <span class="p">}</span> <span class="o">=</span> <span class="nx">useQuery</span><span class="p">(</span><span class="nx">QUERY</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">ThemeProvider</span> <span class="nx">theme</span><span class="o">=</span><span class="p">{</span><span class="nx">Theme</span><span class="p">}</span><span class="o">&gt;</span>
+      <span class="o">&lt;&gt;</span>
+        <span class="o">&lt;</span><span class="nx">GlobalStyles</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Router</span> <span class="nx">isLoggedIn</span><span class="o">=</span><span class="p">{</span><span class="nx">isLoggedIn</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/ThemeProvider</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>token 값을 입력해주면 Auth 가 아닌 Feed 페이지가 나타납니다.
+<img src="/assets/2020-09-03-prismagram-frontend-2/application.png" alt="application" /></p>
+
         
       </section>
 
