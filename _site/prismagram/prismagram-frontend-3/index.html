@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈 - 범수의 기술 블로그</title>
-<meta name="description" content="원인 ">
+<!-- begin _includes/seo.html --><title>[prismagram] [FrontEnd] 3. Auth 페이지 제작 - 범수의 기술 블로그</title>
+<meta name="description" content="모든 내용은 MacOS Bigsur 기준으로 작성되었습니다 ">
 
 
   <meta name="author" content="Beomsoo">
@@ -19,21 +19,23 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="범수의 기술 블로그">
-<meta property="og:title" content="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈">
-<meta property="og:url" content="http://localhost:4000/issue/Issue-4/">
+<meta property="og:title" content="[prismagram] [FrontEnd] 3. Auth 페이지 제작">
+<meta property="og:url" content="http://localhost:4000/prismagram/prismagram-frontend-3/">
 
 
-  <meta property="og:description" content="원인 ">
-
-
-
+  <meta property="og:description" content="모든 내용은 MacOS Bigsur 기준으로 작성되었습니다 ">
 
 
 
 
-  <meta property="article:published_time" content="2020-03-26T00:00:00+09:00">
 
 
+
+  <meta property="article:published_time" content="2020-09-13T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2020-09-13T00:00:00+09:00">
 
 
 
@@ -42,7 +44,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/issue/Issue-4/">
+<link rel="canonical" href="http://localhost:4000/prismagram/prismagram-frontend-3/">
 
 
 
@@ -281,65 +283,44 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈">
-    <meta itemprop="description" content="원인">
-    <meta itemprop="datePublished" content="2020-03-26T00:00:00+09:00">
-    
+    <meta itemprop="headline" content="[prismagram] [FrontEnd] 3. Auth 페이지 제작">
+    <meta itemprop="description" content="모든 내용은 MacOS Bigsur 기준으로 작성되었습니다">
+    <meta itemprop="datePublished" content="2020-09-13T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2020-09-13T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Issue] react start 시 Using target=_blank without rel=noopener noreferrer is a security risk 이슈
+          <h1 id="page-title" class="page__title" itemprop="headline">[prismagram] [FrontEnd] 3. Auth 페이지 제작
 </h1>
           
             
 
-          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2020-03-26T00:00:00+09:00">March 26, 2020</time></p>
+          <p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트: <time datetime="2020-09-13T00:00:00+09:00">September 13, 2020</time></p>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="원인">원인</h2>
+        <p><em>모든 내용은 MacOS Bigsur 기준으로 작성되었습니다</em></p>
 
-<p>Tabnabbing 피싱 공격에 노출될 수 있기 때문입니다.<br />
-Tabnabbing 피싱 공격이란 target_blank인 태그를 클릭하였을 때 새롭게 열린 탭에서 기존 페이지를 피싱페이지로 바꿔 정보를 탈취하는 피싱공격입니다.</p>
+<h2 id="1-컴포넌트-설계">1. 컴포넌트 설계</h2>
 
-<h3 id="간단한-예시">간단한 예시</h3>
-<p>A페이지에서 사용자가 blank 속성의 테그를 클릭하여 B페이지로 이동 -&gt; 다시 A페이지로 돌아왔을 때는 A페이지 처럼 보이는 피싱사이트로 바뀜.
-<img src="/assets/2020-03-26-Issue4/sample.JPG" alt="error" /></p>
+<p>Auth 페이지의 컴포넌트를 설계합니다.</p>
 
-<h2 id="해결방법">해결방법</h2>
+<p><img src="/assets/2020-09-13-prismagram-frontend-3/1.png" alt="인스타그램 Auth 페이지" />
+<img src="/assets/2020-09-13-prismagram-frontend-3/2.png" alt="인스타그램 Auth 페이지" /></p>
 
-<p>target=”_blank” 와 rel=”noopener noreferrer”을 같이 적용하여 문제를 해결합니다.<br />
-rel=”noopener noreferrer”는 rel=noopener 속성이 부여된 링크를 통해 열린 페이지는 opener의 location변경과 같은 자바스크립트 요청을 거부합니다.<br />
-쉽게 말씀드리자면 A페이지의 정보를 바꾸지 못한다는 뜻 입니다.</p>
+<p>Auth 페이지는 크게 3가지의 파트로 구성하었습니다.</p>
 
-<p>따라서 아래와 같은 코드에 noopener 속성을 추가합니다.</p>
+<ol>
+  <li>login</li>
+  <li>register</li>
+  <li>footer</li>
+</ol>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span>
-<span class="na">className=</span><span class="s">"black"</span>
-<span class="na">target=</span><span class="s">"_blank"</span>
-<span class="na">href=</span><span class="s">"https://drive.google.com/"</span>
-<span class="nt">&gt;</span>
-Catalog
-<span class="nt">&lt;/a&gt;</span>
-</code></pre></div></div>
-
-<p>이렇게요!</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span>
-<span class="na">className=</span><span class="s">"black"</span>
-<span class="na">target=</span><span class="s">"_blank"</span>
-<span class="na">rel=</span><span class="s">"noopener noreferrer"</span>
-<span class="na">href=</span><span class="s">"https://drive.google.com/"</span>
-<span class="nt">&gt;</span>
-Catalog
-<span class="nt">&lt;/a&gt;</span>
-</code></pre></div></div>
-
-<p>이렇게 수정해주시면 보안이슈를 해결할 수 있습니다.</p>
+<p>login과 register에는 StateChanger와 Input, Button이 필요합니다.</p>
 
         
       </section>
@@ -360,11 +341,7 @@ Catalog
     
       
       
-      <a href="/tags/#develop" class="page__taxonomy-item" rel="tag">Develop</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#issue" class="page__taxonomy-item" rel="tag">Issue</a>
+      <a href="/tags/#develop" class="page__taxonomy-item" rel="tag">Develop</a>
     
     </span>
   </p>
@@ -385,14 +362,14 @@ Catalog
     
       
       
-      <a href="/categories/#issue" class="page__taxonomy-item" rel="tag">Issue</a>
+      <a href="/categories/#prismagram" class="page__taxonomy-item" rel="tag">prismagram</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-03-26T00:00:00+09:00">March 26, 2020</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-09-13">September 13, 2020</time></p>
         
       </footer>
 
@@ -401,23 +378,22 @@ Catalog
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BIssue%5D+react+start+%EC%8B%9C+Using+target%3D_blank+without+rel%3Dnoopener+noreferrer+is+a+security+risk+%EC%9D%B4%EC%8A%88%20http%3A%2F%2Flocalhost%3A4000%2Fissue%2FIssue-4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5Bprismagram%5D+%5BFrontEnd%5D+3.+Auth+%ED%8E%98%EC%9D%B4%EC%A7%80+%EC%A0%9C%EC%9E%91%20http%3A%2F%2Flocalhost%3A4000%2Fprismagram%2Fprismagram-frontend-3%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fissue%2FIssue-4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fprismagram%2Fprismagram-frontend-3%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fissue%2FIssue-4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fprismagram%2Fprismagram-frontend-3%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/issue/Issue-3/" class="pagination--pager" title="[Issue] react build시 index.html 빈화면이 나오는 이슈
+      <a href="/prismagram/prismagram-frontend-2/" class="pagination--pager" title="[prismagram] [FrontEnd] 2. Setup Apollo-Client
 ">이전</a>
     
     
-      <a href="/prismagram/prismagram-2/" class="pagination--pager" title="[prismagram] [BackEnd] 2. typeDefs, Resolvers 만들기
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -431,29 +407,6 @@ Catalog
     <div class="page__related">
       <h4 class="page__related-title">참고</h4>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/prismagram/prismagram-frontend-3/" rel="permalink">[prismagram] [FrontEnd] 3. Auth 페이지 제작
-</a>
-      
-    </h2>
-    
-    
-       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> September 13 2020</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">모든 내용은 MacOS Bigsur 기준으로 작성되었습니다
-</p>
-  </article>
-</div>
-
         
           
 
@@ -524,6 +477,29 @@ Catalog
 </div>
 
         
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/developing/macsetup/" rel="permalink">Mac OS 개발환경 구축하기
+</a>
+      
+    </h2>
+    
+    
+       <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> August 01 2020</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">0. 개발환경 구축.
+</p>
+  </article>
+</div>
+
+        
       </div>
     </div>
   
@@ -583,8 +559,8 @@ Catalog
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/issue/Issue-4/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/issue/Issue-4"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/prismagram/prismagram-frontend-3/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/prismagram/prismagram-frontend-3"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

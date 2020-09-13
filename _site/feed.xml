@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-06T11:36:18+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[prismagram] [FrontEnd] 2. Setup Apollo-Client</title><link href="http://localhost:4000/prismagram/prismagram-frontend-2/" rel="alternate" type="text/html" title="[prismagram] [FrontEnd] 2. Setup Apollo-Client" /><published>2020-09-03T00:00:00+09:00</published><updated>2020-09-03T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-frontend-2</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-frontend-2/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Bigsur 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-13T14:49:05+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[prismagram] [FrontEnd] 3. Auth 페이지 제작</title><link href="http://localhost:4000/prismagram/prismagram-frontend-3/" rel="alternate" type="text/html" title="[prismagram] [FrontEnd] 3. Auth 페이지 제작" /><published>2020-09-13T00:00:00+09:00</published><updated>2020-09-13T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-frontend-3</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-frontend-3/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Bigsur 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-컴포넌트-설계&quot;&gt;1. 컴포넌트 설계&lt;/h2&gt;
+
+&lt;p&gt;Auth 페이지의 컴포넌트를 설계합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-09-13-prismagram-frontend-3/1.png&quot; alt=&quot;인스타그램 Auth 페이지&quot; /&gt;
+&lt;img src=&quot;/assets/2020-09-13-prismagram-frontend-3/2.png&quot; alt=&quot;인스타그램 Auth 페이지&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Auth 페이지는 크게 3가지의 파트로 구성하었습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;login&lt;/li&gt;
+  &lt;li&gt;register&lt;/li&gt;
+  &lt;li&gt;footer&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;login과 register에는 StateChanger와 Input, Button이 필요합니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><summary type="html">모든 내용은 MacOS Bigsur 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [FrontEnd] 2. Setup Apollo-Client</title><link href="http://localhost:4000/prismagram/prismagram-frontend-2/" rel="alternate" type="text/html" title="[prismagram] [FrontEnd] 2. Setup Apollo-Client" /><published>2020-09-03T00:00:00+09:00</published><updated>2020-09-03T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-frontend-2</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-frontend-2/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Bigsur 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;1-apollo-client&quot;&gt;1. Apollo Client&lt;/h2&gt;
 
@@ -757,130 +774,4 @@ sendgrid에서 회원가입을 하고 sendgrid transport를 설치합니다.&lt;
 |최초안전검사|안전검사|
 |——|—|
 |설치한 후 3년이내|최초안전검사 이후 2년마다(공정안전보고서를 제출하면 4년으로 연장가능)|
-압력용기의 사후관리는 정기검사를 통해 진행됩니다. 지정된 기관을 통해서 검사를 받으실 수 있는데요, 검사비용은 별도로 발생되니 꼭 참고하시길 바랍니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Trade" /><category term="인증" /><category term="무역" /><summary type="html">개요 중국에서 60L에 6Bar 짜리 압력탱크를 수입하여 사용하려고 하는데 관련 법령과 검사기준을 정리하겠습니다. 1. 인증을 받아야 하는 경우 안전 및 검사기준(노동부 고시 제2001-59호) 제2조의 규정에 의하여 화학공정 유체취급용기 및 모든 사업장의 공기 및 질소저장탱크 등으로서 사용압력이 게이지 압력으로 0.2㎏f/㎠ (20 kpa) 이상이 되고, 사용압력 (단위：㎏f/㎠)과 용기 내용적 (단위：㎥) 의 곱의 값이 1이상일 때 해당됩니다. 추가로 CE인증과 같이 해외에서 인증을 받았다 하더라도 면제대상이 아니면 다시 한국에서 인증을 받아야 합니다. 2. 검사기관 압력용기를 수입할때 저희 제품은 압력이 10Bar 이하이므로 한국산업안전보건공단에서 검사를 받게됩니다. 이때 바로 검사를 받는 것이 아니라 서면으로 검사신청을 해야합니다. 서면신청 필요서류 - 안전인증신청서 - 기술문서 외관 개략도 및 치수, 압력용기 설계조건, 내용적 계산서, 용접관련 자료 (방사선 비파괴검사- RT MAP,용접절차서, WPS, 방호장치 종류 및 사양 (안전 밸브, P &amp;amp; ID), 강도 계산서, 명판, 도면(세부 도면 , 참고자료 등) - 사업자등록증 사본 2. 안전인증신청서 작성요령 신청서를 살펴보면 대부분 큰 문제없이 작성 가능하지만 설치사업장명과 설치사업장 소재지는 아직 정해지지 않았을 경우 공란으로 기입하시면 됩니다. 3. 사후관리 산업안전 압력용기는 최초안전검사를 설치한 후 3년이내로 받아야 하며, 안전검사는 그 이후부터 2년마다 진행됩니다. 이때 공정안전보고서를 제출하여 확인을 받은 압력용기는 4년마다 받습니다. |최초안전검사|안전검사| |——|—| |설치한 후 3년이내|최초안전검사 이후 2년마다(공정안전보고서를 제출하면 4년으로 연장가능)| 압력용기의 사후관리는 정기검사를 통해 진행됩니다. 지정된 기관을 통해서 검사를 받으실 수 있는데요, 검사비용은 별도로 발생되니 꼭 참고하시길 바랍니다.</summary></entry><entry><title type="html">[prismagram] [BackEnd] 6. Create Account - Part1</title><link href="http://localhost:4000/prismagram/prismagram-6/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 6. Create Account - Part1" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-6</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-6/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;0-테스트용-계정-만들기&quot;&gt;0. 테스트용 계정 만들기&lt;/h2&gt;
-
-&lt;p&gt;사진업로드, 좋아요, 댓글달기 등 여려 기능을 테스트 할 계정을 prisma 어드민에서 만듭니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-6/admin-1.png&quot; alt=&quot;Admin1&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;어드민창에서 + 버튼을 눌러 계정을 하나 생성합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-6/admin-2.png&quot; alt=&quot;Admin2&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;api/Image 폴더를 만듭니다.&lt;/p&gt;
-
-&lt;p&gt;Image/toogleLike라는 폴더를 만들어 이미 좋아요가 되어있으면 취소로 아이콘이 바뀌게끔 하겠습니다.&lt;/p&gt;
-
-&lt;p&gt;먼저 createAccount 시스템을 만들어야 하니 다음으로 넘어갑니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;1-createaccount-시스템-만들기&quot;&gt;1. createAccount 시스템 만들기&lt;/h2&gt;
-
-&lt;p&gt;본격적으로 백엔드의 기능들을 구현해봅시다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;User폴더를 만들고 그 안에 createAccount 폴더를 만듭니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;api/User/createAccount/.graphql &amp;amp; .js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;createAccount.graphql파일에는 계정을 만들 수 있는 mutation type을 작성합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Mutation&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;createAccount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;firstName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lastName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Query&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;something&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;사용자생성을 위한 정보들입니다. 이때, 필요한 정보들은 endpoint에서 docs -&amp;gt; createUser를 검색하면 찾을 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-6/endpoint-1.png&quot; alt=&quot;endpoint1&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;이어서 createAccount.js 파일을 만들고 async함수로 createAccount 함수를 만듭니다. 이때 첫 번째 인자는 필요없고 args는 필요합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;../../../../generated/prisma-client&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;Mutation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;createAccount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firstName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lastName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bio&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;firstName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;lastName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;bio&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;firstName, lastName, bio는 - ““로 되어있는데, 그 이유는 필수로 입력되는 항목이 아니기 때문에 빈 문자열을 기본으로 선언하여 null과 같은 이상한 타입이 들어오지 않도록 하는 것입니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;2-account-만들어보기&quot;&gt;2. Account 만들어보기&lt;/h2&gt;
-
-&lt;p&gt;createAccount를 만들었으면 yarn dev를 해서 생성된 localhost에 접속하여 mutation createAccount를 실행시겨볼 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-6/createAccount-1.png&quot; alt=&quot;createAccount&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;??!! 에러가 나옵니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2020-03-27-prismagram-6/createAccount-2.png&quot; alt=&quot;createAccount&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;해결했습니다!&lt;/p&gt;
-
-&lt;h2 id=&quot;이슈&quot;&gt;이슈&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;datamodel 에서는 firstname createAccount에서는 firstName이라서 에러가 발생했었습니다. 따라서 datamodel을 수정해주신 뒤&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn prisma deploy --force
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;로 업데이트 해주셔야합니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;모든 resolvers가 지워지면 자동으로 prisma가 import되지 않습니다.&lt;br /&gt;
-따라서 첫 번째 resolvers는 직접 prisma를 import 시켜줘야 합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prisma&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;../../../../generated/prisma-client&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;graphql파일에 query가 없는경우 에러가 생기기 때문에 꼭! type Query를 추가시켜야 합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-graphql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Mutation&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;createAccount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;firstName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lastName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Query&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;something&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry></feed>
+압력용기의 사후관리는 정기검사를 통해 진행됩니다. 지정된 기관을 통해서 검사를 받으실 수 있는데요, 검사비용은 별도로 발생되니 꼭 참고하시길 바랍니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Trade" /><category term="인증" /><category term="무역" /><summary type="html">개요 중국에서 60L에 6Bar 짜리 압력탱크를 수입하여 사용하려고 하는데 관련 법령과 검사기준을 정리하겠습니다. 1. 인증을 받아야 하는 경우 안전 및 검사기준(노동부 고시 제2001-59호) 제2조의 규정에 의하여 화학공정 유체취급용기 및 모든 사업장의 공기 및 질소저장탱크 등으로서 사용압력이 게이지 압력으로 0.2㎏f/㎠ (20 kpa) 이상이 되고, 사용압력 (단위：㎏f/㎠)과 용기 내용적 (단위：㎥) 의 곱의 값이 1이상일 때 해당됩니다. 추가로 CE인증과 같이 해외에서 인증을 받았다 하더라도 면제대상이 아니면 다시 한국에서 인증을 받아야 합니다. 2. 검사기관 압력용기를 수입할때 저희 제품은 압력이 10Bar 이하이므로 한국산업안전보건공단에서 검사를 받게됩니다. 이때 바로 검사를 받는 것이 아니라 서면으로 검사신청을 해야합니다. 서면신청 필요서류 - 안전인증신청서 - 기술문서 외관 개략도 및 치수, 압력용기 설계조건, 내용적 계산서, 용접관련 자료 (방사선 비파괴검사- RT MAP,용접절차서, WPS, 방호장치 종류 및 사양 (안전 밸브, P &amp;amp; ID), 강도 계산서, 명판, 도면(세부 도면 , 참고자료 등) - 사업자등록증 사본 2. 안전인증신청서 작성요령 신청서를 살펴보면 대부분 큰 문제없이 작성 가능하지만 설치사업장명과 설치사업장 소재지는 아직 정해지지 않았을 경우 공란으로 기입하시면 됩니다. 3. 사후관리 산업안전 압력용기는 최초안전검사를 설치한 후 3년이내로 받아야 하며, 안전검사는 그 이후부터 2년마다 진행됩니다. 이때 공정안전보고서를 제출하여 확인을 받은 압력용기는 4년마다 받습니다. |최초안전검사|안전검사| |——|—| |설치한 후 3년이내|최초안전검사 이후 2년마다(공정안전보고서를 제출하면 4년으로 연장가능)| 압력용기의 사후관리는 정기검사를 통해 진행됩니다. 지정된 기관을 통해서 검사를 받으실 수 있는데요, 검사비용은 별도로 발생되니 꼭 참고하시길 바랍니다.</summary></entry></feed>

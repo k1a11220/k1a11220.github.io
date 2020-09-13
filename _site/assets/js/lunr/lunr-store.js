@@ -136,4 +136,10 @@ var store = [{
         "tags": ["Develop"],
         "url": "http://localhost:4000/prismagram/prismagram-frontend-2/",
         "teaser": null
+      },{
+        "title": "[prismagram] [FrontEnd] 3. Auth 페이지 제작",
+        "excerpt":"모든 내용은 MacOS Bigsur 기준으로 작성되었습니다   1. 컴포넌트 설계   Auth 페이지의 컴포넌트를 설계합니다.       Auth 페이지는 크게 3가지의 파트로 구성하었습니다.      login   register   footer   login과 register에는 StateChanger와 Input, Button이 필요합니다.  ","categories": ["prismagram"],
+        "tags": ["Develop"],
+        "url": "http://localhost:4000/prismagram/prismagram-frontend-3/",
+        "teaser": null
       }]
