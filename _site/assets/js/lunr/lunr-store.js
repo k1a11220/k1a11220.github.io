@@ -142,4 +142,10 @@ var store = [{
         "tags": ["Develop"],
         "url": "http://localhost:4000/prismagram/prismagram-frontend-3/",
         "teaser": null
+      },{
+        "title": "[prismagram] [FrontEnd] 4. Auth 페이지에 Hooks 추가.",
+        "excerpt":"모든 내용은 MacOS Bigsur 기준으로 작성되었습니다 1. Hooks 추가 button, Input과 같이 눈에 보이는 컴포넌트를 만들었습니다. 하지만 이메일의 형식지정, 비밀번호 input의 ***처리처럼 value와 type등이 필요합니다. input을 먼저 만들고 hooks를 더할 예정입니다. 2. Hooks 만들기 src/hooks 폴더를 만듭니다. hooks 폴더 내부에 useInput.js 파일을 추가합니다. useInput.js import { useState } from \"react\";...","categories": ["prismagram"],
+        "tags": ["Develop"],
+        "url": "http://localhost:4000/prismagram/prismagram-frontend-4/",
+        "teaser": null
       }]

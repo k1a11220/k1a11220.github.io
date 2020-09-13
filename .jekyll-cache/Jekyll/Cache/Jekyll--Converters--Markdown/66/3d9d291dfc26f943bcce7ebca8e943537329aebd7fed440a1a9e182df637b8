@@ -1,0 +1,127 @@
+I"�2<p><em>모든 내용은 MacOS Bigsur 기준으로 작성되었습니다</em></p>
+
+<h2 id="1-hooks-추가">1. Hooks 추가</h2>
+
+<p>button, Input과 같이 눈에 보이는 컴포넌트를 만들었습니다. 하지만 이메일의 형식지정, 비밀번호 input의 ***처리처럼 value와 type등이 필요합니다. input을 먼저 만들고 hooks를 더할 예정입니다.</p>
+
+<h2 id="2-hooks-만들기">2. Hooks 만들기</h2>
+
+<p>src/hooks 폴더를 만듭니다. hooks 폴더 내부에 useInput.js 파일을 추가합니다.</p>
+
+<p>useInput.js</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">(</span><span class="nx">defaultValue</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">value</span><span class="p">,</span> <span class="nx">setValue</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">defaultValue</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">onChange</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">{</span>
+      <span class="na">target</span><span class="p">:</span> <span class="p">{</span> <span class="nx">value</span> <span class="p">},</span>
+    <span class="p">}</span> <span class="o">=</span> <span class="nx">e</span><span class="p">;</span>
+    <span class="nx">setValue</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">onChange</span> <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="3-auth에-추가하기">3. Auth에 추가하기</h2>
+
+<p>완성된 Hooks를 Auth에 추가합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">styled</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">styled-components</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Input</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../Components/Input</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Button</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../Components/Button</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">useInput</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../Hooks/useInput</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">Wrapper</span> <span class="o">=</span> <span class="nx">styled</span><span class="p">.</span><span class="nx">div</span><span class="s2">`
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">Box</span> <span class="o">=</span> <span class="nx">styled</span><span class="p">.</span><span class="nx">div</span><span class="s2">`
+  </span><span class="p">${(</span><span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">props</span><span class="p">.</span><span class="nx">theme</span><span class="p">.</span><span class="nx">whiteBox</span><span class="p">}</span><span class="s2">
+  border-radius:0px;
+  width: 100%;
+  max-width: 350px;
+`</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">StateChanger</span> <span class="o">=</span> <span class="nx">styled</span><span class="p">(</span><span class="nx">Box</span><span class="p">)</span><span class="s2">`
+  text-align: center;
+  padding: 20px 0px;
+`</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">Link</span> <span class="o">=</span> <span class="nx">styled</span><span class="p">.</span><span class="nx">span</span><span class="s2">`
+  color: </span><span class="p">${(</span><span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">props</span><span class="p">.</span><span class="nx">theme</span><span class="p">.</span><span class="nx">blueColor</span><span class="p">}</span><span class="s2">;
+  cursor: pointer;
+`</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">Form</span> <span class="o">=</span> <span class="nx">styled</span><span class="p">(</span><span class="nx">Box</span><span class="p">)</span><span class="s2">`
+  padding: 40px;
+  padding-bottom: 30px;
+  margin-bottom: 15px;
+  form {
+    width: 100%;
+    input {
+      width: 100%;
+      &amp;:not(:last-child) {
+        margin-bottom: 7px;
+      }
+    }
+    button {
+      margin-top: 10px;
+    }
+  }
+`</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">action</span><span class="p">,</span> <span class="nx">setAction</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="dl">"</span><span class="s2">logIn</span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">username</span> <span class="o">=</span> <span class="nx">useInput</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="nx">useInput</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">firstName</span> <span class="o">=</span> <span class="nx">useInput</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">lastName</span> <span class="o">=</span> <span class="nx">useInput</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">useInput</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">Wrapper</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Form</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">action</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">logIn</span><span class="dl">"</span> <span class="p">?</span> <span class="p">(</span>
+          <span class="o">&lt;</span><span class="nx">form</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">Input</span> <span class="nx">placeholder</span><span class="o">=</span><span class="p">{</span><span class="dl">"</span><span class="s2">Username</span><span class="dl">"</span><span class="p">}</span> <span class="p">{...</span><span class="nx">username</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Input</span> <span class="nx">placeholder</span><span class="o">=</span><span class="p">{</span><span class="dl">"</span><span class="s2">Password</span><span class="dl">"</span><span class="p">}</span> <span class="p">{...</span><span class="nx">password</span><span class="p">}</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span> <span class="o">/&gt;</span>
+            <span class="o">&lt;</span><span class="nx">Button</span> <span class="nx">text</span><span class="o">=</span><span class="p">{</span><span class="dl">"</span><span class="s2">Log in</span><span class="dl">"</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>          <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>        <span class="p">)</span> <span class="p">:</span> <span class="p">(</span>
+          <span class="o">&lt;</span><span class="nx">form</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">Input</span> <span class="nx">placeholder</span><span class="o">=</span><span class="p">{</span><span class="dl">"</span><span class="s2">First name</span><span class="dl">"</span><span class="p">}</span> <span class="p">{...</span><span class="nx">firstName</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Input</span> <span class="nx">placeholder</span><span class="o">=</span><span class="p">{</span><span class="dl">"</span><span class="s2">Last name</span><span class="dl">"</span><span class="p">}</span> <span class="p">{...</span><span class="nx">lastName</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Input</span> <span class="nx">placeholder</span><span class="o">=</span><span class="p">{</span><span class="dl">"</span><span class="s2">Email</span><span class="dl">"</span><span class="p">}</span> <span class="p">{...</span><span class="nx">email</span><span class="p">}</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">email</span><span class="dl">"</span> <span class="o">/&gt;</span>
+            <span class="o">&lt;</span><span class="nx">Input</span> <span class="nx">placeholder</span><span class="o">=</span><span class="p">{</span><span class="dl">"</span><span class="s2">Username</span><span class="dl">"</span><span class="p">}</span> <span class="p">{...</span><span class="nx">username</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Input</span> <span class="nx">placeholder</span><span class="o">=</span><span class="p">{</span><span class="dl">"</span><span class="s2">Password</span><span class="dl">"</span><span class="p">}</span> <span class="p">{...</span><span class="nx">password</span><span class="p">}</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span> <span class="o">/&gt;</span>
+            <span class="o">&lt;</span><span class="nx">Button</span> <span class="nx">text</span><span class="o">=</span><span class="p">{</span><span class="dl">"</span><span class="s2">Sign up</span><span class="dl">"</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>          <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>        <span class="p">)}</span>
+      <span class="o">&lt;</span><span class="sr">/Form</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">StateChanger</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">action</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">logIn</span><span class="dl">"</span> <span class="p">?</span> <span class="p">(</span>
+          <span class="o">&lt;&gt;</span>
+            <span class="nx">Don</span><span class="dl">'</span><span class="s1">t have an account?{" "}
+            &lt;Link onClick={() =&gt; setAction("signUp")}&gt;Sign up&lt;/Link&gt;
+          &lt;/&gt;
+        ) : (
+          &lt;&gt;
+            Have an account?{" "}
+            &lt;Link onClick={() =&gt; setAction("logIn")}&gt;Log in&lt;/Link&gt;
+          &lt;/&gt;
+        )}
+      &lt;/StateChanger&gt;
+    &lt;/Wrapper&gt;
+  );
+};
+</span></code></pre></div></div>
+:ET

@@ -1,0 +1,19 @@
+I"�<p><em>모든 내용은 MacOS Bigsur 기준으로 작성되었습니다</em></p>
+
+<h2 id="1-hooks-추가">1. Hooks 추가</h2>
+
+<p>button, Input과 같이 눈에 보이는 컴포넌트를 만들었습니다. 하지만 이메일, 비밀번호처럼 value와 type등이 필요합니다.</p>
+
+<p><img src="/assets/2020-09-13-prismagram-frontend-3/1.png" alt="인스타그램 Auth 페이지" />
+<img src="/assets/2020-09-13-prismagram-frontend-3/2.png" alt="인스타그램 Auth 페이지" /></p>
+
+<p>Auth 페이지는 크게 3가지의 파트로 구성하었습니다.</p>
+
+<ol>
+  <li>login</li>
+  <li>register</li>
+  <li>footer</li>
+</ol>
+
+<p>login과 register에는 StateChanger와 Input, Button이 필요합니다.</p>
+:ET
