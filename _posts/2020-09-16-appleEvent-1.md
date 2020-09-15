@@ -1,5 +1,5 @@
 ---
-title: "애플 스패셜 이벤트 신제품 요약."
+title: "애플 스페셜 이벤트 신제품 요약."
 date: 2020-09-16
 categories:
   - Apple
