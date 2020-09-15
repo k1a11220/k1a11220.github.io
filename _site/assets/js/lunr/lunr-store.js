@@ -149,7 +149,7 @@ var store = [{
         "url": "http://localhost:4000/prismagram/prismagram-frontend-4/",
         "teaser": null
       },{
-        "title": "애플 스패셜 이벤트 신제품 요약.",
+        "title": "애플 스페셜 이벤트 신제품 요약.",
         "excerpt":"애플의 9월 스페셜 이벤트가 열렸습니다. 이번 이벤트에서는 ios, watchOS의 공식버전 배포와 애플워치, 아이패드의 발표가 있었는데요, 간단하게 주요 포인트를 한눈에 확인할 수 있도록 정리해보았습니다. 추후 틀리거나 추가해야할 정보가 생기면 수정하도록 하겠습니다. 1. Apple Watch Series 6 Series 5보다 더 오래가는 배터리 더 밝아진 AOD S6 칩 4가지 색상 (Blue, classic gold...","categories": ["Apple"],
         "tags": ["Apple"],
         "url": "http://localhost:4000/apple/appleEvent-1/",
