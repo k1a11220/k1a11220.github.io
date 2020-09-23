@@ -1,3 +1,58 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-23T01:42:15+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">[Engineering] 스퍼터건 컨샙설계하기 - Part1</title><link href="http://localhost:4000/engineering/sputtergun-part1/" rel="alternate" type="text/html" title="[Engineering] 스퍼터건 컨샙설계하기 - Part1" /><published>2020-09-08T00:00:00+00:00</published><updated>2020-09-08T00:00:00+00:00</updated><id>http://localhost:4000/engineering/sputtergun-part1</id><content type="html" xml:base="http://localhost:4000/engineering/sputtergun-part1/">&lt;p&gt;&lt;em&gt;본 포스트에서 다루는 내용은 모두 컨샙설계입니다. 실무에서 사용시 생기는 문제에 대하여 책임지지 않습니다.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-스퍼터링이란&quot;&gt;1. 스퍼터링이란?&lt;/h2&gt;
+
+&lt;p&gt;스퍼터링은 디스플레이, 집적회로등 여러 분야에서 사용되는 방식 중 하나로서 쉽게 말해 얇은 박막을 입히는 증착법의 일종이라고 생각하시면 됩니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;스퍼터링 (Sputtering) :스퍼터링(Sputtering)은 집적회로 생산라인 공정에서 많이 쓰이는 진공 증착법의 일종으로 비교적 낮은 진공도에서 플라즈마를 이온화된 아르곤 등의 가스를 가속하여 타겟에 충돌시키고, 원자를 분출시켜 웨이퍼나 유리 같은 기판상에 막을 만드는 방법을 뜻한다. 스퍼터링 장비에서는 타겟쪽을 음극(Cathode)로 하고 기판쪽을 양극(Anode)로 한다. 스퍼터링 공정을 진행하는 장비를 스퍼터 혹은 스퍼터링 시스템이라 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;스퍼터건은 이러한 스퍼터링 공정을 수행하기 위해 제작된 건 (Gun) 입니다. 마치 총처럼 타켓을 기판이나 글라스에 증착시켜줍니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-스퍼터건의-구조&quot;&gt;2. 스퍼터건의 구조&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-09-08-sputtergun-part1/1.PNG&quot; alt=&quot;스퍼터건의 구조&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;크게 6가지정도로 스퍼터건의 구조를 나누어 설명하겠습니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Shield&lt;/li&gt;
+  &lt;li&gt;Target&lt;/li&gt;
+  &lt;li&gt;Cu Plate&lt;/li&gt;
+  &lt;li&gt;Magnet&lt;/li&gt;
+  &lt;li&gt;Insulator&lt;/li&gt;
+  &lt;li&gt;Power&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;하나씩 모델링해보며 구조를 분석하겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-shield&quot;&gt;3. Shield&lt;/h2&gt;
+
+&lt;p&gt;쉴드 (Shield)는 말 그대로 Cu Plate와 Target를 보호해주는 역할을 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-09-08-sputtergun-part1/2.PNG&quot; alt=&quot;쉴드&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2~5mm 정도의 여유를 두고 디자인하시면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-09-08-sputtergun-part1/3.PNG&quot; alt=&quot;쉴드&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-target--cu-plate&quot;&gt;4. Target &amp;amp; Cu Plate&lt;/h2&gt;
+
+&lt;p&gt;Target은 증착시킬 재료를 말합니다. Ti, Co 등 다양한 재료로 만들어집니다. Cu Plate위에 본딩되어 고정하므로 Plate와 함께 모델링해도 상관 없습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-09-08-sputtergun-part1/4.PNG&quot; alt=&quot;쉴드&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;5-magnet&quot;&gt;5. Magnet&lt;/h2&gt;
+
+&lt;p&gt;자력선이 N -&amp;gt; S 극으로 이동하는 원리를 이용하는 것이기 때문에 N를 바깥에 S을 안쪽에 위치시킵니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-09-08-sputtergun-part1/5.PNG&quot; alt=&quot;자석&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Engineering" /><category term="설계" /><category term="디스플레이" /><category term="솔리드웍스" /><category term="반도체장비" /><summary type="html">본 포스트에서 다루는 내용은 모두 컨샙설계입니다. 실무에서 사용시 생기는 문제에 대하여 책임지지 않습니다.</summary></entry><entry><title type="html">[prismagram] [FrontEnd] 2. Setup Apollo-Client</title><link href="http://localhost:4000/prismagram/prismagram-frontend-2/" rel="alternate" type="text/html" title="[prismagram] [FrontEnd] 2. Setup Apollo-Client" /><published>2020-09-03T00:00:00+00:00</published><updated>2020-09-03T00:00:00+00:00</updated><id>http://localhost:4000/prismagram/prismagram-frontend-2</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-frontend-2/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Bigsur 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+=======
+>>>>>>> Stashed changes
 <?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-16T04:39:25+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">범수의 기술 블로그</title><subtitle>Innovation</subtitle><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><entry><title type="html">애플 스페셜 이벤트 신제품 요약.</title><link href="http://localhost:4000/apple/appleEvent-1/" rel="alternate" type="text/html" title="애플 스페셜 이벤트 신제품 요약." /><published>2020-09-16T00:00:00+09:00</published><updated>2020-09-16T00:00:00+09:00</updated><id>http://localhost:4000/apple/appleEvent-1</id><content type="html" xml:base="http://localhost:4000/apple/appleEvent-1/">&lt;p&gt;애플의 9월 스페셜 이벤트가 열렸습니다.&lt;/p&gt;
 
 &lt;p&gt;이번 이벤트에서는 ios, watchOS의 공식버전 배포와 애플워치, 아이패드의 발표가 있었는데요, 간단하게 주요 포인트를 한눈에 확인할 수 있도록 정리해보았습니다. 추후 틀리거나 추가해야할 정보가 생기면 수정하도록 하겠습니다.&lt;/p&gt;
@@ -218,6 +273,10 @@
   );
 };
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><summary type="html">모든 내용은 MacOS Bigsur 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [FrontEnd] 2. Setup Apollo-Client</title><link href="http://localhost:4000/prismagram/prismagram-frontend-2/" rel="alternate" type="text/html" title="[prismagram] [FrontEnd] 2. Setup Apollo-Client" /><published>2020-09-03T00:00:00+09:00</published><updated>2020-09-03T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-frontend-2</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-frontend-2/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Bigsur 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+<<<<<<< Updated upstream
+=======
+>>>>>>> 8d74df90af46473b0bf8f50c97a518c49ee03510
+>>>>>>> Stashed changes
 
 &lt;h2 id=&quot;1-apollo-client&quot;&gt;1. Apollo Client&lt;/h2&gt;
 
@@ -363,7 +422,7 @@ logUserOut Mutation은 token, cache를 초기화합니다.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;token 값을 입력해주면 Auth 가 아닌 Feed 페이지가 나타납니다.
-&lt;img src=&quot;/assets/2020-09-03-prismagram-frontend-2/application.png&quot; alt=&quot;application&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><summary type="html">모든 내용은 MacOS Bigsur 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [FrontEnd] 1. create-react-app</title><link href="http://localhost:4000/prismagram/prismagram-frontend-1/" rel="alternate" type="text/html" title="[prismagram] [FrontEnd] 1. create-react-app" /><published>2020-09-02T00:00:00+09:00</published><updated>2020-09-02T00:00:00+09:00</updated><id>http://localhost:4000/prismagram/prismagram-frontend-1</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-frontend-1/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Bigsur 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/2020-09-03-prismagram-frontend-2/application.png&quot; alt=&quot;application&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><summary type="html">모든 내용은 MacOS Bigsur 기준으로 작성되었습니다</summary></entry><entry><title type="html">[prismagram] [FrontEnd] 1. create-react-app</title><link href="http://localhost:4000/prismagram/prismagram-frontend-1/" rel="alternate" type="text/html" title="[prismagram] [FrontEnd] 1. create-react-app" /><published>2020-09-02T00:00:00+00:00</published><updated>2020-09-02T00:00:00+00:00</updated><id>http://localhost:4000/prismagram/prismagram-frontend-1</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-frontend-1/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Bigsur 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;1-cra-create-react-app&quot;&gt;1. CRA (Create React App)&lt;/h2&gt;
 
@@ -442,7 +501,7 @@ logUserOut Mutation은 token, cache를 초기화합니다.&lt;/p&gt;
     &lt;span class=&quot;nx&quot;&gt;안녕&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ThemeProvider&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><summary type="html">모든 내용은 MacOS Bigsur 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Web] http -&amp;gt; https 로 변경하기</title><link href="http://localhost:4000/web/http/" rel="alternate" type="text/html" title="[Web] http -&amp;gt; https 로 변경하기" /><published>2020-08-18T00:00:00+09:00</published><updated>2020-08-18T00:00:00+09:00</updated><id>http://localhost:4000/web/http</id><content type="html" xml:base="http://localhost:4000/web/http/">&lt;h2 id=&quot;0-http랑-https의-차이가-뭔가요&quot;&gt;0. http랑 https의 차이가 뭔가요?&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><summary type="html">모든 내용은 MacOS Bigsur 기준으로 작성되었습니다</summary></entry><entry><title type="html">[Web] http -&amp;gt; https 로 변경하기</title><link href="http://localhost:4000/web/http/" rel="alternate" type="text/html" title="[Web] http -&amp;gt; https 로 변경하기" /><published>2020-08-18T00:00:00+00:00</published><updated>2020-08-18T00:00:00+00:00</updated><id>http://localhost:4000/web/http</id><content type="html" xml:base="http://localhost:4000/web/http/">&lt;h2 id=&quot;0-http랑-https의-차이가-뭔가요&quot;&gt;0. http랑 https의 차이가 뭔가요?&lt;/h2&gt;
 
 &lt;p&gt;HTTP는 하이퍼 텍스트 전송 프로토콜의(Hypertext Transfer Protocol)의 약자입니다. 쉽게 말하자면 서로 다른 시스템들끼리 통신을 주고받는 가장 기본적으로 사용하는 프로토콜입니다. 간단한 데이터 전송용으로 많이 사용되죠.&lt;/p&gt;
 
@@ -530,7 +589,7 @@ logUserOut Mutation은 token, cache를 초기화합니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/2020-08-14-http/2.png&quot; alt=&quot;인증서 구매&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;이젠 정상적으로 https 접속이 가능합니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Web" /><category term="Develop" /><summary type="html">0. http랑 https의 차이가 뭔가요?</summary></entry><entry><title type="html">Mac OS 개발환경 구축하기</title><link href="http://localhost:4000/developing/macsetup/" rel="alternate" type="text/html" title="Mac OS 개발환경 구축하기" /><published>2020-08-01T00:00:00+09:00</published><updated>2020-08-01T00:00:00+09:00</updated><id>http://localhost:4000/developing/macsetup</id><content type="html" xml:base="http://localhost:4000/developing/macsetup/">&lt;h2 id=&quot;0-개발환경-구축&quot;&gt;0. 개발환경 구축.&lt;/h2&gt;
+&lt;p&gt;이젠 정상적으로 https 접속이 가능합니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Web" /><category term="Develop" /><summary type="html">0. http랑 https의 차이가 뭔가요?</summary></entry><entry><title type="html">Mac OS 개발환경 구축하기</title><link href="http://localhost:4000/developing/macsetup/" rel="alternate" type="text/html" title="Mac OS 개발환경 구축하기" /><published>2020-08-01T00:00:00+00:00</published><updated>2020-08-01T00:00:00+00:00</updated><id>http://localhost:4000/developing/macsetup</id><content type="html" xml:base="http://localhost:4000/developing/macsetup/">&lt;h2 id=&quot;0-개발환경-구축&quot;&gt;0. 개발환경 구축.&lt;/h2&gt;
 
 &lt;p&gt;맥에서 개발환경 구축을 위한 메뉴얼을 작성했습니다.&lt;/p&gt;
 
@@ -575,7 +634,7 @@ sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot
 
 &lt;h2 id=&quot;6-vscode-폰트-변경&quot;&gt;6. vscode 폰트 변경&lt;/h2&gt;
 
-&lt;p&gt;Meslo LG M for Powerline 설치, 폰트 변경&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="developing" /><category term="developing" /><summary type="html">0. 개발환경 구축.</summary></entry><entry><title type="html">[fusion 360] fusion 360 도면 템플릿 만들기</title><link href="http://localhost:4000/fusion%20360/fusion360-1/" rel="alternate" type="text/html" title="[fusion 360] fusion 360 도면 템플릿 만들기" /><published>2020-05-31T00:00:00+09:00</published><updated>2020-05-31T00:00:00+09:00</updated><id>http://localhost:4000/fusion%20360/fusion360-1</id><content type="html" xml:base="http://localhost:4000/fusion%20360/fusion360-1/">&lt;h2 id=&quot;0-퓨전-360의-도면&quot;&gt;0. 퓨전 360의 도면&lt;/h2&gt;
+&lt;p&gt;Meslo LG M for Powerline 설치, 폰트 변경&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="developing" /><category term="developing" /><summary type="html">0. 개발환경 구축.</summary></entry><entry><title type="html">[fusion 360] fusion 360 도면 템플릿 만들기</title><link href="http://localhost:4000/fusion%20360/fusion360-1/" rel="alternate" type="text/html" title="[fusion 360] fusion 360 도면 템플릿 만들기" /><published>2020-05-31T00:00:00+00:00</published><updated>2020-05-31T00:00:00+00:00</updated><id>http://localhost:4000/fusion%20360/fusion360-1</id><content type="html" xml:base="http://localhost:4000/fusion%20360/fusion360-1/">&lt;h2 id=&quot;0-퓨전-360의-도면&quot;&gt;0. 퓨전 360의 도면&lt;/h2&gt;
 
 &lt;p&gt;퓨전 360에서 기본으로 제공되는 도면 템플릿은 바로 사용하기에는 조금 부족한 부분들이 있어 직접 디자인한 템플릿을 만들어 사용해보려고 합니다.&lt;/p&gt;
 
@@ -690,7 +749,7 @@ sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot
 
 &lt;p&gt;OK를 누르시면 도면 템플릿이 아름답게 반영되어 있는걸 확인할 수 있습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/28.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="fusion 360" /><category term="도면" /><category term="표제란" /><category term="퓨전360" /><category term="fusion 360" /><summary type="html">0. 퓨전 360의 도면</summary></entry><entry><title type="html">[Engineering] 솔리드웍스에서 로보체인 구현하기</title><link href="http://localhost:4000/engineering/robochain1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스에서 로보체인 구현하기" /><published>2020-05-01T00:00:00+09:00</published><updated>2020-05-01T00:00:00+09:00</updated><id>http://localhost:4000/engineering/robochain1</id><content type="html" xml:base="http://localhost:4000/engineering/robochain1/">&lt;h2 id=&quot;1-설치될-장비-확인하기&quot;&gt;1. 설치될 장비 확인하기&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2020-05-31-fusion360-1/28.png&quot; alt=&quot;오토캐드&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="fusion 360" /><category term="도면" /><category term="표제란" /><category term="퓨전360" /><category term="fusion 360" /><summary type="html">0. 퓨전 360의 도면</summary></entry><entry><title type="html">[Engineering] 솔리드웍스에서 로보체인 구현하기</title><link href="http://localhost:4000/engineering/robochain1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스에서 로보체인 구현하기" /><published>2020-05-01T00:00:00+00:00</published><updated>2020-05-01T00:00:00+00:00</updated><id>http://localhost:4000/engineering/robochain1</id><content type="html" xml:base="http://localhost:4000/engineering/robochain1/">&lt;h2 id=&quot;1-설치될-장비-확인하기&quot;&gt;1. 설치될 장비 확인하기&lt;/h2&gt;
 
 &lt;p&gt;로보체인이 장착될 장비를 살펴봅니다.&lt;/p&gt;
 
@@ -772,7 +831,7 @@ sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot
 &lt;p&gt;&lt;img src=&quot;/assets/2020-05-01-robochain1/19.PNG&quot; alt=&quot;로보체인&quot; /&gt;
 &lt;img src=&quot;/assets/2020-05-01-robochain1/20.PNG&quot; alt=&quot;로보체인&quot; /&gt;
 &lt;img src=&quot;/assets/2020-05-01-robochain1/21.PNG&quot; alt=&quot;로보체인&quot; /&gt;
-&lt;img src=&quot;/assets/2020-05-01-robochain1/22.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Engineering" /><category term="설계" /><category term="어셈블리" /><category term="솔리드웍스" /><summary type="html">1. 설치될 장비 확인하기</summary></entry><entry><title type="html">[Engineering] 솔리드웍스를 활용한 체적구하기</title><link href="http://localhost:4000/engineering/fusion-1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스를 활용한 체적구하기" /><published>2020-04-26T00:00:00+09:00</published><updated>2020-04-26T00:00:00+09:00</updated><id>http://localhost:4000/engineering/fusion-1</id><content type="html" xml:base="http://localhost:4000/engineering/fusion-1/">&lt;h2 id=&quot;1-모델-설계하기&quot;&gt;1. 모델 설계하기&lt;/h2&gt;
+&lt;img src=&quot;/assets/2020-05-01-robochain1/22.PNG&quot; alt=&quot;로보체인&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Engineering" /><category term="설계" /><category term="어셈블리" /><category term="솔리드웍스" /><summary type="html">1. 설치될 장비 확인하기</summary></entry><entry><title type="html">[Engineering] 솔리드웍스를 활용한 체적구하기</title><link href="http://localhost:4000/engineering/fusion-1/" rel="alternate" type="text/html" title="[Engineering] 솔리드웍스를 활용한 체적구하기" /><published>2020-04-26T00:00:00+00:00</published><updated>2020-04-26T00:00:00+00:00</updated><id>http://localhost:4000/engineering/fusion-1</id><content type="html" xml:base="http://localhost:4000/engineering/fusion-1/">&lt;h2 id=&quot;1-모델-설계하기&quot;&gt;1. 모델 설계하기&lt;/h2&gt;
 
 &lt;p&gt;간단하게 내부 체적을 구할 수 있는 그릇을 설계합니다.&lt;/p&gt;
 
@@ -808,4 +867,180 @@ sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot
 
 &lt;p&gt;생성된 내부 바디를 선택하고 물성치를 확인하면, 내부체적인 볼륨을 확인할 수 있습니다.&lt;/p&gt;
 
+<<<<<<< Updated upstream
 &lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/10.PNG&quot; alt=&quot;체적&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Engineering" /><category term="해석" /><category term="솔리드웍스" /><summary type="html">1. 모델 설계하기</summary></entry></feed>
+=======
+<<<<<<< HEAD
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/10.PNG&quot; alt=&quot;체적&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Engineering" /><category term="해석" /><category term="솔리드웍스" /><summary type="html">1. 모델 설계하기</summary></entry><entry><title type="html">[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1</title><link href="http://localhost:4000/prismagram/prismagram-8/" rel="alternate" type="text/html" title="[prismagram] [BackEnd] 8. nodemailer를 활용한 메일보내기 - Part1" /><published>2020-04-12T00:00:00+00:00</published><updated>2020-04-12T00:00:00+00:00</updated><id>http://localhost:4000/prismagram/prismagram-8</id><content type="html" xml:base="http://localhost:4000/prismagram/prismagram-8/">&lt;p&gt;&lt;em&gt;모든 내용은 MacOS Catalina 기준으로 작성되었습니다&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;await, async, _, args 등 JavaScript내용은 따로 정리하겠습니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-nodemailer-설치하기&quot;&gt;1. nodemailer 설치하기&lt;/h2&gt;
+
+&lt;p&gt;nodemailer를 활용하여 메일을 보내봅시다.&lt;br /&gt;
+먼저 nodemailer를 설치합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add nodemailer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;nodemailer를 설치했으면 utils.js에 메일에 들어갈 내용을 작성해줍니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sendMail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sendSecretMail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;adress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sbs@prismagram.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;🔒Login Secret for Prismagram🔒&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`Hello Your login secret is &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;. &amp;lt;br/&amp;gt; Copy paste on the app/website to login`&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-transport-설치하기&quot;&gt;2. transport 설치하기&lt;/h2&gt;
+
+&lt;p&gt;그런데, 메일을 전송해주기 위해서는 transport를 설치해줘야 합니다. 일단 sendgrid를 사용해보겠습니다.&lt;br /&gt;
+sendgrid에서 회원가입을 하고 sendgrid transport를 설치합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yarn add nodemailer-sendgrid-transport
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;utils.js에 노드메일러와 트랜스포트를 import 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nodemailer&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;nodemailer&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sgTransport&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;nodemailer-sendgrid-transport&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그리고 export const sendMail = email =&amp;gt; null;에서 null을 지우고 api_user와 api_key를 입력합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sendMail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;api_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;SENDGRID_USERNAME&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;api_key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;SENDGRID_PASSWORD&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그리고 username과 password는 .env에 저장합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;SENDGRID_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;사용자이름 입력&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;SENDGRID_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;비밀번호 입력&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;server.js에 utils를 import 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;console.log로 .env 상의 내용을 확인하면 undefined로 출력되는데 이는 server와 util에 동일한 내용을 import 해주면 해결됩니다.&lt;/p&gt;
+
+&lt;p&gt;utils.js&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dotenv&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;dotenv&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;dotenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.env&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-메일-전송되는지-테스트해보기&quot;&gt;3. 메일 전송되는지 테스트해보기&lt;/h2&gt;
+
+&lt;p&gt;sendSecretmail은 내부에서 실행되는 함수이므로 export를 지웁니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sendSecretMail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;adress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;sbs@prismagram.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;🔒Login Secret for Prismagram🔒&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`Hello Your login secret is &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;. &amp;lt;br/&amp;gt; Copy paste on the app/website to login`&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;server.js에 함수를 실행시켜봅니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sendSecretMail&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;sendSecretMail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;k1a11220@naver.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그런데, sendgrid가 계정승인을 안해줘서 mailgun으로 바꾸겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이슈&quot;&gt;이슈&lt;/h2&gt;
+
+&lt;p&gt;yarn dev 할때 포트 중복이라고 오류가 나옵니다&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;298&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;er&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Unhandled 'error' event&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EADDRINUSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;already&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:::&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setupListenHandle&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_listen2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1309&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;listenInCluster&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1357&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1445&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;beomsoo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Documents&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;GitHub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prismagram&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node_modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;graphql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;yoga&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;391&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anonymous&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GraphQLServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Users/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;beomsoo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Documents&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;GitHub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prismagram&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node_modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;graphql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;yoga&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;389&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;anonymous&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Users/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;beomsoo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Documents&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;GitHub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prismagram&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_compile&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;internal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cjs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1157&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_compile&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Users/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;beomsoo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Documents&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;GitHub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prismagram&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node_modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pirates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;99&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_extensions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;internal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;modules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cjs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1177&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Emitted&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WebSocketServer&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;instance&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;321&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;domain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;482&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;emitErrorNT&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1336&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;processTicksAndRejections&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;internal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;task_queues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;84&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;EADDRINUSE&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;errno&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;EADDRINUSE&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;syscall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;nodemon에 –delay 2s를 추가하거나 포트값을 변경해도 동일하게 오류가 나옵니다.
+따라서 그냥 server.js에 시작포트를 입력해줍니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Server running on port http://localhost:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PORT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="prismagram" /><category term="Develop" /><category term="Issue" /><summary type="html">모든 내용은 MacOS Catalina 기준으로 작성되었습니다</summary></entry><entry><title type="html">[ETC] 압력용기 수입 인증에 관하여</title><link href="http://localhost:4000/trade/tank/" rel="alternate" type="text/html" title="[ETC] 압력용기 수입 인증에 관하여" /><published>2020-04-01T00:00:00+00:00</published><updated>2020-04-01T00:00:00+00:00</updated><id>http://localhost:4000/trade/tank</id><content type="html" xml:base="http://localhost:4000/trade/tank/">&lt;h2 id=&quot;개요&quot;&gt;개요&lt;/h2&gt;
+
+&lt;p&gt;중국에서 60L에 6Bar 짜리 압력탱크를 수입하여 사용하려고 하는데 관련 법령과 검사기준을 정리하겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-인증을-받아야-하는-경우&quot;&gt;1. 인증을 받아야 하는 경우&lt;/h2&gt;
+
+&lt;p&gt;안전 및 검사기준(노동부 고시 제2001-59호) 제2조의 규정에 의하여 화학공정 유체취급용기 및 모든 사업장의 공기 및 질소저장탱크 등으로서
+사용압력이 게이지 압력으로 0.2㎏f/㎠ (20 kpa) 이상이 되고, 사용압력 (단위：㎏f/㎠)과 용기 내용적 (단위：㎥) 의 곱의 값이 1이상일 때 해당됩니다.&lt;/p&gt;
+
+&lt;p&gt;추가로 CE인증과 같이 해외에서 인증을 받았다 하더라도 면제대상이 아니면 다시 한국에서 인증을 받아야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-검사기관&quot;&gt;2. 검사기관&lt;/h2&gt;
+
+&lt;p&gt;압력용기를 수입할때 저희 제품은 압력이 10Bar 이하이므로 한국산업안전보건공단에서 검사를 받게됩니다.&lt;br /&gt;
+이때 바로 검사를 받는 것이 아니라 서면으로 검사신청을 해야합니다.&lt;/p&gt;
+
+&lt;p&gt;서면신청 필요서류&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 안전인증신청서
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 기술문서
+  외관 개략도 및 치수, 압력용기 설계조건, 내용적 계산서, 용접관련 자료
+  (방사선 비파괴검사- RT MAP,용접절차서, WPS, 방호장치 종류 및 사양 (안전 밸브, P &amp;amp; ID), 강도 계산서,
+  명판, 도면(세부 도면 , 참고자료 등)
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; 사업자등록증 사본&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;2-안전인증신청서-작성요령&quot;&gt;2. 안전인증신청서 작성요령&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-01-airtank/document.PNG&quot; alt=&quot;Image with caption&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;신청서를 살펴보면 대부분 큰 문제없이 작성 가능하지만 설치사업장명과 설치사업장 소재지는 아직 정해지지 않았을 경우 공란으로 기입하시면 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-사후관리&quot;&gt;3. 사후관리&lt;/h2&gt;
+
+&lt;p&gt;산업안전 압력용기는 최초안전검사를 설치한 후 3년이내로 받아야 하며, 안전검사는 그 이후부터 2년마다 진행됩니다.&lt;br /&gt;
+이때 공정안전보고서를 제출하여 확인을 받은 압력용기는 4년마다 받습니다.
+|최초안전검사|안전검사|
+|——|—|
+|설치한 후 3년이내|최초안전검사 이후 2년마다(공정안전보고서를 제출하면 4년으로 연장가능)|
+압력용기의 사후관리는 정기검사를 통해 진행됩니다. 지정된 기관을 통해서 검사를 받으실 수 있는데요, 검사비용은 별도로 발생되니 꼭 참고하시길 바랍니다.&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Trade" /><category term="인증" /><category term="무역" /><summary type="html">개요</summary></entry></feed>
+=======
+&lt;p&gt;&lt;img src=&quot;/assets/2020-04-26-solidworks-1/10.PNG&quot; alt=&quot;체적&quot; /&gt;&lt;/p&gt;</content><author><name>Beomsoo</name><email>k1a11220@naver.com</email></author><category term="Engineering" /><category term="해석" /><category term="솔리드웍스" /><summary type="html">1. 모델 설계하기</summary></entry></feed>
+>>>>>>> 8d74df90af46473b0bf8f50c97a518c49ee03510
+>>>>>>> Stashed changes

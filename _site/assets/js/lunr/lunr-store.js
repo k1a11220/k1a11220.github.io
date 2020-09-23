@@ -137,6 +137,15 @@ var store = [{
         "url": "http://localhost:4000/prismagram/prismagram-frontend-2/",
         "teaser": null
       },{
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+        "title": "[Engineering] 스퍼터건 컨샙설계하기 - Part1",
+        "excerpt":"본 포스트에서 다루는 내용은 모두 컨샙설계입니다. 실무에서 사용시 생기는 문제에 대하여 책임지지 않습니다. 1. 스퍼터링이란? 스퍼터링은 디스플레이, 집적회로등 여러 분야에서 사용되는 방식 중 하나로서 쉽게 말해 얇은 박막을 입히는 증착법의 일종이라고 생각하시면 됩니다. 스퍼터링 (Sputtering) :스퍼터링(Sputtering)은 집적회로 생산라인 공정에서 많이 쓰이는 진공 증착법의 일종으로 비교적 낮은 진공도에서 플라즈마를 이온화된 아르곤...","categories": ["Engineering"],
+        "tags": ["설계","디스플레이","솔리드웍스","반도체장비"],
+        "url": "http://localhost:4000/engineering/sputtergun-part1/",
+=======
+>>>>>>> Stashed changes
         "title": "[prismagram] [FrontEnd] 3. Auth 페이지 제작",
         "excerpt":"모든 내용은 MacOS Bigsur 기준으로 작성되었습니다   1. 컴포넌트 설계   Auth 페이지의 컴포넌트를 설계합니다.       Auth 페이지는 크게 3가지의 파트로 구성하었습니다.      login   register   footer   login과 register에는 StateChanger와 Input, Button이 필요합니다.  ","categories": ["prismagram"],
         "tags": ["Develop"],
@@ -153,5 +162,9 @@ var store = [{
         "excerpt":"애플의 9월 스페셜 이벤트가 열렸습니다. 이번 이벤트에서는 ios, watchOS의 공식버전 배포와 애플워치, 아이패드의 발표가 있었는데요, 간단하게 주요 포인트를 한눈에 확인할 수 있도록 정리해보았습니다. 추후 틀리거나 추가해야할 정보가 생기면 수정하도록 하겠습니다. 1. Apple Watch Series 6 Series 5보다 더 오래가는 배터리 더 밝아진 AOD S6 칩 4가지 색상 (Blue, classic gold...","categories": ["Apple"],
         "tags": ["Apple"],
         "url": "http://localhost:4000/apple/appleEvent-1/",
+<<<<<<< Updated upstream
+=======
+>>>>>>> 8d74df90af46473b0bf8f50c97a518c49ee03510
+>>>>>>> Stashed changes
         "teaser": null
       }]
