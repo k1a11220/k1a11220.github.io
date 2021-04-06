@@ -4,10 +4,15 @@ permalink: /about/
 layout: single
 ---
 
-## Let's make something FUN!
+## Let's make HISTORY
 
-항상 더 편하고 재밌는 것들을 추구하는 디자인 엔지니어입니다!
+- Design Engineer @ TNG
+- Product Designer @ BE THE LIGHT
+- Founder, Engineering Instructor @ May KING
 
-현재 TNG에서 디자인 엔지니어링을 하고 있으며, 개발에도 관심이 많아 이것저것 만들어보고 있습니다!  
+안녕하세요 손범수입니다. 더 나은 미래를 꿈꾸는 스물한 살 입니다.
+지금은 TNG에서 수소압축기를 만들고 있습니다.
 
-포트폴리오:<https://k1a11220.github.io/Portfolio/>
+[Portfolio](https://beomsoo.me/portfolio)
+[Instagram](https://www.instagram.com/beomsoo_son/)
+[behance](https://www.behance.net/sonbeomsoo)
